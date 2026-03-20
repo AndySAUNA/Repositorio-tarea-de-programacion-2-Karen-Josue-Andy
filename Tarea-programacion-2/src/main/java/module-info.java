@@ -4,4 +4,5 @@ module cr.ac.una {
 
     opens cr.ac.una to javafx.fxml;
     exports cr.ac.una;
+    requires MaterialFX;
 }
