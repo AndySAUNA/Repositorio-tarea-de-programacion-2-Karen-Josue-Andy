@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -32,7 +31,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnKiosk" layoutX="10.0" layoutY="35.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnActionBtnKiosk" text="Kiosk" VBox.vgrow="ALWAYS">
+                  <Button fx:id="btnKiosk" layoutX="10.0" layoutY="35.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnActionBtnKiosk" text="Kiosko" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -56,7 +55,6 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <MFXButton />
                </children>
             </HBox>
          </bottom>

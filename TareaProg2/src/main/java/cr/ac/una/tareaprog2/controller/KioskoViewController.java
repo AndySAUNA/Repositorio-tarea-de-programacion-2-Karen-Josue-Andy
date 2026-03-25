@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author andys
  */
-public class KioscoController implements Initializable {
+public class KioskoViewController implements Initializable {
 
     /**
      * Initializes the controller class.

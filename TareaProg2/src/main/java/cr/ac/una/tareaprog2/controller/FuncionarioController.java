@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author andys
  */
-public class FuncionarioController implements Initializable {
+public class FuncionarioController extends Controller implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -22,5 +22,10 @@ public class FuncionarioController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @Override
+    public void initialize() {
+        
+    }
     
 }

@@ -11,13 +11,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import util.FlowController;
 
 /**
  * FXML Controller class
  *
  * @author andys
  */
-public class MainController implements Initializable {
+public class MainController extends Controller implements Initializable {
 
     @FXML
     private Button btnAdministrador;
@@ -40,23 +41,32 @@ public class MainController implements Initializable {
 
     @FXML
     private void onActionBtnAdministrador(ActionEvent event) {
+        FlowController.getInstance().goMain("AdminView");
     }
 
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
+        FlowController.getInstance().goMain("FuncionarioView");
     }
 
     @FXML
     private void OnActionBtnKiosk(ActionEvent event) {
+        FlowController.getInstance().goMain("KioskoView");
     }
 
     @FXML
     private void onActionBtnPantalla(ActionEvent event) {
+        FlowController.getInstance().goMain("PantallaView");
     }
 
     @FXML
     private void onActionBtnSalir(ActionEvent event) {
         ((Stage)btnSalir.getScene().getWindow()).close();
+    }
+
+    @Override
+    public void initialize() {
+        
     }
     
 }

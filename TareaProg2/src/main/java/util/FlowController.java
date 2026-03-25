@@ -77,16 +77,16 @@ public class FlowController {
         return loader;
     }
 
-    public void goMain() {
+    public void goMain(String s) {
         try {
-            this.mainStage.setScene(new Scene(FXMLLoader.load(App.class.getResource("view/PrincipalView.fxml"), this.idioma)));
+            String S = "view/" + s + ".fxml";
+            this.mainStage.setScene(new Scene(FXMLLoader.load(App.class.getResource(S), this.idioma)));
             MFXThemeManager.addOn(this.mainStage.getScene(), Themes.DEFAULT, Themes.LEGACY);
             this.mainStage.show();
         } catch (IOException ex) { 
             java.util.logging.Logger.getLogger(FlowController.class.getName()).log(Level.SEVERE, "Error inicializando la vista base.", ex);
         }
     }
-
     public void goView(String viewName) {
         goView(viewName, "Center", null);
     }
@@ -148,7 +148,7 @@ public class FlowController {
         Controller controller = loader.getController();
         controller.initialize();
         Stage stage = new Stage();
-        stage.getIcons().add(new Image("cr/ac/una/unaplanillal2025/resources/LogoUNArojo.png"));
+        stage.getIcons().add(new Image("cr/ac/una/tareaprog2/resources/Logo.png"));
         stage.setTitle(controller.getNombreVista());
         stage.setOnHidden((WindowEvent event) -> {
             controller.getStage().getScene().setRoot(new Pane());
@@ -168,7 +168,7 @@ public class FlowController {
         Controller controller = loader.getController();
         controller.initialize();
         Stage stage = new Stage();
-        stage.getIcons().add(new Image("cr/ac/una/unaplanillal2025/resources/LogoUNArojo.png"));
+        stage.getIcons().add(new Image("cr/ac/una/tareaprog2/resources/Logo.png"));
         stage.setTitle(controller.getNombreVista());
         stage.setResizable(resizable);
         stage.setOnHidden((WindowEvent event) -> {

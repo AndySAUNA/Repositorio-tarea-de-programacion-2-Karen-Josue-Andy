@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import util.FlowController;
 
 /**
  * JavaFX App
@@ -17,12 +18,13 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private static String acceso = "";
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("MainView"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+        
+        FlowController.getInstance().InitializeFlow(stage, null);
+        FlowController.getInstance().goViewInWindow("MainView");
     }
 
     static void setRoot(String fxml) throws IOException {

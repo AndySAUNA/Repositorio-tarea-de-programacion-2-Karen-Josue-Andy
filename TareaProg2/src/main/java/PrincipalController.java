@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package cr.ac.una.tareaprog2.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +12,7 @@ import javafx.fxml.Initializable;
  *
  * @author andys
  */
-public class AdminController extends Controller implements Initializable {
+public class PrincipalController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -22,10 +21,5 @@ public class AdminController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @Override
-    public void initialize() {
-        
-    }
     
 }
