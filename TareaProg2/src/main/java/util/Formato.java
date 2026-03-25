@@ -1,4 +1,4 @@
-package cr.ac.una.TareaProg2.util;
+package util;
 
 import java.text.DecimalFormat;
 import java.text.ParsePosition;

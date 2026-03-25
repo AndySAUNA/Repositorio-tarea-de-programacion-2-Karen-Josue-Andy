@@ -1,4 +1,4 @@
-package cr.ac.una.tareaprog2.util;
+package util;
 
 import java.io.FileInputStream;
 import java.io.IOException;

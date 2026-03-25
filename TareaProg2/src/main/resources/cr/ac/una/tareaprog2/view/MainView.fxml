@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -55,6 +56,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
+                  <MFXButton />
                </children>
             </HBox>
          </bottom>

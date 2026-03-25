@@ -1,4 +1,4 @@
-package cr.ac.una.tareaprog2.util;
+package util;
 
 import java.util.Optional;
 import javafx.scene.control.Alert;

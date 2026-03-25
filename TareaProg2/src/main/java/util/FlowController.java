@@ -1,6 +1,6 @@
-package cr.ac.una.tareaprog2.util;
+package util;
 
-import cr.ac.una.tareatrog2.App;
+import cr.ac.una.tareaprog2.App;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import cr.ac.una.unaplanillal2025.controller.Controller;
+import cr.ac.una.tareaprog2.controller.Controller;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
 import javafx.scene.layout.HBox;

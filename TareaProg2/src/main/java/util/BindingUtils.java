@@ -1,4 +1,4 @@
-package cr.ac.una.tareaprog2.util;
+package util;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.value.ChangeListener;
