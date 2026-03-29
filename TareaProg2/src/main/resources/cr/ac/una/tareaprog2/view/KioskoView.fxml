@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.KioskoViewController">
+<VBox xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.KioskoViewController">
    <children>
-      <Label layoutX="268.0" layoutY="191.0" text="Kiosko View" />
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="268.0" layoutY="191.0" text="Sistema de FIchas" />
+            <MFXButton text="Generar FIcha" />
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</VBox>
