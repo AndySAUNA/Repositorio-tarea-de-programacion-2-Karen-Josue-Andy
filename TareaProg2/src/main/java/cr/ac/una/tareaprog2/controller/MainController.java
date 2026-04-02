@@ -41,7 +41,7 @@ public class MainController extends Controller implements Initializable {
   @FXML
 private void onActionBtnAdministrador(ActionEvent event) {
     System.out.println("DEBUG: Click en Administrador");
-    FlowController.getInstance().goViewInWindow("RegistroClientesView");
+    FlowController.getInstance().goViewInWindow("Adminview");
 }
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
@@ -50,7 +50,7 @@ private void onActionBtnAdministrador(ActionEvent event) {
 
     @FXML
     private void OnActionBtnKiosk(ActionEvent event) {
-        FlowController.getInstance().goMain("KioskoView");
+        FlowController.getInstance().goMain("RegistroClientesView");
     }
 
     @FXML
