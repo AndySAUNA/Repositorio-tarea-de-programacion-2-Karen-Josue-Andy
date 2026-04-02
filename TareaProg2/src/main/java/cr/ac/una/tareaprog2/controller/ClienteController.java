@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import cr.ac.una.tarea.model.Cliente;
+import model.Cliente;
 import util.JsonUtil;
 
 import java.io.File;
