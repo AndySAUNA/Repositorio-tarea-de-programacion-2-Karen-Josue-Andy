@@ -36,6 +36,7 @@ public class Cliente {
     public String getNombreCompleto() {
         return nombre + " " + apellidos;
     }
+
     public int getEdad() {
         if (fechaNacimiento == null) return 0;
         return java.time.Period.between(fechaNacimiento, LocalDate.now()).getYears();

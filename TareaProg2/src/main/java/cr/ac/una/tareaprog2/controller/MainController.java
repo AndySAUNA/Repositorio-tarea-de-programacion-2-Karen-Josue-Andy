@@ -31,18 +31,19 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private Button btnSalir;
 
-    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("MainController inicializado");
-      
+        // TODO
     }    
 
-  @FXML
-private void onActionBtnAdministrador(ActionEvent event) {
-    System.out.println("DEBUG: Click en Administrador");
-    FlowController.getInstance().goViewInWindow("RegistroClientesView");
-}
+    @FXML
+    private void onActionBtnAdministrador(ActionEvent event) {
+        FlowController.getInstance().goMain("AdminView");
+    }
+
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
         FlowController.getInstance().goMain("FuncionarioView");
@@ -67,5 +68,5 @@ private void onActionBtnAdministrador(ActionEvent event) {
     public void initialize() {
         
     }
- 
+    
 }
