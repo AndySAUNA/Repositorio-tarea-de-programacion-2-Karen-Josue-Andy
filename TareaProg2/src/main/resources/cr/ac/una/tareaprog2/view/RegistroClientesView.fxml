@@ -1,11 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.RegistroDeClientesController">
-    
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.ClienteController">
+    <children>
+        <!-- Título -->
+        <Label layoutX="240.0" layoutY="14.0" text="Registrar Cliente" />
+        
+        <!-- Foto -->
+        <VBox layoutX="260.0" layoutY="50.0" prefHeight="63.0" prefWidth="65.0">
+            <children>
+                <ImageView fx:id="imgFoto" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </VBox>
+        
+        <!-- Botones de foto -->
+        <HBox layoutX="180.0" layoutY="160.0" spacing="20.0">
+            <children>
+                <Button fx:id="btnTomarFoto" onAction="#tomarFoto" text="Tomar foto" />
+                <Button fx:id="btnSubirFoto" onAction="#subirFoto" text="Subir foto" />
+            </children>
+        </HBox>
+        
+        <!-- Campos del formulario -->
+        <HBox layoutX="14.0" layoutY="220.0" spacing="20.0">
+            <children>
+                <MFXTextField fx:id="txtNombre" floatingText="Nombre" prefHeight="50.0" prefWidth="280.0" />
+                <MFXTextField fx:id="txtApellidos" floatingText="Apellidos" prefHeight="50.0" prefWidth="280.0" />
+            </children>
+        </HBox>
+        
+        <HBox layoutX="14.0" layoutY="290.0" spacing="20.0">
+            <children>
+                <MFXTextField fx:id="txtCedula" floatingText="Cédula" prefHeight="50.0" prefWidth="280.0" />
+                <DatePicker fx:id="dpFechaNacimiento" prefHeight="50.0" prefWidth="280.0" promptText="Fecha de nacimiento" />
+            </children>
+        </HBox>
+        
+        <!-- Tabla de clientes -->
+        <TableView fx:id="tablaClientes" layoutX="14.0" layoutY="360.0" prefHeight="200.0" prefWidth="572.0">
+            <columns>
+                <TableColumn fx:id="colCedula" prefWidth="150.0" text="Cédula" />
+                <TableColumn fx:id="colNombre" prefWidth="250.0" text="Nombre Completo" />
+                <TableColumn fx:id="colEdad" prefWidth="80.0" text="Edad" />
+            </columns>
+        </TableView>
+        
+        <!-- Botones de acción -->
+        <HBox layoutX="14.0" layoutY="580.0" spacing="20.0">
+            <children>
+                <Button fx:id="btnGuardar" onAction="#guardarCliente" text="Guardar" />
+                <Button fx:id="btnLimpiar" onAction="#limpiarFormulario" text="Limpiar" />
+                <Button fx:id="btnEliminar" onAction="#eliminarCliente" text="Eliminar" />
+            </children>
+        </HBox>
+    </children>
 </AnchorPane>
