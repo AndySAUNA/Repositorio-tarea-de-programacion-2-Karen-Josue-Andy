@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.AdminController">
-   <children>
-      <Label layoutX="270.0" layoutY="191.0" text="AdminView" />
-   </children>
-</AnchorPane>
+<BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.AdminController">
+   <left>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <VBox prefHeight="400.0" prefWidth="115.0" spacing="2.0">
+               <children>
+                  <MFXButton fx:id="btnConfiguraciones" maxWidth="1.7976931348623157E308" onAction="#onActionBtnConfiguraciones" prefHeight="50.0" text="Configuraciones" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="3.0" />
+                     </VBox.margin>
+                  </MFXButton>
+                  <MFXButton fx:id="btnTramites" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnTramites" prefHeight="50.0" text="Tramites" />
+                  <MFXButton fx:id="btnClientes" layoutX="10.0" layoutY="35.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnClientes" prefHeight="50.0" text="Clientes" />
+                  <MFXButton fx:id="btnMetricas" layoutX="10.0" layoutY="121.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnMetricas" prefHeight="50.0" text="Metricas" />
+                  <MFXButton fx:id="btnSucursales" layoutX="10.0" layoutY="176.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnSucursales" prefHeight="50.0" text="Sucursales" />
+               </children>
+            </VBox>
+         </center>
+         <bottom>
+            <MFXButton fx:id="btnSalir" maxWidth="1.7976931348623157E308" onAction="#onActionBtnSalir" prefHeight="50.0" text="Salir" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets top="3.0" />
+               </BorderPane.margin>
+            </MFXButton>
+         </bottom>
+         <top>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../resources/Logo.png" />
+               </image>
+            </ImageView>
+         </top>
+      </BorderPane>
+   </left>
+   <center>
+      <VBox prefHeight="550.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
