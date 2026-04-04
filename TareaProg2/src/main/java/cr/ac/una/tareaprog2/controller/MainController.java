@@ -26,32 +26,38 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private Button btnFuncionario;
     @FXML
-    private Button btnKiosk;
-    @FXML
     private Button btnPantalla;
     @FXML
     private Button btnSalir;
     @FXML
     private AnchorPane root;
+    @FXML
+    private Button btnKiosko;
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("MainController inicializado");
       
-    }    
+    }   
+    @Override
+    public void initialize() {
+        
+    }
 
   @FXML
 private void onActionBtnAdministrador(ActionEvent event) {
     System.out.println("DEBUG: Click en Administrador");
-    FlowController.getInstance().goViewInWindow("Adminview");
-}
+        FlowController.getInstance().goMain("AdminView");
+    }
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
         FlowController.getInstance().goMain("FuncionarioView");
     }
 
-    private void onActionBtnKiosk(ActionEvent event) {
+    @FXML
+    private void onActionBtnKiosko(ActionEvent event) {
+        System.out.println("DEBUG: Click en Kiosko");
         FlowController.getInstance().goMain("KioskoView");
     }
 
@@ -65,13 +71,7 @@ private void onActionBtnAdministrador(ActionEvent event) {
         ((Stage)btnSalir.getScene().getWindow()).close();
     }
 
-    @Override
-    public void initialize() {
-        
-    }
+    
 
-    @FXML
-    private void OnActionBtnKiosk(ActionEvent event) {
-    }
  
 }

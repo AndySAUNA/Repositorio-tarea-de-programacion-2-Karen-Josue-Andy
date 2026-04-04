@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.KioskoViewController">
    <children>
-      <VBox>
+      <VBox prefHeight="297.0" prefWidth="327.0">
          <children>
             <MFXButton onAction="#generarFicha" text="Sacar Ficha" />
             <MFXComboBox fx:id="cbTramite" />

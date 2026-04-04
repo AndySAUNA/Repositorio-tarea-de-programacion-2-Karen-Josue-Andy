@@ -31,7 +31,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnKiosk" layoutX="10.0" layoutY="35.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnActionBtnKiosk" text="Kiosko" VBox.vgrow="ALWAYS">
+                  <Button fx:id="btnKiosko" layoutX="10.0" layoutY="35.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionBtnKiosko" text="Kiosko" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="24.0" />
                      </font>
