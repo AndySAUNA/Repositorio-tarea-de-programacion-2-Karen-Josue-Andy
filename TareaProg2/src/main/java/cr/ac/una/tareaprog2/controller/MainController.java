@@ -49,8 +49,8 @@ private void onActionBtnAdministrador(ActionEvent event) {
     }
 
     @FXML
-    private void OnActionBtnKiosk(ActionEvent event) {
-        FlowController.getInstance().goMain("RegistroClientesView");
+    private void onActionBtnKiosk(ActionEvent event) {
+        FlowController.getInstance().goMain("KioskoView");
     }
 
     @FXML
