@@ -20,7 +20,7 @@ import javafx.scene.layout.VBox;
  *
  * @author andys
  */
-public class KioskoViewController extends Controller implements Initializable {
+public class KioskoController extends Controller implements Initializable {
     
     @FXML private MFXTextField txtCedula;
         @FXML private Label lblFicha;
