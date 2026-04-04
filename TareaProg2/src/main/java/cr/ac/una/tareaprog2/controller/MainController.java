@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import util.FlowController;
 
@@ -30,6 +31,8 @@ public class MainController extends Controller implements Initializable {
     private Button btnPantalla;
     @FXML
     private Button btnSalir;
+    @FXML
+    private AnchorPane root;
 
     
     @Override
@@ -48,7 +51,6 @@ private void onActionBtnAdministrador(ActionEvent event) {
         FlowController.getInstance().goMain("FuncionarioView");
     }
 
-    @FXML
     private void onActionBtnKiosk(ActionEvent event) {
         FlowController.getInstance().goMain("KioskoView");
     }
@@ -66,6 +68,10 @@ private void onActionBtnAdministrador(ActionEvent event) {
     @Override
     public void initialize() {
         
+    }
+
+    @FXML
+    private void OnActionBtnKiosk(ActionEvent event) {
     }
  
 }

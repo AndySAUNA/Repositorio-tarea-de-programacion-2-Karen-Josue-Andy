@@ -5,14 +5,20 @@
 <?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.KioskoViewController">
+
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.KioskoViewController">
    <children>
-      <MFXButton onAction="#generarFicha" text="Sacar Ficha" />
-      <MFXComboBox fx:id="cbTramite" />
-      <MFXCheckbox text="Preferencial" />
-      <Label fx:id="lblFicha" text="Ficha: ---" />
-      <MFXTextField fx:id="txtCedula" text="Cédula/identificación" />
+      <VBox>
+         <children>
+            <MFXButton onAction="#generarFicha" text="Sacar Ficha" />
+            <MFXComboBox fx:id="cbTramite" />
+            <MFXCheckbox text="Preferencial" />
+            <Label fx:id="lblFicha" text="Ficha: ---" />
+            <MFXTextField fx:id="txtCedula" text="Cédula/identificación" />
+         </children>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>
