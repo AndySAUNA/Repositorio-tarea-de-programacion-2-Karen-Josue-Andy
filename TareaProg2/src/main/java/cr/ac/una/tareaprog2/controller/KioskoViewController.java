@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
  *
  * @author andys
  */
-public class KioskoViewController implements Initializable {
+public class KioskoViewController extends Controller implements Initializable {
     
     @FXML private MFXTextField txtCedula;
         @FXML private Label lblFicha;
@@ -32,6 +32,12 @@ public class KioskoViewController implements Initializable {
        cbTramite.getItems().addAll("Deposito", "Retiro", "Consultas");
         // TODO
     }    
+    
+    @Override
+    public void initialize() {
+        
+    }
+    
     @FXML private void generarFichas(){
         String cedula= txtCedula.getText();
         String tipo = cbTramite.getValue();
@@ -43,4 +49,6 @@ public class KioskoViewController implements Initializable {
         lblFicha.setText("Ficha: " + ficha);
         contador++;
     }
+
+    
 }
