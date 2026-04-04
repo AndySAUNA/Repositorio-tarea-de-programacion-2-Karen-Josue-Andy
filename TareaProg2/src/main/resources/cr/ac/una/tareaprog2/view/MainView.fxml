@@ -41,6 +41,11 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
+                  <Button fx:id="btnRegistroClientes" layoutX="10.0" layoutY="220.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionBtnRegistroClientes" text="Registro Clientes">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
          </center>

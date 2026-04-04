@@ -30,6 +30,8 @@ public class MainController extends Controller implements Initializable {
     private Button btnPantalla;
     @FXML
     private Button btnSalir;
+    @FXML
+    private Button btnRegistroClientes;
 
     
     @Override
@@ -37,11 +39,16 @@ public class MainController extends Controller implements Initializable {
         System.out.println("MainController inicializado");
       
     }    
+    
+    @Override
+    public void initialize() {
+        
+    }
 
   @FXML
 private void onActionBtnAdministrador(ActionEvent event) {
     System.out.println("DEBUG: Click en Administrador");
-    FlowController.getInstance().goViewInWindow("Adminview");
+    FlowController.getInstance().goMain("AdminView");
 }
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
@@ -50,12 +57,17 @@ private void onActionBtnAdministrador(ActionEvent event) {
 
     @FXML
     private void OnActionBtnKiosk(ActionEvent event) {
-        FlowController.getInstance().goMain("RegistroClientesView");
+        FlowController.getInstance().goMain("KioskoView");
     }
 
     @FXML
     private void onActionBtnPantalla(ActionEvent event) {
         FlowController.getInstance().goMain("PantallaView");
+    }
+    
+        @FXML
+    private void onActionBtnRegistroClientes(ActionEvent event) {
+        FlowController.getInstance().goMain("RegistroClientesView");
     }
 
     @FXML
@@ -63,9 +75,5 @@ private void onActionBtnAdministrador(ActionEvent event) {
         ((Stage)btnSalir.getScene().getWindow()).close();
     }
 
-    @Override
-    public void initialize() {
-        
-    }
- 
+
 }
