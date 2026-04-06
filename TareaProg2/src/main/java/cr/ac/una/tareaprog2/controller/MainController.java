@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import util.FlowController;
 
@@ -25,21 +26,20 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private Button btnFuncionario;
     @FXML
-    private Button btnKiosk;
-    @FXML
     private Button btnPantalla;
     @FXML
     private Button btnSalir;
     @FXML
     private Button btnRegistroClientes;
+    private AnchorPane root;
+    @FXML
+    private Button btnKiosko;
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("MainController inicializado");
-      
     }    
-    
     @Override
     public void initialize() {
         
@@ -48,15 +48,17 @@ public class MainController extends Controller implements Initializable {
   @FXML
 private void onActionBtnAdministrador(ActionEvent event) {
     System.out.println("DEBUG: Click en Administrador");
-    FlowController.getInstance().goMain("AdminView");
-}
+
+        FlowController.getInstance().goMain("AdminView");
+    }
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
         FlowController.getInstance().goMain("FuncionarioView");
     }
 
     @FXML
-    private void onActionBtnKiosk(ActionEvent event) {
+    private void onActionBtnKiosko(ActionEvent event) {
+        System.out.println("DEBUG: Click en Kiosko");
         FlowController.getInstance().goMain("KioskoView");
     }
 
@@ -74,6 +76,4 @@ private void onActionBtnAdministrador(ActionEvent event) {
     private void onActionBtnSalir(ActionEvent event) {
         ((Stage)btnSalir.getScene().getWindow()).close();
     }
-
-
 }

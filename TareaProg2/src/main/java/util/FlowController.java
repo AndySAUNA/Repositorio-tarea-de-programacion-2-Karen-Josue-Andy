@@ -86,6 +86,7 @@ public class FlowController {
         } catch (IOException ex) { 
             java.util.logging.Logger.getLogger(FlowController.class.getName()).log(Level.SEVERE, "Error inicializando la vista base.", ex);
         }
+        System.out.println("go main execuited");
     }
     public void goView(String viewName) {
         goView(viewName, "Center", null);

@@ -11,18 +11,23 @@ import javafx.fxml.FXML;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 //import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 /**
  * FXML Controller class
  *
  * @author andys
  */
-public class KioskoViewController implements Initializable {
+public class KioskoController extends Controller implements Initializable {
     
     @FXML private MFXTextField txtCedula;
         @FXML private Label lblFicha;
         @FXML private MFXComboBox<String> cbTramite;
         private int contador = 1;
+    @FXML
+    private AnchorPane root;
          
     /**
      * Initializes the controller class.
@@ -32,7 +37,13 @@ public class KioskoViewController implements Initializable {
        cbTramite.getItems().addAll("Deposito", "Retiro", "Consultas");
         // TODO
     }    
-    @FXML private void generarFichas(){
+    
+    @Override
+    public void initialize() {
+        
+    }
+    
+    private void generarFichas(){
         String cedula= txtCedula.getText();
         String tipo = cbTramite.getValue();
         if(cedula.isEmpty()||tipo==null){
@@ -43,4 +54,10 @@ public class KioskoViewController implements Initializable {
         lblFicha.setText("Ficha: " + ficha);
         contador++;
     }
+
+    @FXML
+    private void generarFicha(ActionEvent event) {
+    }
+
+    
 }
