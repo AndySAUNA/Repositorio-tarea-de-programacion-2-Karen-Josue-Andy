@@ -52,7 +52,7 @@ private void onActionBtnAdministrador(ActionEvent event) {
 }
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
-        FlowController.getInstance().goViewInWindow("FuncionarioView");
+        FlowController.getInstance().goMain("FuncionarioView");
     }
 
     @FXML
@@ -62,7 +62,7 @@ private void onActionBtnAdministrador(ActionEvent event) {
 
     @FXML
     private void onActionBtnPantalla(ActionEvent event) {
-        FlowController.getInstance().goViewInWindow("PantallaView");
+        FlowController.getInstance().goMain("PantallaView");
     }
     
         @FXML
