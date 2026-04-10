@@ -50,13 +50,14 @@ public class KioskoController extends Controller implements Initializable {
             lblFicha.setText("Complete los datos de acceso");
             return;
         }
-         String ficha= tipo.substring(0,1) + String.format("%03d"+ contador);
+         String ficha= tipo.substring(0,1) + String.format("%03d" , contador);
         lblFicha.setText("Ficha: " + ficha);
         contador++;
     }
 
     @FXML
     private void generarFicha(ActionEvent event) {
+        generarFichas();
     }
 
     
