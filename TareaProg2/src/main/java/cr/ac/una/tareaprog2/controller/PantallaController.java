@@ -1,6 +1,6 @@
-
 package cr.ac.una.tareaprog2.controller;
 
+import model.Llamado;  
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -11,12 +11,11 @@ import javafx.util.Duration;
 import util.AudioUtil;
 
 import java.net.URL;
-import java.util.ResourceBundle;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Queue;
-
+import java.util.ResourceBundle;
 
 public class PantallaController extends Controller implements Initializable {
 
@@ -45,30 +44,19 @@ public class PantallaController extends Controller implements Initializable {
     @FXML private Label hora2;
     @FXML private Label hora3;
     @FXML private Label hora4;
-    
-     private Timeline reloj;
+
+    private Timeline reloj;
     private Timeline animacionAvisos;
-    private Queue<Llamado> ultimosLlamados = new LinkedList<>();
-    
-     private static class Llamado {
-        String ficha;
-        String estacion;
-        String hora;
-        
-        Llamado(String ficha, String estacion, String hora) {
-            this.ficha = ficha;
-            this.estacion = estacion;
-            this.hora = hora;
-        }
-    }
-    
+    private Queue<Llamado> ultimosLlamados = new LinkedList<>();  
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciarReloj();
         iniciarAnimacionAvisos();
         cargarDatosPrueba();
-    }    
- private void iniciarReloj() {
+    }
+    
+    private void iniciarReloj() {
         reloj = new Timeline(new KeyFrame(Duration.seconds(1), e -> actualizarFechaHora()));
         reloj.setCycleCount(Timeline.INDEFINITE);
         reloj.play();
@@ -78,7 +66,8 @@ public class PantallaController extends Controller implements Initializable {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         lblFechaHora.setText(LocalDateTime.now().format(formatter));
     }
-     private void iniciarAnimacionAvisos() {
+    
+    private void iniciarAnimacionAvisos() {
         animacionAvisos = new Timeline(new KeyFrame(Duration.seconds(0.03), e -> {
             String texto = lblAvisos.getText();
             if (texto != null && texto.length() > 0) {
@@ -89,27 +78,28 @@ public class PantallaController extends Controller implements Initializable {
         animacionAvisos.setCycleCount(Timeline.INDEFINITE);
         animacionAvisos.play();
     }
-     
-     //Registra un nuevo llamado de ficha
-     
+    
     public void registrarLlamado(int numeroFicha, String nombreEstacion) {
         String horaActual = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
         String fichaStr = "Ficha #" + numeroFicha;
         
+      
         lblUltimaFicha.setText(fichaStr);
         lblUltimaEstacion.setText("Estación: " + nombreEstacion);
         lblUltimaHora.setText("Hora: " + horaActual);
-               
+        
+        // Agregar a la cola usando la clase Llamado
         Llamado nuevo = new Llamado(fichaStr, nombreEstacion, horaActual);
         ultimosLlamados.add(nuevo);
         
+        // Mantener solo los últimos 4
         while (ultimosLlamados.size() > 4) {
             ultimosLlamados.poll();
-        } 
-    //Actualizar los cuatros cuadros 
+        }
+        
         actualizarCuadros();
         
-        
+        // Reproducir audio
         AudioUtil.reproducirLlamado(numeroFicha, nombreEstacion);
     }
     
@@ -117,30 +107,31 @@ public class PantallaController extends Controller implements Initializable {
         Llamado[] llamados = ultimosLlamados.toArray(new Llamado[0]);
         
         if (llamados.length >= 1) {
-            ficha1.setText(llamados[llamados.length - 1].ficha);
-            estacion1.setText(llamados[llamados.length - 1].estacion);
-            hora1.setText(llamados[llamados.length - 1].hora);
+            ficha1.setText(llamados[llamados.length - 1].getFicha());
+            estacion1.setText(llamados[llamados.length - 1].getEstacion());
+            hora1.setText(llamados[llamados.length - 1].getHora());
         }
-          
+        
         if (llamados.length >= 2) {
-            ficha2.setText(llamados[llamados.length - 2].ficha);
-            estacion2.setText(llamados[llamados.length - 2].estacion);
-            hora2.setText(llamados[llamados.length - 2].hora);
+            ficha2.setText(llamados[llamados.length - 2].getFicha());
+            estacion2.setText(llamados[llamados.length - 2].getEstacion());
+            hora2.setText(llamados[llamados.length - 2].getHora());
         } else {
             limpiarCuadro(ficha2, estacion2, hora2);
         }
         
         if (llamados.length >= 3) {
-            ficha3.setText(llamados[llamados.length - 3].ficha);
-            estacion3.setText(llamados[llamados.length - 3].estacion);
-            hora3.setText(llamados[llamados.length - 3].hora);
+            ficha3.setText(llamados[llamados.length - 3].getFicha());
+            estacion3.setText(llamados[llamados.length - 3].getEstacion());
+            hora3.setText(llamados[llamados.length - 3].getHora());
         } else {
             limpiarCuadro(ficha3, estacion3, hora3);
         }
-       if (llamados.length >= 4) {
-            ficha4.setText(llamados[llamados.length - 4].ficha);
-            estacion4.setText(llamados[llamados.length - 4].estacion);
-            hora4.setText(llamados[llamados.length - 4].hora);
+        
+        if (llamados.length >= 4) {
+            ficha4.setText(llamados[llamados.length - 4].getFicha());
+            estacion4.setText(llamados[llamados.length - 4].getEstacion());
+            hora4.setText(llamados[llamados.length - 4].getHora());
         } else {
             limpiarCuadro(ficha4, estacion4, hora4);
         }
@@ -150,18 +141,18 @@ public class PantallaController extends Controller implements Initializable {
         ficha.setText("---");
         estacion.setText("---");
         hora.setText("---");
-    } 
-    //Cargar datos de prueba :)
-      private void cargarDatosPrueba() {
+    }
+    
+    private void cargarDatosPrueba() {
         registrarLlamado(42, "Caja 1");
         registrarLlamado(43, "Caja 2");
         registrarLlamado(44, "Caja 1");
         registrarLlamado(45, "Caja 3");
         registrarLlamado(46, "Caja 2");
     }
+    
     @Override
     public void initialize() {
-       
+        
     }
-    
 }
