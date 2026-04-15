@@ -10,6 +10,10 @@
     -mfx-purple: #09b6bc;
     -fx-base-color-hover: #33ffcc;
     -fx-base-color-button: #2196f3;
+     -proyeccion-ultimo-bg: #cbe6f3; 
+     -proyeccion-historial-bg: #bdecb6;
+     -proyeccion-item-bg: rgba(255, 255, 255, 0.5);
+       -proyeccion-fondo: #f8c7ca;  
 }
 
 .mfx-text-field, .mfx-password-field{
@@ -98,6 +102,9 @@
 atribucion de los iconos de los botones:
 <a href="https://www.flaticon.com/free-icons/customer" title="customer icons">Customer icons created by Freepik - Flaticon</a>
 **********************************************************************************************************************/
+
+
+
 .jfx-btn-nuevo, .jfx-btn-nuevo:armed, .jfx-btn-nuevo:focused{
     -fx-background-color: #2196f3;
     
@@ -223,10 +230,6 @@ atribucion de los iconos de los botones:
     -fx-fit-width: 20px;
 }
   
-/**********************************************************************************************************************
-    *     Paneles     * 1:38
-**********************************************************************************************************************/
-
 .jfx-panelfondo{
     -fx-background-color:#2196f3;
     -fx-opacity:0.8;
@@ -244,11 +247,7 @@ atribucion de los iconos de los botones:
     -fx-padding: 25 15 15 15;
     -fx-effect:dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 10.0, 0.7, 0.0,1.5);
 }
-  
-/**********************************************************************************************************************
-    *     eiquetas     * 1:49
-**********************************************************************************************************************/
-
+ 
 .jfx-titulo-label-label{
     -fx-font-size:24px;
     -fx-padding: 5 0 5 0;
@@ -257,12 +256,6 @@ atribucion de los iconos de los botones:
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 2, 0.0, 1, 2);
     -fx-alignment: CENTER;
 }
-
-  
-/**********************************************************************************************************************
-    *     campos de texto     * 2:05
-**********************************************************************************************************************/
-
 .jfx-txt-id{
     -fx-prompt-text-fill: -fx-base-color-id;
     -fx-border-color: -fx-base-color-id;
@@ -274,4 +267,67 @@ atribucion de los iconos de los botones:
 
 .jfx-txt-id:focus-within{
     -fx-border-color: -fx-base-color-id;
+}
+
+.jfx-pantalla-proyeccion {
+    -fx-background-color: -proyeccion-fondo;
+    -fx-padding: 20px;
+}
+
+.proyeccion-root {
+    -fx-background-color: -proyeccion-fondo;
+}
+
+.ultimos-clientes-box {
+    -fx-background-color: -proyeccion-historial-bg;
+    -fx-background-radius: 20px;
+    -fx-padding: 22px 24px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 0);
+}
+
+.ultimos-clientes-header {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f4f1f;
+    -fx-padding: 0 0 10px 0;
+    -fx-border-color: transparent transparent rgba(63, 118, 63, 0.2) transparent;
+    -fx-border-width: 0 0 2 0;
+}
+.lista-llamadas-vbox {
+    -fx-spacing: 14px;
+}
+.llamada-item-hbox {
+    -fx-background-color: -proyeccion-item-bg;
+    -fx-background-radius: 16px;
+    -fx-padding: 12px 18px;
+    -fx-border-color: rgba(80, 130, 80, 0.15);
+    -fx-border-width: 1px;
+    -fx-border-radius: 16px;
+    -fx-alignment: CENTER_LEFT;
+}
+.llamada-item-hbox:focused, 
+.llamada-item-hbox:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+}
+.llamada-ficha-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1b4c1b;
+    -fx-min-width: 100px;
+}
+
+.llamada-caja-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #235f23;
+    -fx-min-width: 90px;
+}
+.llamada-hora-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0e350e;
+    -fx-background-color: #d4eed4;
+    -fx-background-radius: 40px;
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Monospaced";
 }
