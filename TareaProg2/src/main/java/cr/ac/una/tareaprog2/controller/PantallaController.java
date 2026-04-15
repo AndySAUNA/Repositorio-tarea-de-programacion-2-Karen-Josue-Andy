@@ -103,6 +103,24 @@ public class PantallaController extends Controller implements Initializable {
         AudioUtil.reproducirLlamado(numeroFicha, nombreEstacion);
     }
     
+    private void registrarLlamadoSilencioso(int numeroFicha, String nombreEstacion) {
+    String horaActual = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+    String fichaStr = "Ficha #" + numeroFicha;
+
+    lblUltimaFicha.setText(fichaStr);
+    lblUltimaEstacion.setText("Estación: " + nombreEstacion);
+    lblUltimaHora.setText("Hora: " + horaActual);
+
+    Llamado nuevo = new Llamado(fichaStr, nombreEstacion, horaActual);
+    ultimosLlamados.add(nuevo);
+
+    while (ultimosLlamados.size() > 4) {
+        ultimosLlamados.poll();
+    }
+
+    actualizarCuadros();
+}
+    
     private void actualizarCuadros() {
         Llamado[] llamados = ultimosLlamados.toArray(new Llamado[0]);
         
@@ -144,10 +162,10 @@ public class PantallaController extends Controller implements Initializable {
     }
     
     private void cargarDatosPrueba() {
-        registrarLlamado(42, "Caja 1");
-        registrarLlamado(43, "Caja 2");
-        registrarLlamado(44, "Caja 1");
-        registrarLlamado(45, "Caja 3");
+        registrarLlamadoSilencioso(42, "Caja 1");
+        registrarLlamadoSilencioso(43, "Caja 2");
+        registrarLlamadoSilencioso(44, "Caja 1");
+        registrarLlamadoSilencioso(45, "Caja 3");
         registrarLlamado(46, "Caja 2");
     }
     
