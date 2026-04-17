@@ -10,6 +10,7 @@
     -mfx-purple: #09b6bc;
     -fx-base-color-hover: #33ffcc;
     -fx-base-color-button: #2196f3;
+    -fx-base-color-system: #33ff33; 
 }
 
 .mfx-text-field, .mfx-password-field{
@@ -77,6 +78,7 @@
 
 .mfx-date-picker{
     -fx-font-size: 14.0px;
+    -fx-font-color: fx-base-color-texto;
     -fx-pref-height: 40px;
     -fx-min-height: 40px;
     -fx-max-height: 40px;
@@ -88,6 +90,52 @@
 
 .mfx-date-cell:selected {
   -fx-background-color: -fx-base-color-focus;
+}
+
+.mfx-list-view .virtual-flow .mfx-list-cell .data-label {
+	-fx-font-family: 'Open Sans Regular';
+        -fx-background-color: -fx-base-color-system;
+	-fx-background-radius: 10;
+	-fx-border-color: -fx-base-color-system;
+	-fx-border-radius: 10;
+	-fx-padding: 4;
+        -fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+}
+
+.mfx-list-view .virtual-flow .mfx-list-cell:selected .data-label {
+	-fx-font-family: 'Open Sans SemiBold';
+        -fx-font-family: 'Open Sans Regular';
+        -fx-background-color: -fx-base-color-system;
+	-fx-background-radius: 10;
+	-fx-border-color: -fx-base-color-system;
+	-fx-border-radius: 10;
+	-fx-padding: 4;
+        -fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+}
+
+.mfx-check-list-view .virtual-flow .mfx-check-list-cell .data-label {
+	-fx-font-family: 'Open Sans Regular';
+        -fx-font-family: 'Open Sans Regular';
+        -fx-background-color: -fx-base-color-system;
+	-fx-background-radius: 10;
+	-fx-border-color: -fx-base-color-system;
+	-fx-border-radius: 10;
+	-fx-padding: 4;-fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+    
+}
+
+.mfx-check-list-view .virtual-flow .mfx-check-list-cell:selected .data-label {
+	-fx-font-family: 'Open Sans SemiBold';
+}
+
+.my-button-icon {
+    -fx-graphic: url("/images/save-icon.png");
 }
   
 /**********************************************************************************************************************
@@ -151,7 +199,7 @@ atribucion de los iconos de los botones:
 }
 
 .jfx-btn-salir > ImageView{
-    -fx-image: url(../resources/exit-icon.png);
+    -fx-image: url(../resources/Salir.png);
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
@@ -222,6 +270,43 @@ atribucion de los iconos de los botones:
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
+.jfx-btn-agregarTramite{
+    -fx-max-height: 40px;
+}
+.jfx-btn-agregarTramite:armed{
+    -fx-background-color: black;
+}
+.jfx-btn-agregarTramite > ImageView{
+    -fx-image: url(../resources/Agregar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-agregarimagen:armed{
+    -fx-background-color: black;
+}
+.jfx-btn-agregarimagen > ImageView{
+    -fx-image: url(../resources/AgregarImagen.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-cancelar:armed{
+    -fx-background-color: black;
+}
+.jfx-btn-cancelar > ImageView{
+    -fx-image: url(../resources/Cancelar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-cambiar:armed{
+    -fx-background-color: black;
+}
+.jfx-btn-cambiar > ImageView{
+    -fx-image: url(../resources/Cambiar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
   
 /**********************************************************************************************************************
     *     Paneles     * 1:38
@@ -275,3 +360,7 @@ atribucion de los iconos de los botones:
 .jfx-txt-id:focus-within{
     -fx-border-color: -fx-base-color-id;
 }
+  
+/**********************************************************************************************************************
+    *     List View     *
+**********************************************************************************************************************/
