@@ -88,18 +88,14 @@ public class PantallaController extends Controller implements Initializable {
         lblUltimaEstacion.setText("Estación: " + nombreEstacion);
         lblUltimaHora.setText("Hora: " + horaActual);
         
-        // Agregar a la cola usando la clase Llamado
         Llamado nuevo = new Llamado(fichaStr, nombreEstacion, horaActual);
         ultimosLlamados.add(nuevo);
-        
-        // Mantener solo los últimos 4
+
         while (ultimosLlamados.size() > 4) {
             ultimosLlamados.poll();
         }
         
         actualizarCuadros();
-        
-        // Reproducir audio
         AudioUtil.reproducirLlamado(numeroFicha, nombreEstacion);
     }
     
