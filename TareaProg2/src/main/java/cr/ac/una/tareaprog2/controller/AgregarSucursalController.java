@@ -6,65 +6,65 @@ package cr.ac.una.tareaprog2.controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
-import io.github.palexdev.materialfx.controls.MFXDatePicker;
-import io.github.palexdev.materialfx.controls.MFXListView;
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
  *
  * @author andys
  */
-public class AdminTramitesController extends Controller implements Initializable {
+public class AgregarSucursalController extends Controller implements Initializable {
 
     @FXML
-    private AnchorPane root;
+    private MFXButton btnAgregar;
     @FXML
-    private MFXComboBox<?> cboxSucursal;
+    private MFXButton btnCancelar;
     @FXML
-    private MFXDatePicker txfFechaTramite;
+    private MFXTextField txfNombreSucursal;
     @FXML
-    private MFXButton btnAgregarTramite;
+    private MFXComboBox<?> comboBoxCantidadEstaciones;
     @FXML
-    private MFXListView<?> lisvTramites1;
-    @FXML
-    private MFXListView<?> lisvTramite2;
+    private MFXTextField TxfDireccion;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.setNombreVista("Agregar Sucursal");
         // TODO
     }    
-
-    @Override
+        @Override
     public void initialize() {
         
     }
 
     @FXML
-    private void onActionCboxSucursal(ActionEvent event) {
+    private void onActionBtnAgregar(ActionEvent event) {
     }
 
     @FXML
-    private void onActionTxfTramite(ActionEvent event) {
+    private void onActionBtnCancelar(ActionEvent event) {
+        this.getStage().close();
     }
 
     @FXML
-    private void onActionBtnAgregarTramite(ActionEvent event) {
+    private void onActionTxfNombreSucursal(ActionEvent event) {
     }
 
     @FXML
-    private void onActionLisvTramites1(MouseEvent event) {
+    private void onActionComboBoxCantidadEstaciones(ActionEvent event) {
     }
+
+    @FXML
+    private void onActionTxfDireccion(ActionEvent event) {
+    }
+
 
     
 }

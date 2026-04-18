@@ -19,7 +19,7 @@ import javafx.scene.layout.BorderPane;
  *
  * @author andys
  */
-public class CambiarLogoController implements Initializable {
+public class CambiarLogoController extends Controller implements Initializable {
 
     @FXML
     private BorderPane root;
@@ -39,6 +39,10 @@ public class CambiarLogoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    @Override
+    public void initialize() {
+        
+    }
 
     @FXML
     private void onActionBtnBuscar(ActionEvent event) {
@@ -51,5 +55,7 @@ public class CambiarLogoController implements Initializable {
     @FXML
     private void onActionBtnCambiar(ActionEvent event) {
     }
+
+    
     
 }

@@ -4,9 +4,16 @@
  */
 package cr.ac.una.tareaprog2.controller;
 
+import io.github.palexdev.materialfx.controls.MFXTableView;
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import util.FlowController;
 
 /**
  * FXML Controller class
@@ -14,6 +21,17 @@ import javafx.fxml.Initializable;
  * @author andys
  */
 public class AdminSucursalesController  extends Controller implements Initializable {
+
+    @FXML
+    private AnchorPane root;
+    @FXML
+    private MFXTextField txfBuscar;
+    @FXML
+    private Button btnAgregar;
+    @FXML
+    private Button btnEliminar;
+    @FXML
+    private MFXTableView<?> tableViewSucursal;
 
     /**
      * Initializes the controller class.
@@ -26,6 +44,19 @@ public class AdminSucursalesController  extends Controller implements Initializa
     @Override
     public void initialize() {
         
+    }
+
+    @FXML
+    private void onActionTxfBuscar(ActionEvent event) {
+    }
+
+    @FXML
+    private void onActionBtnAgregar(ActionEvent event) {
+        FlowController.getInstance().goViewInWindow("AgregarSucursalView");
+    }
+
+    @FXML
+    private void onActionEliminar(ActionEvent event) {
     }
     
 }

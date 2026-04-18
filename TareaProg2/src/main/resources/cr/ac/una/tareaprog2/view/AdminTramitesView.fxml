@@ -6,30 +6,42 @@
 <?import io.github.palexdev.materialfx.controls.MFXListView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.AdminTramitesController">
-   <left>
-      <MFXListView fx:id="lisvTramites1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onDragDetected="#onActionLisvTramites1" prefHeight="350.0" prefWidth="250.0" BorderPane.alignment="CENTER" />
-   </left>
-   <top>
-      <HBox prefHeight="27.0" prefWidth="400.0" spacing="10.0" BorderPane.alignment="CENTER">
+
+<AnchorPane fx:id="root" styleClass="jfx-panelfondo" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.AdminTramitesController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <MFXComboBox fx:id="cboxSucursal" floatMode="BORDER" floatingText="Sucursal" onAction="#onActionCboxSucursal" />
-            <MFXDatePicker fx:id="txfFechaTramite" floatingText="Fecha" onAction="#onActionTxfTramite" />
-            <MFXButton fx:id="btnAgregarTramite" onAction="#onActionBtnAgregarTramite" prefHeight="29.0" prefWidth="175.0" styleClass="jfx-btn-agregarTramite" text="Agregar Tramite">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </MFXButton>
+            <BorderPane layoutX="15.0" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="500.0" prefWidth="500.0" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="400.0" spacing="10.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MFXComboBox fx:id="cboxSucursal" floatMode="BORDER" floatingText="Sucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionCboxSucursal" HBox.hgrow="ALWAYS" />
+                        <MFXDatePicker fx:id="txfFechaTramite" floatingText="Fecha" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionTxfTramite" HBox.hgrow="ALWAYS" />
+                        <MFXButton fx:id="btnAgregarTramite" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnAgregarTramite" prefHeight="29.0" prefWidth="175.0" styleClass="jfx-btn-agregarTramite" text="Agregar Tramite" HBox.hgrow="ALWAYS">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </MFXButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </top>
+               <center>
+                  <HBox prefHeight="300.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MFXListView fx:id="lisvTramite2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <MFXListView fx:id="lisvTramites1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onDragDetected="#onActionLisvTramites1" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
          </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </HBox>
-   </top>
-   <right>
-      <MFXListView fx:id="lisvTramite2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="350.0" prefWidth="250.0" BorderPane.alignment="CENTER" />
-   </right>
-</BorderPane>
+      </AnchorPane>
+   </children>
+</AnchorPane>

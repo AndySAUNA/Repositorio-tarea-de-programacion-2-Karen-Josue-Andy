@@ -142,17 +142,24 @@
     *     Botones     *
 
 **********************************************************************************************************************/
-/**********************************************************************************************************************
-atribucion de los iconos de los botones:
-<a href="https://www.flaticon.com/free-icons/customer" title="customer icons">Customer icons created by Freepik - Flaticon</a>
-**********************************************************************************************************************/
 .jfx-btn-nuevo, .jfx-btn-nuevo:armed, .jfx-btn-nuevo:focused{
     -fx-background-color: #2196f3;
     
 }
 
 .jfx-btn-nuevo > ImageView{
-    -fx-image: url(../resource/Agregar-48.png);
+    -fx-image: url(../resources/Agregar.png);
+}
+
+.jfx-btn-agregar, .jfx-btn-agregar:armed, .jfx-btn-agregar:focused{
+    -fx-background-color: #99ff99;
+    
+}
+
+.jfx-btn-agregar > ImageView{
+    -fx-image: url(../resources/Agregar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
 }
 
 .jfx-btn-buscar, .jfx-btn-buscar:armed, .jfx-btn-buscar:focused{
@@ -161,37 +168,45 @@ atribucion de los iconos de los botones:
 }
 
 .jfx-btn-buscar > ImageView{
-    -fx-image: url(../resource/Buscar-48.png);
+    -fx-image: url(../resources/Buscar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
 }
 
 .jfx-btn-eliminar, .jfx-btn-eliminar:armed, .jfx-btn-eliminar:focused{
-    -fx-background-color: #2196f3;
+    -fx-background-color: #ff3333;
     
 }
 
 .jfx-btn-eliminar > ImageView{
-    -fx-image: url(../resource/Eliminar-48.png);
+    -fx-image: url(../resources/Eliminar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
 }
 
 .jfx-btn-guardar, .jfx-btn-guardar:armed, .jfx-btn-guardar:focused{
-    -fx-background-color: #2196f3;
+    -fx-background-color: #0066ff;
     
 }
 
 .jfx-btn-guardar > ImageView{
-    -fx-image: url(../resource/Guardar-48.png);
+    -fx-image: url(../resources/Guardar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
 }
 
-.jfx-btn-comun, .jfx-btn-guardar:armed, .jfx-btn-guardar:focused{
+.jfx-btn-comun, .jfx-btn-comun:armed, .jfx-btn-comun:focused{
     -fx-background-color: -fx-base-color-button;
     
 }
 
 .jfx-btn-comun > ImageView{
-    -fx-image: url(../resource/Guardar-48.png);
+    -fx-image: url(../resources/Guardar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
 }
 
-.jfx-btn-salir, .jfx-btn-guardar:armed, .jfx-btn-guardar:focused{
+.jfx-btn-salir, .jfx-btn-salir:armed, .jfx-btn-salir:focused{
     -fx-background-color: #ff3333;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
@@ -205,7 +220,7 @@ atribucion de los iconos de los botones:
 }
 
 .jfx-btn-configuracion, .jfx-btn-configuracion:armed, .jfx-btn-configuracion:focused{
-    -fx-background-color: -fx-base-color-button;
+    -fx-background-color: #cccccc;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
     
@@ -218,7 +233,7 @@ atribucion de los iconos de los botones:
 }
 
 .jfx-btn-tramites, .jfx-btn-tramites:armed, .jfx-btn-tramites:focused{
-    -fx-background-color: -fx-base-color-button;
+    -fx-background-color: #cccccc;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
     
@@ -231,7 +246,7 @@ atribucion de los iconos de los botones:
 }
 
 .jfx-btn-clientes, .jfx-btn-clientes:armed, .jfx-btn-clientes:focused{
-    -fx-background-color: -fx-base-color-button;
+    -fx-background-color: #cc33ff;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
     
@@ -244,7 +259,7 @@ atribucion de los iconos de los botones:
 }
 
 .jfx-btn-metricas, .jfx-btn-metricas:armed, .jfx-btn-metricas:focused{
-    -fx-background-color: -fx-base-color-button;
+    -fx-background-color: #ff9933;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
     
@@ -258,31 +273,29 @@ atribucion de los iconos de los botones:
   
 
 .jfx-btn-sucursales, .jfx-btn-sucursales:armed, .jfx-btn-sucursales:focused{
-    -fx-background-color: -fx-base-color-button;
+    -fx-background-color: #0066ff;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
-}
-.jfx-btn-sucursales:armed{
-    -fx-background-color: black;
 }
 .jfx-btn-sucursales > ImageView{
     -fx-image: url(../resources/sucursales.png);
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
-.jfx-btn-agregarTramite{
-    -fx-max-height: 40px;
-}
-.jfx-btn-agregarTramite:armed{
-    -fx-background-color: black;
+.jfx-btn-agregarTramite, .jfx-btn-agregarTramite:armed, .jfx-btn-agregarTramite:focused{
+    -fx-background-color: #33ffff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
 }
 .jfx-btn-agregarTramite > ImageView{
     -fx-image: url(../resources/Agregar.png);
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
-.jfx-btn-agregarimagen:armed{
-    -fx-background-color: black;
+.jfx-btn-agregarimagen, .jfx-btn-agregarimagen:armed, .jfx-btn-agregarimagen:focused{
+    -fx-background-color: #33ffff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
 }
 .jfx-btn-agregarimagen > ImageView{
     -fx-image: url(../resources/AgregarImagen.png);
@@ -290,8 +303,10 @@ atribucion de los iconos de los botones:
     -fx-fit-width: 20px;
 }
 
-.jfx-btn-cancelar:armed{
-    -fx-background-color: black;
+.jfx-btn-cancelar, .jfx-btn-cancelar:armed, .jfx-btn-cancelar:focused{
+    -fx-background-color: #ff0000;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
 }
 .jfx-btn-cancelar > ImageView{
     -fx-image: url(../resources/Cancelar.png);
@@ -299,11 +314,23 @@ atribucion de los iconos de los botones:
     -fx-fit-width: 20px;
 }
 
-.jfx-btn-cambiar:armed{
-    -fx-background-color: black;
+.jfx-btn-cambiar, .jfx-btn-cambiar:armed, .jfx-btn-cambiar:focused{
+    -fx-background-color: #0099ff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
 }
 .jfx-btn-cambiar > ImageView{
     -fx-image: url(../resources/Cambiar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-agregarCliente, .jfx-btn-agregarCliente:armed, .jfx-btn-agregarCliente:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-agregarCliente > ImageView{
+    -fx-image: url(../resources/Agregar.png);
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
