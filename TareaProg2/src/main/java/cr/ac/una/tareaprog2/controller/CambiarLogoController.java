@@ -4,49 +4,59 @@
  */
 package cr.ac.una.tareaprog2.controller;
 
-import io.github.palexdev.materialfx.controls.MFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
-import util.FlowController;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
  *
  * @author andys
  */
-public class AdminConfiguracionesController extends Controller  implements Initializable {
+public class CambiarLogoController extends Controller implements Initializable {
 
     @FXML
-    private AnchorPane root;
+    private BorderPane root;
     @FXML
-    private MFXButton btnCambiarLogo;
+    private Button btnCancelar;
     @FXML
-    private MFXButton btnCambiarColores;
+    private Button btnBuscar;
+    @FXML
+    private Button BtnCambiar;
+    @FXML
+    private ImageView btnCambiar;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.setNombreVista("Cambiar Logo");
         // TODO
     }    
-
     @Override
     public void initialize() {
         
     }
 
     @FXML
-    private void onActionBtnCambiarLogo(ActionEvent event) {
-        FlowController.getInstance().goMain("CambiarLogoView");
+    private void onActionBtnBuscar(ActionEvent event) {
     }
 
     @FXML
-    private void onActionCambiarColores(ActionEvent event) {
+    private void onActionBtnCambiar(MouseEvent event) {
     }
+
+    @FXML
+    private void onActionBtnCambiar(ActionEvent event) {
+    }
+
+    
     
 }
