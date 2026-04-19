@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.FuncionarioController">
@@ -12,18 +15,31 @@
          <top>
             <Label text="FuncionarioView" BorderPane.alignment="CENTER" />
          </top>
-         <left>
-            <VBox prefHeight="355.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+         <center>
+            <VBox prefHeight="382.0" prefWidth="127.0" spacing="17.0" BorderPane.alignment="CENTER">
                <children>
-                  <MFXButton prefHeight="50.0" prefWidth="126.0" text="Gestión de tickets" />
-                  <MFXButton prefHeight="51.0" prefWidth="153.0" text="Historial de tickets" />
+                  <Label prefHeight="26.0" prefWidth="238.0" text="Manejo de tickets" />
+                  <HBox prefHeight="100.0" prefWidth="551.0" spacing="120.0">
+                     <children>
+                        <MFXButton prefHeight="50.0" prefWidth="150.0" text="Gestión de tickets" />
+                        <MFXButton prefHeight="51.0" prefWidth="153.0" text="Historial de tickets" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="30.0" />
+                     </padding>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <Label text="Informacion de clientes y salir" />
                   <MFXButton prefHeight="48.0" prefWidth="130.0" text="Gestión de clientes" />
                   <MFXButton prefHeight="46.0" prefWidth="186.0" text="Salir" />
                </children>
+               <padding>
+                  <Insets left="30.0" top="10.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
             </VBox>
-         </left>
-         <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>
