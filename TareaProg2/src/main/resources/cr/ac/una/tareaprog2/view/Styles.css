@@ -334,6 +334,27 @@
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
+
+.jfx-btn-Estacion, .jfx-btn-Estacion:armed, .jfx-btn-Estacion:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-Estacion > ImageView{
+    -fx-image: url(../resources/Estacion.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-Priorizar, .jfx-btn-Priorizar:armed, .jfx-btn-Priorizar:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-Priorizar > ImageView{
+    -fx-image: url(../resources/Prioritario.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
   
 /**********************************************************************************************************************
     *     Paneles     * 1:38
