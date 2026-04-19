@@ -37,6 +37,7 @@ public class MainController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("MainController inicializado");
+        
       
     }    
     
@@ -48,7 +49,7 @@ public class MainController extends Controller implements Initializable {
   @FXML
 private void onActionBtnAdministrador(ActionEvent event) {
     System.out.println("DEBUG: Click en Administrador");
-    FlowController.getInstance().goMain("Adminview");
+    FlowController.getInstance().goMain("AdminView");
 }
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
