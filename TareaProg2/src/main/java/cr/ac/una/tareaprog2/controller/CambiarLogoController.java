@@ -37,6 +37,7 @@ public class CambiarLogoController extends Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.setNombreVista("Cambiar Logo");
         // TODO
     }    
     @Override

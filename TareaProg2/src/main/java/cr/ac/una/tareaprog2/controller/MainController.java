@@ -37,6 +37,7 @@ public class MainController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("MainController inicializado");
+        
       
     }    
     
