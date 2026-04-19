@@ -28,7 +28,7 @@
 }
 
 .mfx-text-field .text-field, .mfx-password-field .text-field{
-  /* Selected text highlight */
+
   -fx-highlight-fill: -fx-base-color-focus;
 }
 

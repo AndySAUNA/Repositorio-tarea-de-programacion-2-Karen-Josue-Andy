@@ -31,7 +31,7 @@
             </children>
         </HBox>
         
-        <!-- Campos del formulario -->
+        
         <HBox layoutX="14.0" layoutY="220.0" spacing="20.0">
             <children>
                 <MFXTextField fx:id="txtNombre" floatingText="Nombre" prefHeight="50.0" prefWidth="280.0" />
