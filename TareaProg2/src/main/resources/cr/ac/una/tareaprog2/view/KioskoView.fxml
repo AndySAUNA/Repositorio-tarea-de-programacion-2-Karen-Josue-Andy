@@ -4,21 +4,44 @@
 <?import io.github.palexdev.materialfx.controls.MFXCheckbox?>
 <?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.KioskoController">
+<AnchorPane fx:id="root" prefHeight="310.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.KioskoController">
    <children>
-      <VBox prefHeight="297.0" prefWidth="327.0">
-         <children>
-            <MFXButton onAction="#generarFicha" text="Sacar Ficha" />
-            <MFXComboBox fx:id="cbTramite" />
-            <MFXCheckbox text="Preferencial" />
-            <Label fx:id="lblFicha" text="Ficha: ---" />
-            <MFXTextField fx:id="txtCedula" text="Cédula/identificación" />
-         </children>
-      </VBox>
+      <BorderPane prefHeight="310.0" prefWidth="508.0">
+         <left>
+            <VBox prefHeight="310.0" prefWidth="161.0" spacing="30.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="155.0" text="Rellene los Datos requeridos" />
+                  <MFXComboBox fx:id="cbTramite" prefHeight="40.0" prefWidth="162.0" />
+                  <MFXCheckbox text="Preferencial" />
+                  <MFXTextField fx:id="txtCedula" prefHeight="50.0" prefWidth="169.0" promptText="Cédula/identificación" />
+               </children>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </left>
+         <center>
+            <Separator orientation="VERTICAL" prefHeight="268.0" prefWidth="11.0" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <VBox prefHeight="310.0" prefWidth="239.0" spacing="40.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MFXButton onAction="#generarFicha" prefHeight="43.0" prefWidth="151.0" text="Sacar Ficha" />
+                  <Label fx:id="lblFicha" prefHeight="42.0" prefWidth="153.0" text="Ficha: ---" />
+                  <MFXButton prefHeight="37.0" prefWidth="161.0" text="Generar PDF" />
+               </children>
+               <padding>
+                  <Insets top="60.0" />
+               </padding>
+            </VBox>
+         </right>
+      </BorderPane>
    </children>
 </AnchorPane>
