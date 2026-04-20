@@ -10,8 +10,11 @@ import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +26,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Cliente;
 import model.EstablecimientoDto;
+import model.Sucursal;
 import util.Formato;
+import util.JsonUtil;
 
 /**
  * FXML Controller class
@@ -35,13 +40,16 @@ public class AdminClientesController  extends Controller implements Initializabl
     @FXML
     private AnchorPane root;
     @FXML
-    private MFXButton btnAgregarCliente1;
-    @FXML
     private MFXButton btnEliminarCliente;
+    @FXML
+    private MFXButton btnAgregarCliente;
+    @FXML
+    private MFXButton btnEditarCliente;
     @FXML
     private MFXTableView<Cliente> tablillaClientes;
     private static final String ArchivoClientes = "data/Datos.json";//nota: hay que agregar la direccion
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
+    
     
 
     /**
@@ -74,6 +82,19 @@ public class AdminClientesController  extends Controller implements Initializabl
         tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos);
         tablillaClientes.setItems(listaClientes);
     }
+    private void cargarClientesEnTablilla(){
+        List<Sucursal> lista = JsonUtil.cargarLista(ArchivoClientes, Sucursal.class);
+        if (lista == null){
+            lista = new ArrayList<>();
+        }
+        listaClientes.clear();
+        listaClientes.addAll(listaClientes);
+        //tableViewSucursal.setItems(listaSucursales);
+        Platform.runLater(() -> {
+            tablillaClientes.setItems(null);
+            tablillaClientes.setItems(listaClientes);
+        });
+    }
     private void setupSucursales(){
         
     }
@@ -84,6 +105,10 @@ public class AdminClientesController  extends Controller implements Initializabl
 
     @FXML
     private void onActionEliminarCliente(ActionEvent event) {
+    }
+
+    @FXML
+    private void onActionEditarCliente(ActionEvent event) {
     }
     
 }

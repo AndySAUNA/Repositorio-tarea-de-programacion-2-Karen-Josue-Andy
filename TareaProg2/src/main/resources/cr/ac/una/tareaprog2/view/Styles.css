@@ -360,7 +360,16 @@
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
-  
+.jfx-btn-Editar, .jfx-btn-Editar:armed, .jfx-btn-Editar:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER;
+}
+.jfx-btn-Editar > ImageView{
+    -fx-image: url(../resources/Editar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
 /**********************************************************************************************************************
     *     Paneles     * 1:38
 **********************************************************************************************************************/
