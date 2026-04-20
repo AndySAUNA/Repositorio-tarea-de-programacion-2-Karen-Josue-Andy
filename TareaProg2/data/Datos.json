@@ -13,13 +13,13 @@
       {
         "id": 2,
         "nombre": "Estacion2",
-        "preferencial": false,
+        "preferencial": true,
         "tramitesAsignados": []
       },
       {
         "id": 3,
         "nombre": "Estacion3",
-        "preferencial": false,
+        "preferencial": true,
         "tramitesAsignados": []
       },
       {
@@ -34,13 +34,33 @@
     "id": 1,
     "nombre": "Colina Cilantro",
     "direccion": "En medio de la nada",
-    "estaciones": []
+    "estaciones": [
+      {
+        "id": 1,
+        "nombre": "Estacion1",
+        "preferencial": true,
+        "tramitesAsignados": []
+      },
+      {
+        "id": 2,
+        "nombre": "Estacion2",
+        "preferencial": false,
+        "tramitesAsignados": []
+      }
+    ]
   },
   {
     "id": 2,
     "nombre": "Colina de perros",
     "direccion": "colinda con los perros",
-    "estaciones": []
+    "estaciones": [
+      {
+        "id": 1,
+        "nombre": "Estacion1",
+        "preferencial": false,
+        "tramitesAsignados": []
+      }
+    ]
   },
   {
     "id": 3,
