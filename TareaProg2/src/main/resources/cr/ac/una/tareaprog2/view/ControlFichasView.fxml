@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.ControlFichasViewController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <HBox prefHeight="26.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="135.0" text="CONTROL DE FICHAS">
+                     <HBox.margin>
+                        <Insets left="225.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <TableView fx:id="tablaFichas" prefHeight="116.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="colNumero" prefWidth="108.0" text="Numero de Ficha" />
+                <TableColumn fx:id="colCedula" prefWidth="72.0" text="Cedula" />
+                  <TableColumn fx:id="colTramite" prefWidth="97.60003662109375" text="Tipo de tramite" />
+                  <TableColumn fx:id="colPreferencial" prefWidth="147.99993896484375" text="Preferencial(true/false)" />
+              </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <BorderPane prefHeight="126.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <bottom>
+                  <HBox prefHeight="54.0" prefWidth="600.0" spacing="170.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MFXButton onAction="#llamarPreferencial" prefHeight="44.0" prefWidth="132.0" styleClass="mfx-button" text="Llamar Preferencial" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </bottom>
+               <center>
+                  <HBox prefHeight="39.0" prefWidth="600.0" spacing="30.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <MFXButton onAction="#siguienteFicha" prefHeight="42.0" prefWidth="106.0" styleClass="mfx-button" text="Siguiente ficha" />
+                        <MFXButton layoutX="10.0" layoutY="10.0" onAction="#repetirLLamada" prefHeight="44.0" prefWidth="118.0" styleClass="mfx-button" text="Repetir llamada" />
+                        <MFXButton layoutX="213.0" layoutY="10.0" onAction="#llamarSeleccionada" prefHeight="45.0" prefWidth="142.0" styleClass="mfx-button" text="Llamar Seleccionada" />
+                        <MFXButton onAction="#refrescar" prefHeight="47.0" prefWidth="118.0" styleClass="mfx-button" text="Refrescar lista" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </bottom>
+         <left>
+            <VBox prefHeight="247.0" prefWidth="113.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Ficha Actual" />
+                  <Label fx:id="lblFicha" prefHeight="18.0" prefWidth="105.0" text="Ficha:---">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="lblCedula" layoutX="10.0" layoutY="28.0" prefHeight="18.0" prefWidth="105.0" text="Cedula:" />
+                  <Label fx:id="lblCliente" layoutX="10.0" layoutY="46.0" prefHeight="18.0" prefWidth="105.0" text="Cliente:" />
+                  <Label fx:id="lblTramite" layoutX="10.0" layoutY="64.0" prefHeight="18.0" prefWidth="105.0" text="Tramite:" />
+                  <Label fx:id="lblPreferencial" layoutX="10.0" layoutY="83.0" prefHeight="18.0" prefWidth="105.0" text="Preferencial:" />
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
