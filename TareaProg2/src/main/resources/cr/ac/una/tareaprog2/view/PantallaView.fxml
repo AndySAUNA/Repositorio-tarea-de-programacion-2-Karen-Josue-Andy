@@ -1,11 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="jfx-contenedor-principal" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.PantallaController">
+    <children>
+        <BorderPane styleClass="jfx-pantalla-proyeccion" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            
+            <!-- Contenido central -->
+            <center>
+                <VBox alignment="CENTER" spacing="20.0">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <children>
+                        
+                        <!-- Título -->
+                        <Label style="-fx-font-weight: bold;" stylesheets="@Styles.css" text="PANTALLA DE PROYECCIÓN">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        
+                        <!-- Ficha recién llamada (destacada) -->
+                        <VBox alignment="CENTER" spacing="10.0" style="-fx-border-color: #3498db; -fx-border-width: 3; -fx-border-radius: 10; -fx-background-color: #e8f4fd; -fx-background-radius: 10;" stylesheets="@Styles.css">
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                            <children>
+                                <Label style="-fx-text-fill: #2980b9; -fx-font-weight: bold;" text="ÚLTIMO LLAMADO">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblUltimaFicha" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Ficha #---" />
+                                <Label fx:id="lblUltimaEstacion" style="-fx-font-size: 24px; -fx-text-fill: #16a085;" text="Estación: ---" />
+                                <Label fx:id="lblUltimaHora" style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="Hora: --:--:--" />
+                            </children>
+                        </VBox>
+                        
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.PantallaController">
-   <children>
-      <Label layoutX="266.0" layoutY="191.0" text="PantallaView" />
-   </children>
+                        <Label style="-fx-font-weight: bold;" text="ÚLTIMOS CLIENTES LLAMADOS">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        
+                        <HBox alignment="CENTER" spacing="15.0" styleClass="ultimos-clientes-box" stylesheets="@Styles.css">
+                            <children>
+                                <VBox fx:id="card1" alignment="CENTER" prefHeight="120.0" prefWidth="150.0" spacing="5.0" style="-fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-color: #ecf0f1; -fx-background-radius: 8;" styleClass="llamada-ficha-label" stylesheets="@Styles.css">
+                                    <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+                                    <children>
+                                        <Label style="-fx-font-size: 32px;" text="🎫" />
+                                        <Label fx:id="ficha1" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="---" />
+                                        <Label fx:id="estacion1" style="-fx-font-size: 14px;" text="---" />
+                                        <Label fx:id="hora1" style="-fx-font-size: 11px;" text="---" />
+                                    </children>
+                                </VBox>
+                                
+                                <VBox fx:id="card2" alignment="CENTER" prefHeight="120.0" prefWidth="150.0" spacing="5.0" style="-fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-color: #ecf0f1; -fx-background-radius: 8;" styleClass="lista-llamadas-vbox" stylesheets="@Styles.css">
+                                    <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+                                    <children>
+                                        <Label style="-fx-font-size: 32px;" text="🎫" />
+                                        <Label fx:id="ficha2" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="---" />
+                                        <Label fx:id="estacion2" style="-fx-font-size: 14px;" text="---" />
+                                        <Label fx:id="hora2" style="-fx-font-size: 11px;" text="---" />
+                                    </children>
+                                </VBox>
+                                
+                                <VBox fx:id="card3" alignment="CENTER" prefHeight="120.0" prefWidth="150.0" spacing="5.0" style="-fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-color: #ecf0f1; -fx-background-radius: 8;">
+                                    <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+                                    <children>
+                                        <Label style="-fx-font-size: 32px;" text="🎫" />
+                                        <Label fx:id="ficha3" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="---" />
+                                        <Label fx:id="estacion3" style="-fx-font-size: 14px;" text="---" />
+                                        <Label fx:id="hora3" style="-fx-font-size: 11px;" text="---" />
+                                    </children>
+                                </VBox>
+                                
+                                <VBox fx:id="card4" alignment="CENTER" prefHeight="120.0" prefWidth="150.0" spacing="5.0" style="-fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-color: #ecf0f1; -fx-background-radius: 8;">
+                                    <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+                                    <children>
+                                        <Label style="-fx-font-size: 32px;" text="🎫" />
+                                        <Label fx:id="ficha4" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="---" />
+                                        <Label fx:id="estacion4" style="-fx-font-size: 14px;" text="---" />
+                                        <Label fx:id="hora4" style="-fx-font-size: 11px;" text="---" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        
+                        <!-- Texto de avisos (corriendo) -->
+                        <Label style="-fx-font-weight: bold;" text="AVISOS">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                  <HBox prefHeight="36.0" prefWidth="760.0">
+                     <children>
+                        <Label fx:id="lblAvisos" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="751.0" style="-fx-text-fill: red; -fx-font-size: 18px; -fx-font-weight: bold;" text="Bienvenido al sistema de fichas | Por favor mantener el orden | Gracias por su paciencia" textFill="#b41d1d" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                        
+                       
+                        <Label fx:id="lblFechaHora" style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="dd/MM/yyyy HH:mm:ss" />
+                        
+                    </children>
+                </VBox>
+            </center>
+            
+        </BorderPane>
+    </children>
 </AnchorPane>
