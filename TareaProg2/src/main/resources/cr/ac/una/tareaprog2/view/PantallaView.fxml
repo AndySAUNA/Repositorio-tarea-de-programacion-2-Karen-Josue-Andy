@@ -12,22 +12,21 @@
     <children>
         <BorderPane styleClass="jfx-pantalla-proyeccion" stylesheets="@Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             
-            <!-- Contenido central -->
+          
             <center>
                 <VBox alignment="CENTER" spacing="20.0">
                     <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </padding>
                     <children>
-                        
-                        <!-- Título -->
+                      
                         <Label style="-fx-font-weight: bold;" stylesheets="@Styles.css" text="PANTALLA DE PROYECCIÓN">
                             <font>
                                 <Font size="28.0" />
                             </font>
                         </Label>
                         
-                        <!-- Ficha recién llamada (destacada) -->
+                        
                         <VBox alignment="CENTER" spacing="10.0" style="-fx-border-color: #3498db; -fx-border-width: 3; -fx-border-radius: 10; -fx-background-color: #e8f4fd; -fx-background-radius: 10;" stylesheets="@Styles.css">
                             <padding>
                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -95,19 +94,19 @@
                             </children>
                         </HBox>
                         
-                        <!-- Texto de avisos (corriendo) -->
+                       
                         <Label style="-fx-font-weight: bold;" text="AVISOS">
                             <font>
                                 <Font size="16.0" />
                             </font>
                         </Label>
                   <HBox prefHeight="36.0" prefWidth="760.0">
+                      
                      <children>
-                        <Label fx:id="lblAvisos" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="751.0" style="-fx-text-fill: red; -fx-font-size: 18px; -fx-font-weight: bold;" text="Bienvenido al sistema de fichas | Por favor mantener el orden | Gracias por su paciencia" textFill="#b41d1d" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblAvisos" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="751.0" style="-fx-text-fill: red; -fx-font-size: 18px; -fx-font-weight: bold;" text=" Bienvenido al sistema de fichas | Por favor mantener el orden | Gracias por su paciencia " textFill="#b41d1d" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                         
-                       
                         <Label fx:id="lblFechaHora" style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;" text="dd/MM/yyyy HH:mm:ss" />
                         
                     </children>

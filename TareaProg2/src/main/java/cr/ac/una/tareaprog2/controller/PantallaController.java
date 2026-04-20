@@ -48,7 +48,7 @@ public class PantallaController extends Controller implements Initializable {
     private Timeline reloj;
     private Timeline animacionAvisos;
     private Queue<Llamado> ultimosLlamados = new LinkedList<>();  
-
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciarReloj();
@@ -163,8 +163,8 @@ public class PantallaController extends Controller implements Initializable {
         registrarLlamadoSilencioso(44, "Caja 1");
         registrarLlamadoSilencioso(45, "Caja 3");
         registrarLlamado(46, "Caja 2");
+        
     }
-    
     @Override
     public void initialize() {
         
