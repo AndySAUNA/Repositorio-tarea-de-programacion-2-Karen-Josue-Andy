@@ -20,6 +20,7 @@ import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 public class FlowController extends Controller  {
 
@@ -119,8 +120,11 @@ public class FlowController extends Controller  {
                 
                 BorderPane borderPane = (BorderPane) stage.getScene().getRoot();
                 VBox vBox = (VBox)borderPane.getCenter();
+                
+                Parent root = loader.getRoot();
                 vBox.getChildren().clear();
-                vBox.getChildren().add(loader.getRoot());
+                vBox.getChildren().add(root);
+                VBox.setVgrow(root, Priority.ALWAYS);
                         
                 /*VBox vBox = ((VBox) ((BorderPane) stage.getScene().getRoot()).getCenter());
                 vBox.getChildren().clear();
