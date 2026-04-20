@@ -13,11 +13,11 @@
 
 <AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" styleClass="jfx-panelfondo" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.AdminEstacionesController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <HBox maxHeight="50.0" prefHeight="18.0" prefWidth="560.0" spacing="10.0" BorderPane.alignment="CENTER">
+                  <HBox maxHeight="50.0" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="560.0" spacing="10.0" BorderPane.alignment="CENTER">
                      <children>
                         <MFXTextField fx:id="txfBuscar" floatMode="BORDER" floatingText="Buscar" maxWidth="1.7976931348623157E308" minHeight="9.0" onAction="#onActionTxfBuscar" prefHeight="9.0" prefWidth="492.0" HBox.hgrow="ALWAYS" />
                         <Button fx:id="btnAgregar" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="83.0" mnemonicParsing="false" onAction="#onActionBtnAgregar" prefHeight="40.0" prefWidth="83.0" styleClass="jfx-btn-agregar" text="Agregar" HBox.hgrow="ALWAYS">
@@ -25,7 +25,7 @@
                               <ImageView fitHeight="16.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnPriorizar" layoutX="465.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="85.0" mnemonicParsing="false" onAction="#onActionPriorizar" prefHeight="40.0" prefWidth="85.0" styleClass="jfx-btn-Priorizar" text="Priorizar" HBox.hgrow="ALWAYS">
+                        <Button fx:id="btnPreferencial" layoutX="465.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="97.0" mnemonicParsing="false" onAction="#onActionPreferencial" prefHeight="40.0" prefWidth="90.0" styleClass="jfx-btn-Priorizar" text="Preferencial" HBox.hgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -42,15 +42,15 @@
                   </HBox>
                </top>
                <center>
-                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                            <children>
                               <Label text="Sucursales" />
-                              <MFXTableView fx:id="tableViewSucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#ClickMF1" prefHeight="254.0" prefWidth="560.0" VBox.vgrow="ALWAYS" />
+                              <MFXTableView fx:id="tableViewSucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseMoved="#mover" prefHeight="254.0" prefWidth="560.0" VBox.vgrow="ALWAYS" />
                            </children>
                         </VBox>
-                        <VBox>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                            <children>
                               <Label text="Esataciones" />
                               <MFXTableView fx:id="tableViewEstacion" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="254.0" prefWidth="560.0" VBox.vgrow="ALWAYS" />

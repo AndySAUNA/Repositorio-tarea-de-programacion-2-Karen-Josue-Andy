@@ -43,8 +43,6 @@ public class AdminEstacionesController extends Controller implements Initializab
     @FXML
     private Button btnAgregar;
     @FXML
-    private Button btnPriorizar;
-    @FXML
     private Button btnEliminar;
     @FXML
     private MFXTableView<Sucursal> tableViewSucursal;
@@ -53,6 +51,8 @@ public class AdminEstacionesController extends Controller implements Initializab
     @FXML
     private MFXTableView<Estacion> tableViewEstacion;
     private final ObservableList<Estacion> listaEstaciones = FXCollections.observableArrayList();
+    @FXML
+    private Button btnPreferencial;
     
     /**
      * Initializes the controller class.
@@ -172,6 +172,15 @@ public class AdminEstacionesController extends Controller implements Initializab
         return seleccionadas.get(0);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    //retorna el objeto estacion que esta seleccionado
+    private Estacion obtenerEstacionSeleccionada(){
+        var seleccionadas = tableViewEstacion.getSelectionModel().getSelectedValues();
+        if (seleccionadas == null || seleccionadas.isEmpty()){
+            return null;
+        }
+        return seleccionadas.get(0);
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void seleccionarPrimeraSucursal(){//funciona 
         if (!listaSucursales.isEmpty()){// si la lista de sucursales no esta vacia
             tableViewSucursal.getSelectionModel().clearSelection();//se limpia seleccion de la tablilla al iniciar
@@ -184,28 +193,6 @@ public class AdminEstacionesController extends Controller implements Initializab
     //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionTxfBuscar(ActionEvent event) {
-    }
-    //boton para agregar estacion en sucursal
-    //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML
-    private void onActionBtnAgregar(ActionEvent event) {//funciona
-        Sucursal sucursalSeleccionada = obtenerSucursalSeleccionada();
-        if (sucursalSeleccionada == null){
-            new Mensaje().showModal(Alert.AlertType.ERROR,"Error Agregar", getStage(), "Tienes que seleccionar una sucursal");
-        return;
-        }
-        String nombre = "Estacion" + getIdSiguienteEstacion();
-        Estacion nueva = new Estacion(getIdSiguienteEstacion(),nombre,false); // crea estacion no preferencial por defecto
-        if (sucursalSeleccionada.getEstaciones() == null){// por aquello de que el conjunto de estaciones este vacio, hacer uno nuevo
-            sucursalSeleccionada.setEstaciones(new ArrayList<>());
-        }
-        //agregar la estacion y recargar la tablilla
-        sucursalSeleccionada.getEstaciones().add(nueva);
-        cargarEstacionesDeSucursal(sucursalSeleccionada);
-        //para guardar todo en el Json, como la estacion es parte de la sucursal, una vez modificada, hay que guardar todo el arreglo
-        guardarDatos();
-        new Mensaje().showModal(Alert.AlertType.INFORMATION,"Estacion agregada", getStage(), "Estacion ha sido agregada exitosamente");
-        cargarEstacionesDeSucursal(obtenerSucursalSeleccionada());
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     private void guardarDatos(){//funciona
@@ -225,20 +212,58 @@ public class AdminEstacionesController extends Controller implements Initializab
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
-    private void onActionPriorizar(ActionEvent event) {
+    private void onActionEliminar(ActionEvent event) {
+        if(obtenerSucursalSeleccionada()==null){
+            new Mensaje().showModal(Alert.AlertType.ERROR,"Error", getStage(), "Sucursal no seleccionada");
+        }
+        if(obtenerEstacionSeleccionada()==null){
+            new Mensaje().showModal(Alert.AlertType.ERROR,"Error", getStage(), "Sucursal no tiene esstaciones para eliminar");
+        }
+        
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML
-    private void onActionEliminar(ActionEvent event) {
+    private int getIultimaEstacion(){ //consigue el id mas alto de la lista
+        
+        int maxId = 0;
+        for (Estacion s : listaEstaciones) {
+            if (s.getId() > maxId) {
+                maxId = s.getId();
+            }
+        }
+        return maxId;
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void onActionBtnRefrescar(ActionEvent event) {
         cargarEstacionesDeSucursalEnTablilla();
     }
-
-    @FXML
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void ClickMF1(MouseEvent event) {
         System.out.println("ClickCickMF activado");
         cargarEstacionesDeSucursalEnTablilla();
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    @FXML
+    private void mover(MouseEvent event) {
+        cargarEstacionesDeSucursalEnTablilla();
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    @FXML
+    private void onActionPreferencial(ActionEvent event) {
+        if(obtenerSucursalSeleccionada()==null||obtenerEstacionSeleccionada()==null){
+            new Mensaje().showModal(Alert.AlertType.ERROR,"Error", getStage(), "estacion no seleccionada");
+        }
+        Sucursal sucursal = obtenerSucursalSeleccionada();
+        Estacion estacion = obtenerEstacionSeleccionada();
+        if(estacion.isPreferencial()){
+            estacion.setPreferencial(false);
+        }else{
+        estacion.setPreferencial(true);
+        }
+        cargarEstacionesDeSucursalEnTablilla();
+        guardarDatos();
+    }
+
+    @FXML
+    private void onActionBtnAgregar(ActionEvent event) {
     }
 }
