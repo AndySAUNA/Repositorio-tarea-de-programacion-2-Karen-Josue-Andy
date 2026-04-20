@@ -8,6 +8,7 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXDatePicker;
 import io.github.palexdev.materialfx.controls.MFXListView;
+import io.github.palexdev.materialfx.controls.MFXTableView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -33,9 +34,9 @@ public class AdminTramitesController extends Controller implements Initializable
     @FXML
     private MFXButton btnAgregarTramite;
     @FXML
-    private MFXListView<?> lisvTramites1;
+    private MFXTableView<?> tableViewFichas;
     @FXML
-    private MFXListView<?> lisvTramite2;
+    private MFXTableView<?> tableViewEstaciones;
 
     /**
      * Initializes the controller class.
@@ -62,9 +63,6 @@ public class AdminTramitesController extends Controller implements Initializable
     private void onActionBtnAgregarTramite(ActionEvent event) {
     }
 
-    @FXML
-    private void onActionLisvTramites1(MouseEvent event) {
-    }
 
     
 }

@@ -42,7 +42,7 @@ public class AdminConfiguracionesController extends Controller  implements Initi
 
     @FXML
     private void onActionBtnCambiarLogo(ActionEvent event) {
-        FlowController.getInstance().goMain("CambiarLogoView");
+        FlowController.getInstance().goViewInWindowModal("CambiarLogoView", this.getStage(), false);
     }
 
     @FXML

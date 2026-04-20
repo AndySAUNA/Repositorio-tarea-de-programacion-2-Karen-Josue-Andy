@@ -14,6 +14,7 @@ import java.util.Comparator;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -34,20 +35,21 @@ public class AdminClientesController  extends Controller implements Initializabl
     @FXML
     private AnchorPane root;
     @FXML
-    private MFXTableView<Cliente> listaClientes;
-    private final ObservableList<Cliente> clientes = FXCollections.observableArrayList();
-    @FXML
-    private MFXComboBox<?> comboxSucursal01;
-    @FXML
     private MFXButton btnAgregarCliente1;
+    @FXML
+    private MFXButton btnEliminarCliente;
+    @FXML
+    private MFXTableView<Cliente> tablillaClientes;
+    private static final String ArchivoClientes = "data/Datos.json";//nota: hay que agregar la direccion
+    private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      setupListaClientes();
-      setupSucursales();
+      setupTablillaClientes();
         // TODO
     }    
 
@@ -56,21 +58,32 @@ public class AdminClientesController  extends Controller implements Initializabl
       
     }
     
-    private void setupListaClientes(){
+    private void setupTablillaClientes(){
         //
-        MFXTableColumn<Cliente> columnaCedula = new MFXTableColumn<>("Cedula",true, Comparator.comparing(Cliente::getCedula));
-        MFXTableColumn<Cliente> columnaNombre = new MFXTableColumn<>("Nombre",true, Comparator.comparing(Cliente::getNombre));
-        MFXTableColumn<Cliente> columnaApellidos = new MFXTableColumn<>("Nombre",true, Comparator.comparing(Cliente::getApellidos));
+        MFXTableColumn<Cliente> colCedula = 
+                new MFXTableColumn<>("Cedula",true, Comparator.comparing(Cliente::getCedula));
+        MFXTableColumn<Cliente> colNombre = 
+                new MFXTableColumn<>("Nombre",true, Comparator.comparing(Cliente::getNombre));
+        MFXTableColumn<Cliente> colApellidos = 
+                new MFXTableColumn<>("Apellidos",true, Comparator.comparing(Cliente::getApellidos));
         //
-        columnaCedula.setRowCellFactory(c -> new MFXTableRowCell<>(Cliente::getCedula));
-        columnaNombre.setRowCellFactory(c -> new MFXTableRowCell<>(Cliente::getNombre));
-        columnaApellidos.setRowCellFactory(c -> new MFXTableRowCell<>(Cliente::getNombre));
+        colCedula.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getCedula));
+        colNombre.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getNombre));
+        colApellidos.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getNombre));
         //
-        listaClientes.getTableColumns().setAll(columnaCedula, columnaNombre, columnaApellidos);
-        listaClientes.setItems(clientes);
+        tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos);
+        tablillaClientes.setItems(listaClientes);
     }
     private void setupSucursales(){
         
+    }
+
+    @FXML
+    private void onActionAgregarCliente(ActionEvent event) {
+    }
+
+    @FXML
+    private void onActionEliminarCliente(ActionEvent event) {
     }
     
 }

@@ -27,6 +27,7 @@ public class FlowController extends Controller  {
     private static Stage mainStage;
     private static ResourceBundle idioma;
     private static HashMap<String, FXMLLoader> loaders = new HashMap<>();
+    private static Image image = new Image("file:data/Logo.png");
 
     private FlowController() {
     }
@@ -83,13 +84,12 @@ public class FlowController extends Controller  {
             String S = "view/" + s + ".fxml";
             this.mainStage.setScene(new Scene(FXMLLoader.load(App.class.getResource(S), this.idioma)));
             MFXThemeManager.addOn(this.mainStage.getScene(), Themes.DEFAULT, Themes.LEGACY);
-            var urlIcono = App.class.getResource("Resources/Logo.png");
-            if (urlIcono != null){ // para cargar el icono, sino da un aviso de error
-                this.mainStage.getIcons().setAll(new Image(urlIcono.toExternalForm()));
+            if (!image.isError()){ // para cargar el icono, sino da un aviso de error
+                this.mainStage.getIcons().setAll(image);
 // esto agarra todos los iconos del mainstage, y les pone el objeto imagen tomada de la direccion del url convertido a string por el metodo toExternalForm()
             }else{
                 new Mensaje().showModal(Alert.AlertType.ERROR, "Guardar Empleado", getStage(),
-                    "No se encontro el icono en la direccion: resources/Logo.png");
+                    "No se encontro el icono en la direccion: file:data/Logo.png");
             }
             this.mainStage.show(); // aqui se muestra el mainstage
         } catch (IOException ex) { 
@@ -157,7 +157,7 @@ public class FlowController extends Controller  {
         Controller controller = loader.getController();
         controller.initialize();
         Stage stage = new Stage();
-        stage.getIcons().add(new Image("cr/ac/una/tareaprog2/resources/Logo.png"));
+        stage.getIcons().add(image);
         stage.setTitle(controller.getNombreVista());
         stage.setOnHidden((WindowEvent event) -> {
             controller.getStage().getScene().setRoot(new Pane());
@@ -177,7 +177,7 @@ public class FlowController extends Controller  {
         Controller controller = loader.getController();
         controller.initialize();
         Stage stage = new Stage();
-        stage.getIcons().add(new Image("cr/ac/una/tareaprog2/resources/Logo.png"));
+        stage.getIcons().add(image);
         stage.setTitle(controller.getNombreVista());
         stage.setResizable(resizable);
         stage.setOnHidden((WindowEvent event) -> {
