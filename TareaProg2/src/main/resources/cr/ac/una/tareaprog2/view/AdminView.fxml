@@ -37,6 +37,11 @@
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic></MFXButton>
+                  <MFXButton fx:id="btnEstaciones" layoutX="15.0" layoutY="240.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnEstaciones" prefHeight="50.0" styleClass="jfx-btn-Estacion" text="Estaciones">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </MFXButton>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

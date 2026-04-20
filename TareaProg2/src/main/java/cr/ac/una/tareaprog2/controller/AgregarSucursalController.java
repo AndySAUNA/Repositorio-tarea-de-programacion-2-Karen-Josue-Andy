@@ -47,7 +47,7 @@ public class AgregarSucursalController extends Controller implements Initializab
     
     private String rutaFotoSeleccionada;
     private Sucursal sucursal;
-    private final String ArchivoSucursales = "data/sucursales.json";
+    private final String ArchivoSucursales = "data/Datos.json";
     private MFXTextField txfDireccion;
     private List<Node> requeridos = new ArrayList();
     
@@ -166,7 +166,6 @@ public class AgregarSucursalController extends Controller implements Initializab
             List<Sucursal> sucursales = cargarSucursales();
             String nombre = txfNombreSucursal.getText().trim();
             //para revisar que no se duplique el nombre
-            boolean existe = false;
             for (Sucursal suc : sucursales) {
                  if (suc.getNombre() != null) {
                     if (suc.getNombre().equalsIgnoreCase(nombre)) {

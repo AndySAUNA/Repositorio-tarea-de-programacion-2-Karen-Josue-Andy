@@ -35,6 +35,8 @@ public class AdminController extends Controller implements Initializable {
     private MFXButton btnSucursales;
     @FXML
     private BorderPane root;
+    @FXML
+    private MFXButton btnEstaciones;
 
     /**
      * Initializes the controller class.
@@ -77,6 +79,11 @@ public class AdminController extends Controller implements Initializable {
     @FXML
     private void onActionBtnSucursales(ActionEvent event) {
         FlowController.getInstance().goView("AdminSucursalesView");
+    }
+
+    @FXML
+    private void onActionBtnEstaciones(ActionEvent event) {
+        FlowController.getInstance().goView("AdminEstacionesView");
     }
     
 }
