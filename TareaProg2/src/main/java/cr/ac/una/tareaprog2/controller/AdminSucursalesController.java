@@ -24,6 +24,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import model.Cliente;
+import model.Estacion;
 import model.Sucursal;
 import util.FlowController;
 import util.JsonUtil;
@@ -34,7 +35,7 @@ import util.Mensaje;
  *
  * @author andys
  */
-public class AdminSucursalesController  extends Controller implements Initializable {
+public class AdminSucursalesController extends Controller implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -47,7 +48,7 @@ public class AdminSucursalesController  extends Controller implements Initializa
     @FXML
     private MFXTableView<Sucursal> tableViewSucursal;
     
-    private static final String ArchivoSucursales = "data/sucursales.json";
+    private static final String ArchivoSucursales = "data/Datos.json";
     private final ObservableList<Sucursal> listaSucursales = FXCollections.observableArrayList();
     
     /**
@@ -72,7 +73,7 @@ public class AdminSucursalesController  extends Controller implements Initializa
         }
         return seleccionadas.get(0);
     }
-    
+    //pone las columnas de la tablilla de sucursales
     private void setupTablillaSucursales(){
         if(!tableViewSucursal.getTableColumns().isEmpty()){
             return;
@@ -84,28 +85,28 @@ public class AdminSucursalesController  extends Controller implements Initializa
         MFXTableColumn<Sucursal> colDireccion = 
                 new MFXTableColumn<>("Direccion", true, Comparator.comparing(Sucursal::getDireccion));
         
-    colId.setRowCellFactory(col -> new MFXTableRowCell<>(s -> String.valueOf(s.getId())));
-    colNombre.setRowCellFactory(col -> new MFXTableRowCell<>(Sucursal::getNombre));
-    colDireccion.setRowCellFactory(col -> new MFXTableRowCell<>(Sucursal::getDireccion));
+        colId.setRowCellFactory(col -> new MFXTableRowCell<>(s -> String.valueOf(s.getId())));
+        colNombre.setRowCellFactory(col -> new MFXTableRowCell<>(Sucursal::getNombre));
+        colDireccion.setRowCellFactory(col -> new MFXTableRowCell<>(Sucursal::getDireccion));
         
         tableViewSucursal.getTableColumns().setAll(colId,colNombre,colDireccion);
         tableViewSucursal.setItems(listaSucursales);
     }
+    
     private void cargarSucursalesEnTablilla(){
         List<Sucursal> lista = JsonUtil.cargarLista(ArchivoSucursales, Sucursal.class);
         if (lista == null){
             lista = new ArrayList<>();
         }
-        System.out.println("DEBUG: Sucursales cargadas: " + lista.size());
         listaSucursales.clear();
         listaSucursales.addAll(lista);
         //tableViewSucursal.setItems(listaSucursales);
         Platform.runLater(() -> {
-        tableViewSucursal.setItems(null);
-        tableViewSucursal.setItems(listaSucursales);
-    });
-        
+            tableViewSucursal.setItems(null);
+            tableViewSucursal.setItems(listaSucursales);
+        });
     }
+    
     private void cargarSucursales() {
         List<Sucursal> sucursales = JsonUtil.cargarLista(ArchivoSucursales, Sucursal.class);
         listaSucursales.clear();

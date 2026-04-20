@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.ImageView?>
@@ -23,8 +22,12 @@
                      <children>
                         <HBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="560.0" spacing="10.0">
                            <children>
-                              <MFXComboBox fx:id="comboxSucursal01" floatingText="Sucursal" />
-                              <MFXButton fx:id="btnAgregarCliente1" styleClass="jfx-btn-agregarCliente" text="Agregar Cliente">
+                              <MFXButton fx:id="btnAgregarCliente1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionAgregarCliente" styleClass="jfx-btn-agregarCliente" text="Agregar Cliente" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </MFXButton>
+                              <MFXButton fx:id="btnEliminarCliente" layoutX="20.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionEliminarCliente" styleClass="jfx-btn-eliminar" text="Eliminar Cliente" HBox.hgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" />
                                  </graphic>
@@ -38,7 +41,7 @@
                   </VBox>
                </top>
                <center>
-                  <MFXTableView fx:id="listaClientes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="335.0" prefWidth="603.0" BorderPane.alignment="CENTER" />
+                  <MFXTableView fx:id="tablillaClientes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="335.0" prefWidth="603.0" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </children>

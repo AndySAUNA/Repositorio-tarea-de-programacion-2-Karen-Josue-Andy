@@ -149,6 +149,7 @@
 
 .jfx-btn-nuevo, .jfx-btn-nuevo:armed, .jfx-btn-nuevo:focused{
     -fx-background-color: #2196f3;
+    -fx-alignment: CENTER;
     
 }
 
@@ -158,6 +159,7 @@
 
 .jfx-btn-agregar, .jfx-btn-agregar:armed, .jfx-btn-agregar:focused{
     -fx-background-color: #99ff99;
+    -fx-alignment: CENTER;
     
 }
 
@@ -169,6 +171,7 @@
 
 .jfx-btn-buscar, .jfx-btn-buscar:armed, .jfx-btn-buscar:focused{
     -fx-background-color: #2196f3;
+    -fx-alignment: CENTER;
     
 }
 
@@ -180,6 +183,7 @@
 
 .jfx-btn-eliminar, .jfx-btn-eliminar:armed, .jfx-btn-eliminar:focused{
     -fx-background-color: #ff3333;
+    -fx-alignment: CENTER;
     
 }
 
@@ -191,6 +195,7 @@
 
 .jfx-btn-guardar, .jfx-btn-guardar:armed, .jfx-btn-guardar:focused{
     -fx-background-color: #0066ff;
+    -fx-alignment: CENTER;
     
 }
 
@@ -202,6 +207,7 @@
 
 .jfx-btn-comun, .jfx-btn-comun:armed, .jfx-btn-comun:focused{
     -fx-background-color: -fx-base-color-button;
+    -fx-alignment: CENTER;
     
 }
 
@@ -225,9 +231,9 @@
 }
 
 .jfx-btn-configuracion, .jfx-btn-configuracion:armed, .jfx-btn-configuracion:focused{
-    -fx-background-color: #cccccc;
+    -fx-background-color: #666600;
     -fx-padding:5px;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
     
 }
 
@@ -238,7 +244,7 @@
 }
 
 .jfx-btn-tramites, .jfx-btn-tramites:armed, .jfx-btn-tramites:focused{
-    -fx-background-color: #cccccc;
+    -fx-background-color: #ff9900;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
     
@@ -275,7 +281,6 @@
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
-  
 
 .jfx-btn-sucursales, .jfx-btn-sucursales:armed, .jfx-btn-sucursales:focused{
     -fx-background-color: #0066ff;
@@ -300,7 +305,7 @@
 .jfx-btn-agregarimagen, .jfx-btn-agregarimagen:armed, .jfx-btn-agregarimagen:focused{
     -fx-background-color: #33ffff;
     -fx-padding:5px;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
 }
 .jfx-btn-agregarimagen > ImageView{
     -fx-image: url(../resources/AgregarImagen.png);
@@ -311,7 +316,7 @@
 .jfx-btn-cancelar, .jfx-btn-cancelar:armed, .jfx-btn-cancelar:focused{
     -fx-background-color: #ff0000;
     -fx-padding:5px;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
 }
 .jfx-btn-cancelar > ImageView{
     -fx-image: url(../resources/Cancelar.png);
@@ -322,7 +327,7 @@
 .jfx-btn-cambiar, .jfx-btn-cambiar:armed, .jfx-btn-cambiar:focused{
     -fx-background-color: #0099ff;
     -fx-padding:5px;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
 }
 .jfx-btn-cambiar > ImageView{
     -fx-image: url(../resources/Cambiar.png);
@@ -332,10 +337,31 @@
 .jfx-btn-agregarCliente, .jfx-btn-agregarCliente:armed, .jfx-btn-agregarCliente:focused{
     -fx-background-color: #00c853;
     -fx-padding:5px;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
 }
 .jfx-btn-agregarCliente > ImageView{
     -fx-image: url(../resources/Agregar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-Estacion, .jfx-btn-Estacion:armed, .jfx-btn-Estacion:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-Estacion > ImageView{
+    -fx-image: url(../resources/Estacion.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-Priorizar, .jfx-btn-Priorizar:armed, .jfx-btn-Priorizar:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER;
+}
+.jfx-btn-Priorizar > ImageView{
+    -fx-image: url(../resources/Prioritario.png);
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
@@ -683,4 +709,13 @@
 
 .registrar-cliente-separador {
     -fx-padding: 10px 0;
+}
+    *     List View     *
+**********************************************************************************************************************/
+
+/**********************************************************************************************************************
+    *     ImageVIew     *
+**********************************************************************************************************************/
+.jfx-txt-logoImageView{
+    -fx-image: url(file:data/Logo.png);
 }
