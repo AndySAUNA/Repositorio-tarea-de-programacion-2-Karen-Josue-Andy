@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -11,10 +14,18 @@
          <children>
             <BorderPane layoutX="20.0" layoutY="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <top>
-                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <HBox prefHeight="49.0" prefWidth="540.0" spacing="10.0" BorderPane.alignment="CENTER">
                      <children>
-                        <MFXButton fx:id="btnCambiarLogo" onAction="#onActionBtnCambiarLogo" styleClass="jfx-btn-comun" text="Cambiar Logo" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="jfx-txt-logoImageView" HBox.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@../../../../../../../../data/Logo.png" />
+                           </image>
+                        </ImageView>
+                        <MFXButton fx:id="btnCambiarLogo" maxHeight="1.7976931348623157E308" onAction="#onActionBtnCambiarLogo" styleClass="jfx-btn-comun" text="Cambiar Logo" HBox.hgrow="ALWAYS" />
                      </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
                   </HBox>
                </top>
                <center>
