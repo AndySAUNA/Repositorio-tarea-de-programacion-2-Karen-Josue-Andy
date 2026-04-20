@@ -9,11 +9,11 @@
 
 <BorderPane fx:id="root" prefHeight="500.0" prefWidth="700.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.AdminController">
    <left>
-      <BorderPane BorderPane.alignment="CENTER">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <center>
             <VBox prefHeight="400.0" prefWidth="150.0" spacing="5.0">
                <children>
-                  <MFXButton fx:id="btnConfiguraciones" maxWidth="1.7976931348623157E308" onAction="#onActionBtnConfiguraciones" prefHeight="50.0" styleClass="jfx-btn-configuracion" text="Configuraciones" VBox.vgrow="ALWAYS">
+                  <MFXButton fx:id="btnConfiguraciones" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnConfiguraciones" prefHeight="50.0" styleClass="jfx-btn-configuracion" text="Configuraciones" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets top="3.0" />
                      </VBox.margin>
@@ -21,23 +21,23 @@
                         <ImageView fitHeight="23.0" fitWidth="7.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </MFXButton>
-                  <MFXButton fx:id="btnTramites" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnTramites" prefHeight="50.0" styleClass="jfx-btn-tramites" text="Tramites">
+                  <MFXButton fx:id="btnTramites" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnTramites" prefHeight="50.0" styleClass="jfx-btn-tramites" text="Tramites" VBox.vgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic></MFXButton>
-                  <MFXButton fx:id="btnClientes" layoutX="10.0" layoutY="35.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnClientes" prefHeight="50.0" styleClass="jfx-btn-clientes" text="Clientes">
+                  <MFXButton fx:id="btnClientes" layoutX="10.0" layoutY="35.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnClientes" prefHeight="50.0" styleClass="jfx-btn-clientes" text="Clientes" VBox.vgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic></MFXButton>
-                  <MFXButton fx:id="btnMetricas" layoutX="10.0" layoutY="121.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnMetricas" prefHeight="50.0" styleClass="jfx-btn-metricas" text="Metricas">
+                  <MFXButton fx:id="btnMetricas" layoutX="10.0" layoutY="121.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnMetricas" prefHeight="50.0" styleClass="jfx-btn-metricas" text="Metricas" VBox.vgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic></MFXButton>
-                  <MFXButton fx:id="btnSucursales" layoutX="10.0" layoutY="176.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnSucursales" prefHeight="50.0" styleClass="jfx-btn-sucursales" text="Sucursales">
+                  <MFXButton fx:id="btnSucursales" layoutX="10.0" layoutY="176.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnSucursales" prefHeight="50.0" styleClass="jfx-btn-sucursales" text="Sucursales" VBox.vgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic></MFXButton>
-                  <MFXButton fx:id="btnEstaciones" layoutX="15.0" layoutY="240.0" maxWidth="1.7976931348623157E308" onAction="#onActionBtnEstaciones" prefHeight="50.0" styleClass="jfx-btn-Estacion" text="Estaciones">
+                  <MFXButton fx:id="btnEstaciones" layoutX="15.0" layoutY="240.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnEstaciones" prefHeight="50.0" styleClass="jfx-btn-Estacion" text="Estaciones" VBox.vgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -49,7 +49,7 @@
             </VBox>
          </center>
          <bottom>
-            <MFXButton fx:id="btnSalir" maxWidth="1.7976931348623157E308" onAction="#onActionBtnSalir" prefHeight="50.0" styleClass="jfx-btn-salir" text="Salir" BorderPane.alignment="CENTER">
+            <MFXButton fx:id="btnSalir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnSalir" prefHeight="50.0" styleClass="jfx-btn-salir" text="Salir" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>
@@ -59,7 +59,7 @@
             </MFXButton>
          </bottom>
          <top>
-            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="jfx-txt-logoImageView" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../resources/Logo.png" />
                </image>
