@@ -239,7 +239,7 @@
 }
 
 .jfx-btn-tramites, .jfx-btn-tramites:armed, .jfx-btn-tramites:focused{
-    -fx-background-color: #ffff00;
+    -fx-background-color: #ff9900;
     -fx-padding:5px;
     -fx-alignment: CENTER_LEFT;
     

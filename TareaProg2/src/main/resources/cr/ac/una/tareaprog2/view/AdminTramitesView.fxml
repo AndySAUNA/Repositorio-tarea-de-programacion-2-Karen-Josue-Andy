@@ -34,8 +34,8 @@
                <center>
                   <HBox prefHeight="300.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                      <children>
-                        <MFXTableView fx:id="tableViewFichas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                        <MFXTableView fx:id="tableViewEstaciones" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="250.0" />
+                        <MFXTableView fx:id="tableViewFicha" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="249.0" HBox.hgrow="ALWAYS" />
+                        <MFXTableView fx:id="tableViewEstacion" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="250.0" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                </center>
