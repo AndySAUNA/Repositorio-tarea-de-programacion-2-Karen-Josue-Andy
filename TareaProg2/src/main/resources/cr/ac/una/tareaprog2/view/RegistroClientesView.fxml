@@ -11,43 +11,43 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.ClienteController">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" styleClass="registrar-cliente-anchor" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.ClienteController">
     <children>
-        <!-- Título -->
-        <Label layoutX="240.0" layoutY="14.0" text="Registrar Cliente" />
         
-        <!-- Foto -->
-        <VBox layoutX="260.0" layoutY="50.0" prefHeight="63.0" prefWidth="65.0">
+        <Label layoutX="240.0" layoutY="14.0" styleClass="registrar-cliente-titulo" stylesheets="@Styles.css" text="Registrar Cliente" />
+        
+     
+        <VBox layoutX="260.0" layoutY="50.0" prefHeight="82.0" prefWidth="114.0" styleClass="foto-container" stylesheets="@Styles.css">
             <children>
                 <ImageView fx:id="imgFoto" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
             </children>
         </VBox>
         
-        <!-- Botones de foto -->
+     
         <HBox layoutX="180.0" layoutY="160.0" spacing="20.0">
             <children>
-                <Button fx:id="btnTomarFoto" onAction="#tomarFoto" text="Tomar foto" />
-                <Button fx:id="btnSubirFoto" onAction="#subirFoto" text="Subir foto" />
+                <Button fx:id="btnTomarFoto" onAction="#tomarFoto" styleClass="foto-btn" stylesheets="@Styles.css" text="Tomar foto" />
+                <Button fx:id="btnSubirFoto" onAction="#subirFoto" styleClass="foto-btn" stylesheets="@Styles.css" text="Subir foto" />
             </children>
         </HBox>
         
-        <!-- Campos del formulario -->
+        
         <HBox layoutX="14.0" layoutY="220.0" spacing="20.0">
             <children>
-                <MFXTextField fx:id="txtNombre" floatingText="Nombre" prefHeight="50.0" prefWidth="280.0" />
-                <MFXTextField fx:id="txtApellidos" floatingText="Apellidos" prefHeight="50.0" prefWidth="280.0" />
+                <MFXTextField fx:id="txtNombre" floatingText="Nombre" prefHeight="50.0" prefWidth="280.0" styleClass="form-mfx-field" stylesheets="@Styles.css" />
+                <MFXTextField fx:id="txtApellidos" floatingText="Apellidos" prefHeight="50.0" prefWidth="280.0" styleClass="form-mfx-field" stylesheets="@Styles.css" />
             </children>
         </HBox>
         
         <HBox layoutX="14.0" layoutY="290.0" spacing="20.0">
             <children>
-                <MFXTextField fx:id="txtCedula" floatingText="Cédula" prefHeight="50.0" prefWidth="280.0" />
-                <DatePicker fx:id="dpFechaNacimiento" prefHeight="50.0" prefWidth="280.0" promptText="Fecha de nacimiento" />
+                <MFXTextField fx:id="txtCedula" floatingText="Cédula" maxHeight="50.0" prefHeight="50.0" prefWidth="280.0" styleClass="form-mfx-field" stylesheets="@Styles.css" />
+                <DatePicker fx:id="dpFechaNacimiento" prefHeight="50.0" prefWidth="280.0" promptText="Fecha de nacimiento" styleClass="form-date-picker" stylesheets="@Styles.css" />
             </children>
         </HBox>
         
-        <!-- Tabla de clientes -->
-        <TableView fx:id="tablaClientes" layoutX="14.0" layoutY="360.0" prefHeight="200.0" prefWidth="572.0">
+       
+        <TableView fx:id="tablaClientes" layoutX="14.0" layoutY="360.0" prefHeight="200.0" prefWidth="572.0" styleClass="tabla-clientes" stylesheets="@Styles.css">
             <columns>
                 <TableColumn fx:id="colCedula" prefWidth="150.0" text="Cédula" />
                 <TableColumn fx:id="colNombre" prefWidth="250.0" text="Nombre Completo" />
@@ -55,12 +55,12 @@
             </columns>
         </TableView>
         
-        <!-- Botones de acción -->
+      
         <HBox layoutX="14.0" layoutY="580.0" spacing="20.0">
             <children>
-                <Button fx:id="btnGuardar" onAction="#guardarCliente" text="Guardar" />
-                <Button fx:id="btnLimpiar" onAction="#limpiarFormulario" text="Limpiar" />
-                <Button fx:id="btnEliminar" onAction="#eliminarCliente" text="Eliminar" />
+                <Button fx:id="btnGuardar" onAction="#guardarCliente" styleClass="btn-guardar" stylesheets="@Styles.css" text="Guardar" />
+                <Button fx:id="btnLimpiar" onAction="#limpiarFormulario" styleClass="btn-limpiar" stylesheets="@Styles.css" text="Limpiar" />
+                <Button fx:id="btnEliminar" onAction="#eliminarCliente" styleClass="btn-eliminar" stylesheets="@Styles.css" text="Eliminar" />
             </children>
         </HBox>
     </children>

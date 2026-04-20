@@ -10,6 +10,10 @@
     -mfx-purple: #09b6bc;
     -fx-base-color-hover: #33ffcc;
     -fx-base-color-button: #2196f3;
+     -proyeccion-ultimo-bg: #cbe6f3; 
+     -proyeccion-historial-bg: #bdecb6;
+     -proyeccion-item-bg: rgba(255, 255, 255, 0.5);
+       -proyeccion-fondo: #f8c7ca;  
     -fx-base-color-system: #33ff33; 
 }
 
@@ -25,7 +29,7 @@
 }
 
 .mfx-text-field .text-field, .mfx-password-field .text-field{
-  /* Selected text highlight */
+
   -fx-highlight-fill: -fx-base-color-focus;
 }
 
@@ -142,6 +146,7 @@
     *     Botones     *
 
 **********************************************************************************************************************/
+
 .jfx-btn-nuevo, .jfx-btn-nuevo:armed, .jfx-btn-nuevo:focused{
     -fx-background-color: #2196f3;
     -fx-alignment: CENTER;
@@ -361,10 +366,6 @@
     -fx-fit-width: 20px;
 }
   
-/**********************************************************************************************************************
-    *     Paneles     * 1:38
-**********************************************************************************************************************/
-
 .jfx-panelfondo{
     -fx-background-color:#2196f3;
     -fx-opacity:0.8;
@@ -382,11 +383,7 @@
     -fx-padding: 25 15 15 15;
     -fx-effect:dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 10.0, 0.7, 0.0,1.5);
 }
-  
-/**********************************************************************************************************************
-    *     eiquetas     * 1:49
-**********************************************************************************************************************/
-
+ 
 .jfx-titulo-label-label{
     -fx-font-size:24px;
     -fx-padding: 5 0 5 0;
@@ -395,12 +392,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 2, 0.0, 1, 2);
     -fx-alignment: CENTER;
 }
-
-  
-/**********************************************************************************************************************
-    *     campos de texto     * 2:05
-**********************************************************************************************************************/
-
 .jfx-txt-id{
     -fx-prompt-text-fill: -fx-base-color-id;
     -fx-border-color: -fx-base-color-id;
@@ -413,8 +404,312 @@
 .jfx-txt-id:focus-within{
     -fx-border-color: -fx-base-color-id;
 }
+
+.jfx-pantalla-proyeccion {
+    -fx-background-color: -proyeccion-fondo;
+    -fx-padding: 20px;
+}
+
+.proyeccion-root {
+    -fx-background-color: -proyeccion-fondo;
+}
+
+.ultimos-clientes-box {
+    -fx-background-color: -proyeccion-historial-bg;
+    -fx-background-radius: 20px;
+    -fx-padding: 22px 24px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 0);
+}
+
+.ultimos-clientes-header {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f4f1f;
+    -fx-padding: 0 0 10px 0;
+    -fx-border-color: transparent transparent rgba(63, 118, 63, 0.2) transparent;
+    -fx-border-width: 0 0 2 0;
+}
+.lista-llamadas-vbox {
+    -fx-spacing: 14px;
+}
+.llamada-item-hbox {
+    -fx-background-color: -proyeccion-item-bg;
+    -fx-background-radius: 16px;
+    -fx-padding: 12px 18px;
+    -fx-border-color: rgba(80, 130, 80, 0.15);
+    -fx-border-width: 1px;
+    -fx-border-radius: 16px;
+    -fx-alignment: CENTER_LEFT;
+}
+.llamada-item-hbox:focused, 
+.llamada-item-hbox:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+}
+.llamada-ficha-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1b4c1b;
+    -fx-min-width: 100px;
+}
+
+.llamada-caja-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #235f23;
+    -fx-min-width: 90px;
+}
+.llamada-hora-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0e350e;
+    -fx-background-color: #d4eed4;
+    -fx-background-radius: 40px;
+    -fx-padding: 5px 14px;
+    -fx-font-family: "Monospaced";
+}
   
 /**********************************************************************************************************************
+    *     REGISTRO CLIENTE CSS     *
+**********************************************************************************************************************/
+/* ============================================
+   ESTILOS PARA "REGISTRAR CLIENTE"
+   Usando 100% tus variables existentes
+   Compatible con tu estructura FXML actual
+   ============================================ */
+
+
+.registrar-cliente-anchor {
+    -fx-background-color: #f8c7ca; 
+}
+
+
+.registrar-cliente-titulo {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-base-color-titulos;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 2, 0.0, 1, 1);
+}
+
+
+.foto-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-border-color: -fx-base-color-focus;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+    -fx-padding: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
+}
+
+.foto-image-view {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 8px;
+}
+
+.foto-btn {
+    -fx-background-color: -fx-base-color-focus;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 25px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 3, 0, 0, 1);
+}
+
+.foto-btn:hover {
+    -fx-background-color: -fx-base-color-hover;
+    -fx-text-fill: -fx-base-color-texto;
+}
+
+.foto-btn:pressed {
+    -fx-background-color: #08989e;
+}
+
+/* ===== MFXTextField del formulario ===== */
+/* Ya tienes estilos base para .mfx-text-field, aquí solo añadimos específicos */
+.form-mfx-field {
+    -fx-pref-width: 280px;
+}
+
+.form-mfx-field .floating-text {
+    -fx-text-fill: -fx-base-color-etiquetas;
+}
+
+.form-mfx-field:focus-within {
+    -fx-border-color: -fx-base-color-focus;
+}
+
+.form-date-picker {
+    -fx-pref-width: 280px;
+    -fx-pref-height: 50px;
+    -fx-font-size: 14px;
+}
+
+.form-date-picker .arrow-button {
+    -fx-background-color: -fx-base-color-focus;
+}
+
+.form-date-picker .arrow-button:hover {
+    -fx-background-color: -fx-base-color-hover;
+}
+
+.form-date-picker .text-field {
+    -fx-text-fill: -fx-base-color-texto;
+    -fx-prompt-text-fill: -fx-base-color-etiquetas;
+}
+
+/* ===== TABLEVIEW ===== */
+/* Cabecera - usa tu color focus */
+.tabla-clientes .column-header-background {
+    -fx-background-color: -fx-base-color-focus;
+}
+
+.tabla-clientes .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 12px 10px;
+}
+
+.tabla-clientes .column-header .label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.tabla-clientes .column-header-background .filler {
+    -fx-background-color: -fx-base-color-focus;
+}
+
+
+.tabla-clientes .column-header {
+    -fx-border-color: transparent rgba(255, 255, 255, 0.3) transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.tabla-clientes .column-header:last-child {
+    -fx-border-width: 0;
+}
+
+
+.tabla-clientes .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e0e0e0 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.tabla-clientes .table-row-cell .table-cell {
+    -fx-font-size: 13px;
+    -fx-text-fill: -fx-base-color-texto;
+    -fx-padding: 10px 10px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+
+.tabla-clientes .table-row-cell:selected {
+    -fx-background-color: -fx-base-color-hover;
+    -fx-table-cell-border-color: transparent;
+}
+
+.tabla-clientes .table-row-cell:selected .table-cell {
+    -fx-text-fill: -fx-base-color-texto;
+    -fx-font-weight: bold;
+}
+
+
+.tabla-clientes .table-row-cell:hover {
+    -fx-background-color: rgba(9, 182, 188, 0.1);
+}
+
+
+.tabla-clientes .scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-base-color-unfocus;
+}
+
+.tabla-clientes .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -fx-base-color-focus;
+}
+
+
+.tabla-clientes .placeholder .label {
+    -fx-text-fill: -fx-base-color-etiquetas;
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
+}
+
+
+.btn-guardar {
+    -fx-background-color: -fx-base-color-button;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 28px;
+    -fx-background-radius: 30px;
+    -fx-min-width: 110px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 4, 0, 0, 1);
+}
+
+.btn-guardar:hover {
+    -fx-background-color: -fx-base-color-hover;
+    -fx-text-fill: -fx-base-color-texto;
+}
+
+.btn-guardar:pressed {
+    -fx-background-color: #1976d2;
+}
+
+
+.btn-limpiar {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: -fx-base-color-texto;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 28px;
+    -fx-background-radius: 30px;
+    -fx-min-width: 110px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 4, 0, 0, 1);
+}
+
+.btn-limpiar:hover {
+    -fx-background-color: #d0d0d0;
+}
+
+.btn-limpiar:pressed {
+    -fx-background-color: #c0c0c0;
+}
+
+.btn-eliminar {
+    -fx-background-color: -fx-base-color-error;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 28px;
+    -fx-background-radius: 30px;
+    -fx-min-width: 110px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 4, 0, 0, 1);
+}
+
+.btn-eliminar:hover {
+    -fx-background-color: #c0392b;
+}
+
+.btn-eliminar:pressed {
+    -fx-background-color: #a93226;
+}
+
+.registrar-cliente-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0.7, 0, 1.5);
+}
+
+.registrar-cliente-separador {
+    -fx-padding: 10px 0;
+}
     *     List View     *
 **********************************************************************************************************************/
 
