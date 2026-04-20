@@ -25,6 +25,7 @@ public class App extends Application {
         
         FlowController.getInstance().InitializeFlow(stage, null);
         FlowController.getInstance().goViewInWindow("MainView");
+        
     }
 
     static void setRoot(String fxml) throws IOException {

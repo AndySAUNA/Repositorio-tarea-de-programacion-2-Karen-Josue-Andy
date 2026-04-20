@@ -18,9 +18,10 @@ import javafx.stage.WindowEvent;
 import cr.ac.una.tareaprog2.controller.Controller;
 import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
 import io.github.palexdev.materialfx.css.themes.Themes;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.HBox;
 
-public class FlowController {
+public class FlowController extends Controller  {
 
     private static FlowController INSTANCE = null;
     private static Stage mainStage;
@@ -82,7 +83,15 @@ public class FlowController {
             String S = "view/" + s + ".fxml";
             this.mainStage.setScene(new Scene(FXMLLoader.load(App.class.getResource(S), this.idioma)));
             MFXThemeManager.addOn(this.mainStage.getScene(), Themes.DEFAULT, Themes.LEGACY);
-            this.mainStage.show();
+            var urlIcono = App.class.getResource("Resources/Logo.png");
+            if (urlIcono != null){ // para cargar el icono, sino da un aviso de error
+                this.mainStage.getIcons().setAll(new Image(urlIcono.toExternalForm()));
+// esto agarra todos los iconos del mainstage, y les pone el objeto imagen tomada de la direccion del url convertido a string por el metodo toExternalForm()
+            }else{
+                new Mensaje().showModal(Alert.AlertType.ERROR, "Guardar Empleado", getStage(),
+                    "No se encontro el icono en la direccion: resources/Logo.png");
+            }
+            this.mainStage.show(); // aqui se muestra el mainstage
         } catch (IOException ex) { 
             java.util.logging.Logger.getLogger(FlowController.class.getName()).log(Level.SEVERE, "Error inicializando la vista base.", ex);
         }

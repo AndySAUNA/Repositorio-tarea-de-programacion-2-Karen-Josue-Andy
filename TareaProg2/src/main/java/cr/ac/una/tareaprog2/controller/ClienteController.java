@@ -71,6 +71,10 @@ public class ClienteController extends Controller implements Initializable {
                 }
             });
     }
+        @Override
+    public void initialize() {
+       
+    }
 
     
     private void cargarClientes() {
@@ -242,8 +246,5 @@ private void tomarFoto() {
         }
     }
     
-    @Override
-    public void initialize() {
-       
-    }
+
 }

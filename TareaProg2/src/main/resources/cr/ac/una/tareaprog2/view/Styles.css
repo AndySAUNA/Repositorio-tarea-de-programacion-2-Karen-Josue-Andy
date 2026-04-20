@@ -1,7 +1,414 @@
-/*
- * Empty Stylesheet file.
- */
-
-.mainFxmlClass {
-
+*{
+    -fx-base-color-focus: #09b6bc;
+    -fx-base-color-unfocus: #4d4d4d;
+    -fx-base-color-etiquetas: #4d4d4d;
+    -fx-base-color-texto: #000000;
+    -fx-base-color-titulos: #51b6cd;
+    -fx-base-color-error: #D34336;
+    -fx-base-color-id: #00c853;
+    -mfx-main: #09b6bc;
+    -mfx-purple: #09b6bc;
+    -fx-base-color-hover: #33ffcc;
+    -fx-base-color-button: #2196f3;
+    -fx-base-color-system: #33ff33; 
 }
+
+.mfx-text-field, .mfx-password-field{
+    -mfx-float-mode: BORDER;
+    -fx-font-size: 14px;
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+    -fx-alignment: TOP_LEFT;
+    -fx-text-fill: -fx-base-color-texto; 
+    -fx-prompt-text-fill: -fx-base-color-etiquetas;
+}
+
+.mfx-text-field .text-field, .mfx-password-field .text-field{
+  /* Selected text highlight */
+  -fx-highlight-fill: -fx-base-color-focus;
+}
+
+.mfx-text-field:floating .floating-text, .mfx-password-field:floating .floating-text {
+  -fx-font-weight: bold;
+}
+
+.mfx-password-field{
+    -mfx-float-mode: BORDER;
+    -fx-font-size: 14px;
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+}
+.mfx-password-field:masked .floating-text{
+    -fx-font-size: 14px;
+}
+.mfx-button{
+    -mfx-button-type: Raised;
+    -fx-opacity: 0.8;
+    -fx-content-display: left;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+}
+.button:hover, .button:selected.button:hover{
+    -fx-background-color: -fx-base-color-hover;
+}
+
+.mfx-checkbox {
+    -fx-font-size: 14.0px;
+    -fx-pref-height: 26px;
+    -fx-min-height: 26px;
+    -fx-max-height: 26px;
+    -fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+}
+
+.mfx-radio-button{
+    -fx-font-size: 14.0px;
+    -fx-pref-height: 26px;
+    -fx-min-height: 26px;
+    -fx-max-height: 26px;
+    -fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+}
+
+.mfx-date-picker{
+    -fx-font-size: 14.0px;
+    -fx-font-color: fx-base-color-texto;
+    -fx-pref-height: 40px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+}
+
+.mfx-date-cell:current {
+  -fx-text-fill: -fx-base-color-focus;
+}
+
+.mfx-date-cell:selected {
+  -fx-background-color: -fx-base-color-focus;
+}
+
+.mfx-list-view .virtual-flow .mfx-list-cell .data-label {
+	-fx-font-family: 'Open Sans Regular';
+        -fx-background-color: -fx-base-color-system;
+	-fx-background-radius: 10;
+	-fx-border-color: -fx-base-color-system;
+	-fx-border-radius: 10;
+	-fx-padding: 4;
+        -fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+}
+
+.mfx-list-view .virtual-flow .mfx-list-cell:selected .data-label {
+	-fx-font-family: 'Open Sans SemiBold';
+        -fx-font-family: 'Open Sans Regular';
+        -fx-background-color: -fx-base-color-system;
+	-fx-background-radius: 10;
+	-fx-border-color: -fx-base-color-system;
+	-fx-border-radius: 10;
+	-fx-padding: 4;
+        -fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+}
+
+.mfx-check-list-view .virtual-flow .mfx-check-list-cell .data-label {
+	-fx-font-family: 'Open Sans Regular';
+        -fx-font-family: 'Open Sans Regular';
+        -fx-background-color: -fx-base-color-system;
+	-fx-background-radius: 10;
+	-fx-border-color: -fx-base-color-system;
+	-fx-border-radius: 10;
+	-fx-padding: 4;-fx-text-fill: -fx-base-color-etiquetas;
+    -mfx-main: -fx-base-color-focus;
+    -mfx-secondary: -fx-base-color-unfocus;
+    
+}
+
+.mfx-check-list-view .virtual-flow .mfx-check-list-cell:selected .data-label {
+	-fx-font-family: 'Open Sans SemiBold';
+}
+
+.my-button-icon {
+    -fx-graphic: url("/images/save-icon.png");
+}
+  
+/**********************************************************************************************************************
+    *     Botones     *
+
+**********************************************************************************************************************/
+.jfx-btn-nuevo, .jfx-btn-nuevo:armed, .jfx-btn-nuevo:focused{
+    -fx-background-color: #2196f3;
+    
+}
+
+.jfx-btn-nuevo > ImageView{
+    -fx-image: url(../resources/Agregar.png);
+}
+
+.jfx-btn-agregar, .jfx-btn-agregar:armed, .jfx-btn-agregar:focused{
+    -fx-background-color: #99ff99;
+    
+}
+
+.jfx-btn-agregar > ImageView{
+    -fx-image: url(../resources/Agregar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-buscar, .jfx-btn-buscar:armed, .jfx-btn-buscar:focused{
+    -fx-background-color: #2196f3;
+    
+}
+
+.jfx-btn-buscar > ImageView{
+    -fx-image: url(../resources/Buscar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-eliminar, .jfx-btn-eliminar:armed, .jfx-btn-eliminar:focused{
+    -fx-background-color: #ff3333;
+    
+}
+
+.jfx-btn-eliminar > ImageView{
+    -fx-image: url(../resources/Eliminar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-guardar, .jfx-btn-guardar:armed, .jfx-btn-guardar:focused{
+    -fx-background-color: #0066ff;
+    
+}
+
+.jfx-btn-guardar > ImageView{
+    -fx-image: url(../resources/Guardar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-comun, .jfx-btn-comun:armed, .jfx-btn-comun:focused{
+    -fx-background-color: -fx-base-color-button;
+    
+}
+
+.jfx-btn-comun > ImageView{
+    -fx-image: url(../resources/Guardar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-salir, .jfx-btn-salir:armed, .jfx-btn-salir:focused{
+    -fx-background-color: #ff3333;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+    
+}
+
+.jfx-btn-salir > ImageView{
+    -fx-image: url(../resources/Salir.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-configuracion, .jfx-btn-configuracion:armed, .jfx-btn-configuracion:focused{
+    -fx-background-color: #cccccc;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+    
+}
+
+.jfx-btn-configuracion > ImageView{
+    -fx-image: url(../resources/configuracion.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-tramites, .jfx-btn-tramites:armed, .jfx-btn-tramites:focused{
+    -fx-background-color: #cccccc;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+    
+}
+
+.jfx-btn-tramites > ImageView{
+    -fx-image: url(../resources/tramites.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-clientes, .jfx-btn-clientes:armed, .jfx-btn-clientes:focused{
+    -fx-background-color: #cc33ff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+    
+}
+
+.jfx-btn-clientes > ImageView{
+    -fx-image: url(../resources/clientes.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-metricas, .jfx-btn-metricas:armed, .jfx-btn-metricas:focused{
+    -fx-background-color: #ff9933;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+    
+}
+
+.jfx-btn-metricas > ImageView{
+    -fx-image: url(../resources/metricas.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+  
+
+.jfx-btn-sucursales, .jfx-btn-sucursales:armed, .jfx-btn-sucursales:focused{
+    -fx-background-color: #0066ff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-sucursales > ImageView{
+    -fx-image: url(../resources/sucursales.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-agregarTramite, .jfx-btn-agregarTramite:armed, .jfx-btn-agregarTramite:focused{
+    -fx-background-color: #33ffff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-agregarTramite > ImageView{
+    -fx-image: url(../resources/Agregar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-agregarimagen, .jfx-btn-agregarimagen:armed, .jfx-btn-agregarimagen:focused{
+    -fx-background-color: #33ffff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-agregarimagen > ImageView{
+    -fx-image: url(../resources/AgregarImagen.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-cancelar, .jfx-btn-cancelar:armed, .jfx-btn-cancelar:focused{
+    -fx-background-color: #ff0000;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-cancelar > ImageView{
+    -fx-image: url(../resources/Cancelar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-cambiar, .jfx-btn-cambiar:armed, .jfx-btn-cambiar:focused{
+    -fx-background-color: #0099ff;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-cambiar > ImageView{
+    -fx-image: url(../resources/Cambiar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-agregarCliente, .jfx-btn-agregarCliente:armed, .jfx-btn-agregarCliente:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-agregarCliente > ImageView{
+    -fx-image: url(../resources/Agregar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+
+.jfx-btn-Estacion, .jfx-btn-Estacion:armed, .jfx-btn-Estacion:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-Estacion > ImageView{
+    -fx-image: url(../resources/Estacion.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-Priorizar, .jfx-btn-Priorizar:armed, .jfx-btn-Priorizar:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-Priorizar > ImageView{
+    -fx-image: url(../resources/Prioritario.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+  
+/**********************************************************************************************************************
+    *     Paneles     * 1:38
+**********************************************************************************************************************/
+
+.jfx-panelfondo{
+    -fx-background-color:#2196f3;
+    -fx-opacity:0.8;
+}
+
+.jfx-panelfondo > AnchorPane{
+    -fx-background-color: white;
+    -fx-border-color:#97a692;
+    -fx-border-width:10px;
+}
+
+.jfx-contenedor-principal{
+    -fx-background-color:white;
+    -fx-background-radius:4.0;
+    -fx-padding: 25 15 15 15;
+    -fx-effect:dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 10.0, 0.7, 0.0,1.5);
+}
+  
+/**********************************************************************************************************************
+    *     eiquetas     * 1:49
+**********************************************************************************************************************/
+
+.jfx-titulo-label-label{
+    -fx-font-size:24px;
+    -fx-padding: 5 0 5 0;
+    -fx-text-fill: -fx-base-color-titulos;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 2, 0.0, 1, 2);
+    -fx-alignment: CENTER;
+}
+
+  
+/**********************************************************************************************************************
+    *     campos de texto     * 2:05
+**********************************************************************************************************************/
+
+.jfx-txt-id{
+    -fx-prompt-text-fill: -fx-base-color-id;
+    -fx-border-color: -fx-base-color-id;
+}
+
+.jfx-txt-id .floating-text, .jfx-txt-id:focus-within .floating-text{
+    -fx-text-fill: -fx-base-color-id;
+}
+
+.jfx-txt-id:focus-within{
+    -fx-border-color: -fx-base-color-id;
+}
+  
+/**********************************************************************************************************************
+    *     List View     *
+**********************************************************************************************************************/

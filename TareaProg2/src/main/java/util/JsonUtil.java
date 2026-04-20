@@ -33,7 +33,7 @@ public class JsonUtil {
         try (Reader reader = new FileReader(archivo)) {
             Type type = TypeToken.getParameterized(List.class, clase).getType();
             return gson.fromJson(reader, type);
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("Error al cargar: " + e.getMessage());
             return new ArrayList<>();
         }

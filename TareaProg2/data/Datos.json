@@ -1,0 +1,71 @@
+[
+  {
+    "id": 0,
+    "nombre": "Norte",
+    "direccion": "En el Norte",
+    "estaciones": [
+      {
+        "id": 1,
+        "nombre": "Estacion1",
+        "preferencial": false,
+        "tramitesAsignados": []
+      },
+      {
+        "id": 2,
+        "nombre": "Estacion2",
+        "preferencial": true,
+        "tramitesAsignados": []
+      },
+      {
+        "id": 3,
+        "nombre": "Estacion3",
+        "preferencial": true,
+        "tramitesAsignados": []
+      },
+      {
+        "id": 4,
+        "nombre": "Estacion4",
+        "preferencial": false,
+        "tramitesAsignados": []
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "nombre": "Colina Cilantro",
+    "direccion": "En medio de la nada",
+    "estaciones": [
+      {
+        "id": 1,
+        "nombre": "Estacion1",
+        "preferencial": true,
+        "tramitesAsignados": []
+      },
+      {
+        "id": 2,
+        "nombre": "Estacion2",
+        "preferencial": false,
+        "tramitesAsignados": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Colina de perros",
+    "direccion": "colinda con los perros",
+    "estaciones": [
+      {
+        "id": 1,
+        "nombre": "Estacion1",
+        "preferencial": false,
+        "tramitesAsignados": []
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "La esquina del burro",
+    "direccion": "en una esquina del portrero donde se encuentra el burro",
+    "estaciones": []
+  }
+]
