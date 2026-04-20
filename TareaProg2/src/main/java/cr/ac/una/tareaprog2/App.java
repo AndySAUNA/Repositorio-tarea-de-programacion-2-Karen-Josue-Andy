@@ -1,44 +1,52 @@
 package cr.ac.una.tareaprog2;
 
-
-import io.github.palexdev.materialfx.css.themes.MFXThemeManager;
-import io.github.palexdev.materialfx.css.themes.Themes;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import util.FlowController;
+import util.AudioUtil;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
+    
 
-    private static Scene scene;
-    private static String acceso = "";
+     private static String rol = "";
 
     @Override
-    public void start(Stage stage) throws IOException {
-        
+    public void start(Stage stage) throws Exception {
         FlowController.getInstance().InitializeFlow(stage, null);
-        FlowController.getInstance().goViewInWindow("MainView");
         
+        switch (rol) {
+            case "admin":
+                FlowController.getInstance().goViewInWindow("AdminView");
+                break;
+            case "kiosco":
+                FlowController.getInstance().goViewInWindow("KioskoView");
+                break;
+            case "funcionario":
+                FlowController.getInstance().goViewInWindow("FuncionarioView");
+                break;
+            case "proyeccion":
+                FlowController.getInstance().goViewInWindow("PantallaView");
+                break;
+                 default:
+                FlowController.getInstance().goViewInWindow("MainView");
+                break;
+        }
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    @Override
+    public void stop() {
+        AudioUtil.shutdown();
+        System.out.println("Aplicación cerrada");
     }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view/" + fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-
     public static void main(String[] args) {
+        if (args.length > 0) {
+            rol = args[0];
+            System.out.println("Rol seleccionado: " + rol);
+        }
         launch();
     }
-
 }
