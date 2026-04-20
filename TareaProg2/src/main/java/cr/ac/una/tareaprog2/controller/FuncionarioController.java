@@ -7,6 +7,10 @@ package cr.ac.una.tareaprog2.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import javafx.stage.Modality;
 
 /**
  * FXML Controller class

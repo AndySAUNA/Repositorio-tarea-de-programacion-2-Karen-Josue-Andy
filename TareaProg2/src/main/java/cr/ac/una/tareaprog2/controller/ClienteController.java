@@ -51,12 +51,14 @@ public class ClienteController extends Controller implements Initializable {
     private ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
     private String rutaFotoSeleccionada;
     private Cliente clienteSeleccionado;
-    private final String ARCHIVO_CLIENTES = "data/clientes.json";
+    private final String ARCHIVO_CLIENTES = System.getProperty("user.home")+"/datosProyecto/clientes.json";//data/clientes.json";
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        File carpeta= new File(System.getProperty("user.home")+ "/datosProyecto/");
+        if(!carpeta.exists()){carpeta.mkdirs();}
         colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombreCompleto"));
         colEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));

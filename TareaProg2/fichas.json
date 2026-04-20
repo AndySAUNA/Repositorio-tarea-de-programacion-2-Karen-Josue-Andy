@@ -1,1 +1,51 @@
 [
+  {
+    "numero": 1,
+    "cedulaCliente": "uu3u32",
+    "idTramite": 1,
+    "idSucursal": 1,
+    "estado": "ESPERA",
+    "preferencial": false
+  },
+  {
+    "numero": 2,
+    "cedulaCliente": "uu3u32",
+    "idTramite": 1,
+    "idSucursal": 1,
+    "estado": "ESPERA",
+    "preferencial": false
+  },
+  {
+    "numero": 3,
+    "cedulaCliente": "uu3u32",
+    "idTramite": 1,
+    "idSucursal": 1,
+    "estado": "ESPERA",
+    "preferencial": false
+  },
+  {
+    "numero": 4,
+    "cedulaCliente": "uu3u32",
+    "idTramite": 1,
+    "idSucursal": 1,
+    "estado": "ESPERA",
+    "preferencial": false
+  },
+  {
+    "numero": 5,
+    "cedulaCliente": "26384",
+    "idTramite": 1,
+    "idSucursal": 1,
+    "estado": "ESPERA",
+    "preferencial": false
+  },
+  {
+    "numero": 6,
+    "cedulaCliente": "26384",
+    "idTramite": 1,
+    "idSucursal": 1,
+    "fechaHoraGeneracion": "2026-04-20T06:08:33.893521200",
+    "estado": "ESPERA",
+    "preferencial": false
+  }
+]
