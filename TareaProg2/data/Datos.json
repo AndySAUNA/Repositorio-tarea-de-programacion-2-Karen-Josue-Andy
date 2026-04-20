@@ -15,6 +15,18 @@
         "nombre": "Estacion2",
         "preferencial": false,
         "tramitesAsignados": []
+      },
+      {
+        "id": 3,
+        "nombre": "Estacion3",
+        "preferencial": false,
+        "tramitesAsignados": []
+      },
+      {
+        "id": 4,
+        "nombre": "Estacion4",
+        "preferencial": false,
+        "tramitesAsignados": []
       }
     ]
   },

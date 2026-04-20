@@ -19,18 +19,18 @@
                <top>
                   <HBox maxHeight="50.0" prefHeight="18.0" prefWidth="560.0" spacing="10.0" BorderPane.alignment="CENTER">
                      <children>
-                        <MFXTextField fx:id="txfBuscar" floatMode="BORDER" floatingText="Buscar" maxWidth="1.7976931348623157E308" minHeight="9.0" onAction="#onActionTxfBuscar" prefHeight="9.0" prefWidth="236.0" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="btnAgregar" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionBtnAgregar" prefHeight="40.0" prefWidth="104.0" styleClass="jfx-btn-agregar" text="Agregar" HBox.hgrow="ALWAYS">
+                        <MFXTextField fx:id="txfBuscar" floatMode="BORDER" floatingText="Buscar" maxWidth="1.7976931348623157E308" minHeight="9.0" onAction="#onActionTxfBuscar" prefHeight="9.0" prefWidth="492.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnAgregar" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="83.0" mnemonicParsing="false" onAction="#onActionBtnAgregar" prefHeight="40.0" prefWidth="83.0" styleClass="jfx-btn-agregar" text="Agregar" HBox.hgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="16.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnPriorizar" layoutX="465.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionPriorizar" prefHeight="40.0" prefWidth="91.0" styleClass="jfx-btn-Priorizar" text="Priorizar">
+                        <Button fx:id="btnPriorizar" layoutX="465.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="85.0" mnemonicParsing="false" onAction="#onActionPriorizar" prefHeight="40.0" prefWidth="85.0" styleClass="jfx-btn-Priorizar" text="Priorizar" HBox.hgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
-                        <Button fx:id="btnEliminar" layoutX="61.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionEliminar" prefHeight="40.0" prefWidth="89.0" styleClass="jfx-btn-eliminar" text="eliminar" HBox.hgrow="ALWAYS">
+                        <Button fx:id="btnEliminar" layoutX="61.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="87.0" mnemonicParsing="false" onAction="#onActionEliminar" prefHeight="40.0" prefWidth="87.0" styleClass="jfx-btn-eliminar" text="eliminar" HBox.hgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -47,7 +47,7 @@
                         <VBox>
                            <children>
                               <Label text="Sucursales" />
-                              <MFXTableView fx:id="tableViewSucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClickedTablillaSucursales" prefHeight="254.0" prefWidth="560.0" VBox.vgrow="ALWAYS" />
+                              <MFXTableView fx:id="tableViewSucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#ClickMF1" prefHeight="254.0" prefWidth="560.0" VBox.vgrow="ALWAYS" />
                            </children>
                         </VBox>
                         <VBox>

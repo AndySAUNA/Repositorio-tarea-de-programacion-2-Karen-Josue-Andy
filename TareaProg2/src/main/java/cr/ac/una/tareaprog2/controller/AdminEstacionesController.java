@@ -48,37 +48,35 @@ public class AdminEstacionesController extends Controller implements Initializab
     private Button btnEliminar;
     @FXML
     private MFXTableView<Sucursal> tableViewSucursal;
-    private static final String ArchivoSucursales = "data/Datos.json";
+    private static final String ArchivoDatos = "data/Datos.json";
     private final ObservableList<Sucursal> listaSucursales = FXCollections.observableArrayList();
     @FXML
     private MFXTableView<Estacion> tableViewEstacion;
-     private final ObservableList<Estacion> listaEstaciones = FXCollections.observableArrayList();
-
+    private final ObservableList<Estacion> listaEstaciones = FXCollections.observableArrayList();
+    
     /**
      * Initializes the controller class.
      */
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setupTablillaSucursales();
-        setupTablillaEstaciones();
-        seleccionarPrimeraSucursal();
+        setupTablillaSucursales();//pone columnas de sucursales
+        setupTablillaEstaciones();//pone columnas de estaciones
         cargarSucursalesEnTablilla();
-        cargarEstacionesDeSucursal(obtenerSucursalSeleccionada());
+        seleccionarPrimeraSucursal();
+        cargarEstacionesDeSucursalEnTablilla();
+        //cargarEstacionesDeSucursal(listaSucursales.get(0));
         
-        
-        // TODO
     }    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
     public void initialize() {
         cargarSucursalesEnTablilla(); //siempre tiene que actualizar las sucursales en tablilla
-        cargarEstacionesDeSucursal(obtenerSucursalSeleccionada());//siempre tiene que actualizar Estaciones en tablilla
+        cargarEstacionesDeSucursalEnTablilla();
+        cargarSucursalesEnTablilla();
     }
-    @FXML
-private void onMouseClickedTablillaSucursales(MouseEvent event) {
-    Sucursal seleccionada = obtenerSucursalSeleccionada();
-    cargarEstacionesDeSucursal(seleccionada);
-}
-    private void setupTablillaSucursales(){
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private void setupTablillaSucursales(){//funciona
         if(!tableViewSucursal.getTableColumns().isEmpty()){
             return;
         }
@@ -92,9 +90,11 @@ private void onMouseClickedTablillaSucursales(MouseEvent event) {
         
         tableViewSucursal.getTableColumns().setAll(colId,colNombre);
         tableViewSucursal.setItems(listaSucursales);
+        cargarSucursalesEnTablilla();
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     //pone las columnas de la tablilla de sucursales
-    private void setupTablillaEstaciones(){
+    private void setupTablillaEstaciones(){// funciona
         if(!tableViewEstacion.getTableColumns().isEmpty()){
             return;
         }
@@ -112,49 +112,42 @@ private void onMouseClickedTablillaSucursales(MouseEvent event) {
         tableViewEstacion.getTableColumns().setAll(colNumero,colNombre,colPreferencial);
         tableViewEstacion.setItems(listaEstaciones);
     }
-    
-    private void cargarSucursalesEnTablilla(){
-        seleccionarPrimeraSucursal();
-        List<Sucursal> lista = JsonUtil.cargarLista(ArchivoSucursales, Sucursal.class);
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private void cargarSucursalesEnTablilla(){// funciona perfectamente
+        List<Sucursal> lista = JsonUtil.cargarLista(ArchivoDatos, Sucursal.class);
         if (lista == null){
             lista = new ArrayList<>();
         }
         listaSucursales.clear();
         listaSucursales.addAll(lista);
+        
         Platform.runLater(() -> {
             tableViewSucursal.setItems(null);
             tableViewSucursal.setItems(listaSucursales);
+            
         });
     }
-
-    private void configurarSeleccionSucursal() {
-        tableViewSucursal.setOnMouseClicked(event -> {
-            Sucursal seleccionada = obtenerSucursalSeleccionada();
-            cargarEstacionesDeSucursal(seleccionada);
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private void cargarEstacionesDeSucursalEnTablilla(){
+        if(obtenerSucursalSeleccionada() == null){
+            System.out.println("sucusal no tiene estaciones");
+            return;
+        }
+        List<Estacion> lista = obtenerSucursalSeleccionada().getEstaciones();
+        if (lista == null){
+            lista = new ArrayList<>();
+        }
+        listaEstaciones.clear();
+        listaEstaciones.addAll(lista);
+        
+        Platform.runLater(() -> {
+            tableViewEstacion.setItems(null);
+            tableViewEstacion.setItems(listaEstaciones);
         });
     }
-    
-    // funcion pra obtener el objeto que ha sido seleccionado de la tablilla tableViewSucursal
-    private Sucursal obtenerSucursalSeleccionada(){
-        var seleccionadas = tableViewSucursal.getSelectionModel().getSelectedValues();
-        if (seleccionadas == null || seleccionadas.isEmpty()){
-            return null;
-        }
-        return seleccionadas.get(0);
-    }
-
-    private void seleccionarPrimeraSucursal(){
-        if (!listaSucursales.isEmpty()){// si la lista de sucursales no esta vacia
-            tableViewSucursal.getSelectionModel().clearSelection();//se limpia seleccion de la tablilla al iniciar
-            tableViewSucursal.getSelectionModel().selectIndex(0);//se selecciona en la tablilla la primera sucursal de la lista por defecto
-            cargarEstacionesDeSucursal(listaSucursales.get(0));//se carga las estaciones de la primera sucursal por defecto
-        }
-        else{
-            cargarEstacionesDeSucursal(null); // en caso de que la lista de sucursales este vacia, no se cargan estaciones
-        }
-    }
-    
-    private void cargarEstacionesDeSucursal(Sucursal sucursal){
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private void cargarEstacionesDeSucursal(Sucursal sucursal){//nofunciona
         listaEstaciones.clear();
         
         if(sucursal !=null && sucursal.getEstaciones() != null){
@@ -162,13 +155,40 @@ private void onMouseClickedTablillaSucursales(MouseEvent event) {
         }
         tableViewEstacion.setItems(listaEstaciones);
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private void configurarSeleccionSucursal() {//no se para que es
+        tableViewSucursal.setOnMouseClicked(event -> {
+            Sucursal seleccionada = obtenerSucursalSeleccionada();
+            cargarEstacionesDeSucursal(seleccionada);
+        });
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    // funcion pra obtener el objeto que ha sido seleccionado de la tablilla tableViewSucursal
+    private Sucursal obtenerSucursalSeleccionada(){//funciona
+        var seleccionadas = tableViewSucursal.getSelectionModel().getSelectedValues();
+        if (seleccionadas == null || seleccionadas.isEmpty()){
+            return null;
+        }
+        return seleccionadas.get(0);
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private void seleccionarPrimeraSucursal(){//funciona 
+        if (!listaSucursales.isEmpty()){// si la lista de sucursales no esta vacia
+            tableViewSucursal.getSelectionModel().clearSelection();//se limpia seleccion de la tablilla al iniciar
+            tableViewSucursal.getSelectionModel().selectIndex(0);//se selecciona en la tablilla la primera sucursal de la lista por defecto
+        }else{
+            listaEstaciones.clear();
+            tableViewEstacion.setItems(listaEstaciones);
+        }
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionTxfBuscar(ActionEvent event) {
     }
     //boton para agregar estacion en sucursal
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
-    private void onActionBtnAgregar(ActionEvent event) {
+    private void onActionBtnAgregar(ActionEvent event) {//funciona
         Sucursal sucursalSeleccionada = obtenerSucursalSeleccionada();
         if (sucursalSeleccionada == null){
             new Mensaje().showModal(Alert.AlertType.ERROR,"Error Agregar", getStage(), "Tienes que seleccionar una sucursal");
@@ -183,15 +203,15 @@ private void onMouseClickedTablillaSucursales(MouseEvent event) {
         sucursalSeleccionada.getEstaciones().add(nueva);
         cargarEstacionesDeSucursal(sucursalSeleccionada);
         //para guardar todo en el Json, como la estacion es parte de la sucursal, una vez modificada, hay que guardar todo el arreglo
-        guardarSucursales();
+        guardarDatos();
         new Mensaje().showModal(Alert.AlertType.INFORMATION,"Estacion agregada", getStage(), "Estacion ha sido agregada exitosamente");
         cargarEstacionesDeSucursal(obtenerSucursalSeleccionada());
     }
-    
-    private void guardarSucursales(){
-        JsonUtil.guardarLista(ArchivoSucursales, new ArrayList<>(listaSucursales));
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private void guardarDatos(){//funciona
+        JsonUtil.guardarLista(ArchivoDatos, new ArrayList<>(listaSucursales));
     }
-            
+    //-----------------------------------------------------------------------------------------------------------------------------------
     //funcion para pobtener el id que sigue para establecer nombre de estacion y id
     private int getIdSiguienteEstacion(){ //consigue el id mas alto de la lista
         
@@ -203,14 +223,22 @@ private void onMouseClickedTablillaSucursales(MouseEvent event) {
         }
         return maxId + 1;
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionPriorizar(ActionEvent event) {
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionEliminar(ActionEvent event) {
     }
 
-    
-    
+    private void onActionBtnRefrescar(ActionEvent event) {
+        cargarEstacionesDeSucursalEnTablilla();
+    }
+
+    @FXML
+    private void ClickMF1(MouseEvent event) {
+        System.out.println("ClickCickMF activado");
+        cargarEstacionesDeSucursalEnTablilla();
+    }
 }
