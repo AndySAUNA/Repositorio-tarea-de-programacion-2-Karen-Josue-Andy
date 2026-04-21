@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.ControlFichasViewController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.ControlFichasViewController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <top>
             <HBox prefHeight="26.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="18.0" prefWidth="135.0" text="CONTROL DE FICHAS">
+                  <Label prefHeight="45.0" prefWidth="289.0" styleClass="jfx-titulo-label-label" text="CONTROL DE FICHAS">
                      <HBox.margin>
                         <Insets left="225.0" top="5.0" />
                      </HBox.margin>
@@ -38,9 +38,10 @@
          <bottom>
             <BorderPane prefHeight="126.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <bottom>
-                  <HBox prefHeight="54.0" prefWidth="600.0" spacing="170.0" BorderPane.alignment="CENTER">
+                  <HBox prefHeight="54.0" prefWidth="600.0" spacing="30.0" BorderPane.alignment="CENTER">
                      <children>
-                        <MFXButton onAction="#llamarPreferencial" prefHeight="44.0" prefWidth="132.0" styleClass="mfx-button" text="Llamar Preferencial" />
+                        <MFXButton onAction="#llamarPreferencial" prefHeight="44.0" prefWidth="153.0" styleClass="mfx-button" text="Llamar Preferencial" />
+                        <MFXButton onAction="#refrescar" prefHeight="47.0" prefWidth="133.0" styleClass="mfx-button" text="Refrescar lista" />
                      </children>
                      <padding>
                         <Insets left="10.0" />
@@ -50,10 +51,9 @@
                <center>
                   <HBox prefHeight="39.0" prefWidth="600.0" spacing="30.0" BorderPane.alignment="CENTER">
                      <children>
-                        <MFXButton onAction="#siguienteFicha" prefHeight="42.0" prefWidth="106.0" styleClass="mfx-button" text="Siguiente ficha" />
-                        <MFXButton layoutX="10.0" layoutY="10.0" onAction="#repetirLLamada" prefHeight="44.0" prefWidth="118.0" styleClass="mfx-button" text="Repetir llamada" />
-                        <MFXButton layoutX="213.0" layoutY="10.0" onAction="#llamarSeleccionada" prefHeight="45.0" prefWidth="142.0" styleClass="mfx-button" text="Llamar Seleccionada" />
-                        <MFXButton onAction="#refrescar" prefHeight="47.0" prefWidth="118.0" styleClass="mfx-button" text="Refrescar lista" />
+                        <MFXButton onAction="#siguienteFicha" prefHeight="42.0" prefWidth="122.0" styleClass="mfx-button" text="Siguiente ficha" />
+                        <MFXButton layoutX="10.0" layoutY="10.0" onAction="#repetirLLamada" prefHeight="44.0" prefWidth="130.0" styleClass="mfx-button" text="Repetir llamada" />
+                        <MFXButton layoutX="213.0" layoutY="10.0" onAction="#llamarSeleccionada" prefHeight="46.0" prefWidth="166.0" styleClass="mfx-button" text="Llamar Seleccionada" />
                      </children>
                      <padding>
                         <Insets left="10.0" top="10.0" />

@@ -53,7 +53,6 @@ public class PantallaController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         iniciarReloj();
         iniciarAnimacionAvisos();
-        cargarDatosPrueba();
     }
     
     private void iniciarReloj() {
@@ -156,15 +155,7 @@ public class PantallaController extends Controller implements Initializable {
         estacion.setText("---");
         hora.setText("---");
     }
-    
-    private void cargarDatosPrueba() {
-        registrarLlamadoSilencioso(42, "Caja 1");
-        registrarLlamadoSilencioso(43, "Caja 2");
-        registrarLlamadoSilencioso(44, "Caja 1");
-        registrarLlamadoSilencioso(45, "Caja 3");
-        registrarLlamado(46, "Caja 2");
-        
-    }
+   
     @Override
     public void initialize() {
         

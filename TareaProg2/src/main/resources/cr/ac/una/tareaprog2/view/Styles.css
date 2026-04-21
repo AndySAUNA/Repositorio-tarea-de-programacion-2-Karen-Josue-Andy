@@ -381,7 +381,7 @@
     -fx-background-color:white;
     -fx-background-radius:4.0;
     -fx-padding: 25 15 15 15;
-    -fx-effect:dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 10.0, 0.7, 0.0,1.5);
+   
 }
  
 .jfx-titulo-label-label{
@@ -417,7 +417,7 @@
 .ultimos-clientes-box {
     -fx-background-color: -proyeccion-historial-bg;
     -fx-background-radius: 20px;
-    -fx-padding: 22px 24px;
+    -fx-padding:  24px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 0);
 }
 
@@ -435,7 +435,7 @@
 .llamada-item-hbox {
     -fx-background-color: -proyeccion-item-bg;
     -fx-background-radius: 16px;
-    -fx-padding: 12px 18px;
+    -fx-padding:  18px;
     -fx-border-color: rgba(80, 130, 80, 0.15);
     -fx-border-width: 1px;
     -fx-border-radius: 16px;
@@ -464,7 +464,7 @@
     -fx-text-fill: #0e350e;
     -fx-background-color: #d4eed4;
     -fx-background-radius: 40px;
-    -fx-padding: 5px 14px;
+    -fx-padding: 14px;
     -fx-font-family: "Monospaced";
 }
   
@@ -511,7 +511,7 @@
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-padding: 10px 20px;
+    -fx-padding:  20px;
     -fx-background-radius: 25px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 3, 0, 0, 1);
@@ -567,7 +567,7 @@
 
 .tabla-clientes .column-header {
     -fx-background-color: transparent;
-    -fx-padding: 12px 10px;
+    -fx-padding:  10px;
 }
 
 .tabla-clientes .column-header .label {
@@ -601,7 +601,7 @@
 .tabla-clientes .table-row-cell .table-cell {
     -fx-font-size: 13px;
     -fx-text-fill: -fx-base-color-texto;
-    -fx-padding: 10px 10px;
+    -fx-padding:  10px;
     -fx-alignment: CENTER_LEFT;
 }
 
@@ -643,7 +643,7 @@
     -fx-text-fill: white;
     -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-padding: 12px 28px;
+    -fx-padding:  28px;
     -fx-background-radius: 30px;
     -fx-min-width: 110px;
     -fx-cursor: hand;
@@ -665,7 +665,7 @@
     -fx-text-fill: -fx-base-color-texto;
     -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-padding: 12px 28px;
+    -fx-padding: 28px;
     -fx-background-radius: 30px;
     -fx-min-width: 110px;
     -fx-cursor: hand;
@@ -685,7 +685,7 @@
     -fx-text-fill: white;
     -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-padding: 12px 28px;
+    -fx-padding:  28px;
     -fx-background-radius: 30px;
     -fx-min-width: 110px;
     -fx-cursor: hand;
@@ -708,14 +708,9 @@
 }
 
 .registrar-cliente-separador {
-    -fx-padding: 10px 0;
+    -fx-padding: 10px ;
 }
-    *     List View     *
-**********************************************************************************************************************/
 
-/**********************************************************************************************************************
-    *     ImageVIew     *
-**********************************************************************************************************************/
 .jfx-txt-logoImageView{
     -fx-image: url(file:data/Logo.png);
 }

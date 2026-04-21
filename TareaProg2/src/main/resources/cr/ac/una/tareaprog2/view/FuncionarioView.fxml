@@ -9,29 +9,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.FuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.tareaprog2.controller.FuncionarioController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
-         <top>
-            <Label text="FuncionarioView" BorderPane.alignment="CENTER" />
-         </top>
          <center>
             <VBox prefHeight="382.0" prefWidth="127.0" spacing="17.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="26.0" prefWidth="238.0" text="Manejo de tickets" />
+                  <Label prefHeight="26.0" prefWidth="238.0" styleClass="jfx-titulo-label-label" text="Manejo de tickets" />
                   <HBox prefHeight="100.0" prefWidth="551.0" spacing="120.0">
                      <children>
-                        <MFXButton prefHeight="50.0" prefWidth="150.0" text="Gestión de tickets" />
-                        <MFXButton prefHeight="51.0" prefWidth="153.0" text="Historial de tickets" />
+                        <MFXButton onAction="#abrirControlFichas" prefHeight="52.0" prefWidth="150.0" styleClass="mfx-button" text="Gestión de tickets" />
                      </children>
                      <padding>
-                        <Insets left="10.0" top="30.0" />
+                        <Insets left="10.0" top="20.0" />
                      </padding>
                   </HBox>
-                  <Separator prefWidth="200.0" />
-                  <Label text="Informacion de clientes y salir" />
-                  <MFXButton prefHeight="48.0" prefWidth="130.0" text="Gestión de clientes" />
-                  <MFXButton prefHeight="46.0" prefWidth="186.0" text="Salir" />
+                  <Separator prefWidth="200.0" styleClass="registrar-cliente-separador" />
+                  <Label prefHeight="34.0" prefWidth="359.0" styleClass="jfx-titulo-label-label" text="Informacion de clientes y salir" />
                </children>
                <padding>
                   <Insets left="30.0" top="10.0" />
@@ -41,6 +35,17 @@
                </BorderPane.margin>
             </VBox>
          </center>
+         <bottom>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MFXButton onAction="#abrirClientes" prefHeight="48.0" prefWidth="162.0" styleClass="mfx-button" text="Gestión de clientes" />
+                  <MFXButton onAction="#salir" prefHeight="46.0" prefWidth="186.0" styleClass="mfx-button" text="Salir" />
+               </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </VBox>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>

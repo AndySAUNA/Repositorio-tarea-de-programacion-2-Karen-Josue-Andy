@@ -18,6 +18,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Ficha;
 import util.JsonUtil;
 import util.FlowController;
+import java.util.List;
+import java.util.ArrayList;
 /**
  * FXML Controller class
  *
@@ -44,16 +46,66 @@ public class ControlFichasViewController extends Controller implements Initializ
            @Override
     public void initialize(URL url, ResourceBundle rb) {
         colNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
-            colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
-                colTramite.setCellValueFactory(new PropertyValueFactory<>("tramite"));
+            colCedula.setCellValueFactory(new PropertyValueFactory<>("cedulaCliente"));
+                colTramite.setCellValueFactory(new PropertyValueFactory<>("idtramite"));
                     colPreferencial.setCellValueFactory(new PropertyValueFactory<>("preferencial"));
                     cargarDatos();
+                 
     }  
           
           private void cargarDatos(){
-              lista.setAll(JsonUtil.cargarLista(ARCHIVO_FICHAS, Ficha.class));
-              tablaFichas.setItems(lista);
+              List<Ficha> datos= JsonUtil.cargarLista(ARCHIVO_FICHAS, Ficha.class);
+              if(datos!=null){
+                  lista.setAll(datos);
+              }tablaFichas.setItems(lista);
           }
+          
+      @FXML private void siguiente(){
+          if(lista.isEmpty())return;
+          Ficha f= lista.remove(0);
+          tablaFichas.refresh();
+          atenderFicha(f);
+      }
+        @FXML private void preferencial(){
+            for (Ficha f :new ArrayList<>(lista)){
+                if(f.isPreferencial()){
+                    lista.remove(f);
+                    tablaFichas.refresh();
+                    atenderFicha(f);
+                    return;
+                }
+            }
+        }
+          @FXML private void repetir(){
+        Ficha f = tablaFichas.getSelectionModel().getSelectedItem();
+        if (f != null) {
+        atenderFicha(f);
+        }
+    }
+          
+        @FXML private void llamarSeleccionada(){
+         repetir();   
+        }
+                
+      private void atenderFicha(Ficha f){
+        mostrar(f);
+        
+    f.marcarComoLlamado(1);
+     PantallaController pantalla = (PantallaController) FlowController.getInstance().getController("PantallaView");
+    if (pantalla != null) {
+        pantalla.registrarLlamado(f.getNumero(), "Caja 1");
+    }
+    guardar();      
+      }
+      private void mostrar(Ficha f){
+          lblFicha.setText("Ficha: "+ f.getNumero());
+           lblCedula.setText("Cedula: "+ f.getCedulaCliente());
+           lblTramite.setText("Trámite: " + f.getIdTramite());
+        lblPreferencial.setText("Preferencial: " + f.isPreferencial());
+      }
+      private void guardar(){
+      JsonUtil.guardarLista(ARCHIVO_FICHAS, new ArrayList<>(lista));
+      }
     @Override
     public void initialize() {
         // TODO
