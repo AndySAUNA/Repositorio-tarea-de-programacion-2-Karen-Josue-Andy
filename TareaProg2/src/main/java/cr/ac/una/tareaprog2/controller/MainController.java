@@ -58,7 +58,7 @@ private void onActionBtnAdministrador(ActionEvent event) {
 
     @FXML
     private void OnActionBtnKiosk(ActionEvent event) {
-        FlowController.getInstance().goMain("KioskoView");
+        FlowController.getInstance().goViewInWindowModal("IdKioskoView", this.getStage(), false);
     }
 
     @FXML

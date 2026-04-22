@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import model.Cliente;
 import model.EstablecimientoDto;
 import model.Sucursal;
+import util.FlowController;
 import util.Formato;
 import util.JsonUtil;
 
@@ -47,7 +48,7 @@ public class AdminClientesController  extends Controller implements Initializabl
     private MFXButton btnEditarCliente;
     @FXML
     private MFXTableView<Cliente> tablillaClientes;
-    private static final String ArchivoClientes = "data/Datos.json";//nota: hay que agregar la direccion
+    private static final String ArchivoClientes = "data/Clientes.json";//nota: hay que agregar la direccion
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
     
     
@@ -77,7 +78,7 @@ public class AdminClientesController  extends Controller implements Initializabl
         //
         colCedula.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getCedula));
         colNombre.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getNombre));
-        colApellidos.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getNombre));
+        colApellidos.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getApellidos));
         //
         tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos);
         tablillaClientes.setItems(listaClientes);
@@ -101,6 +102,7 @@ public class AdminClientesController  extends Controller implements Initializabl
 
     @FXML
     private void onActionAgregarCliente(ActionEvent event) {
+        FlowController.getInstance().goViewInWindowModal("AgregarClienteView", this.getStage(), false);
     }
 
     @FXML

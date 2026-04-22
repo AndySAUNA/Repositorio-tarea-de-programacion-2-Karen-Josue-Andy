@@ -131,11 +131,13 @@ public class FlowController extends Controller  {
                 vBox.getChildren().add(loader.getRoot());*/
                 break;
             case "Top":
+                /*
                 BorderPane borderPane2 = (BorderPane) stage.getScene().getRoot();
                 HBox hBox = (HBox)borderPane2.getTop();
                 hBox.getChildren().clear();
                 hBox.getChildren().add(loader.getRoot());
                 break;
+                */
             case "Bottom":
                 break;
             case "Right":
