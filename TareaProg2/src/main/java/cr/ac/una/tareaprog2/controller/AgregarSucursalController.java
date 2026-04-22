@@ -201,6 +201,7 @@ public class AgregarSucursalController extends Controller implements Initializab
 
     @FXML
     private void onActionTxfNombreSucursal(ActionEvent event) {
+        
     }
 
 

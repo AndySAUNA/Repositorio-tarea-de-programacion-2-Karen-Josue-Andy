@@ -5,6 +5,8 @@
 package model;
 
 import java.util.Objects;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,16 +14,17 @@ import javafx.beans.property.StringProperty;
  *
  * @author andys
  */
-public class SucursalDto {
-
-    StringProperty id;
-    private StringProperty nombre;
-    private StringProperty direccion;
+public class EstacionDto {
+    public StringProperty id; //tiene que ser publico
+    private StringProperty sucursal;
+    private StringProperty numeroEstacion;
+    private BooleanProperty preferencial;
     //-----------------------------------------------------------------------------------------------------------------------------------
-    public SucursalDto(){
+    public EstacionDto(){
         this.id = new SimpleStringProperty("");
-        this.nombre = new SimpleStringProperty("");
-        this.direccion = new SimpleStringProperty("");
+        this.sucursal = new SimpleStringProperty("");
+        this.numeroEstacion = new SimpleStringProperty("");
+        this.preferencial = new SimpleBooleanProperty(false);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     public Long getId() {
@@ -31,33 +34,46 @@ public class SucursalDto {
               return null;
           }
     }
-    public String getNombre() {
-        return nombre.get();
+    public String getSucursal() {
+        return sucursal.get();
     }
-    public String getDireccion() {
-        return direccion.get();
+    public Integer getnumeroEstacion() {
+        if (this.id.get() != null && !this.numeroEstacion.get().isBlank()){
+              return Integer.valueOf(this.numeroEstacion.get());
+          }else{
+              return null;
+          }
+    }
+    public Boolean preferencial() {
+        return preferencial.get();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     public void setId(Long id) {
         this.id.set(id.toString());
     }
-    public void setNombre(String nombre) {
-        this.nombre.set(nombre);
+    public void setSucursal(String sucursal) {
+        this.sucursal.set(sucursal);
     }
-    public void setDireccion(String direccion) {
-        this.direccion.set(direccion);
+    public void setnumeroEstacion(Integer numeroEstacion) {
+        this.numeroEstacion.set(numeroEstacion.toString());
+    }
+    public void setpreferencial(Boolean preferencial) {
+        this.preferencial.set(preferencial);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     public StringProperty getIdProperty() {
         return id;
     }
-
-    public StringProperty getNombreProperty() {
-        return nombre;
+    public StringProperty getSucursalProperty() {
+        return sucursal;
     }
 
-    public StringProperty getDireccionProperty() {
-        return direccion;
+    public StringProperty getNumeroEstacionProperty() {
+        return numeroEstacion;
+    }
+
+    public BooleanProperty getPreferencialProperty() {
+        return preferencial;
     }
     
  @Override
@@ -84,6 +100,6 @@ public class SucursalDto {
 
     @Override
     public String toString() {
-        return "EstablecimientoDto{" + "id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + '}';
+        return "EstablecimientoDto{" + "id=" + id + ", sucursal=" + sucursal + ", numero estacion=" + numeroEstacion + ", preferencial=" + preferencial + '}';
     }
 }
