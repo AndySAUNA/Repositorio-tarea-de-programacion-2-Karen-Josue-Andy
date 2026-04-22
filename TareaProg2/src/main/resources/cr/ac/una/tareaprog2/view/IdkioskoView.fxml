@@ -21,8 +21,8 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <MFXTextField floatMode="BORDER" floatingText="Nombre Usuario" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-                  <MFXPasswordField floatMode="BORDER" floatingText="Contraseña" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                  <MFXTextField fx:id="txfNombreUsuario" floatMode="BORDER" floatingText="Nombre Usuario" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                  <MFXPasswordField fx:id="pwfContraseña" floatMode="BORDER" floatingText="Contraseña" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
                   <MFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnIngresar" styleClass="jfx-btn-Ingresar" text="Ingresar">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
@@ -37,12 +37,12 @@
          <bottom>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <MFXButton layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="jfx-btn-Invitado" text="Ingresar como Invitado" HBox.hgrow="ALWAYS">
+                  <MFXButton layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnIngresarComoInvitado" styleClass="jfx-btn-Invitado" text="Ingresar como Invitado" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </MFXButton>
-                  <MFXButton layoutX="73.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="jfx-btn-CrearCuenta" text="Crear Cuenta" HBox.hgrow="ALWAYS">
+                  <MFXButton layoutX="73.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionBtnCrearCuenta" styleClass="jfx-btn-CrearCuenta" text="Crear Cuenta" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>

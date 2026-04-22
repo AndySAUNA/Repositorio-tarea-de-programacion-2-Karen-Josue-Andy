@@ -207,6 +207,8 @@ public class AgregarSucursalController extends Controller implements Initializab
 
     @FXML
     private void onActionBtnCancelar(ActionEvent event) {
+        new Mensaje().showModal(Alert.AlertType.WARNING,
+                        "Cancelar", getStage(), "Esta seguro de querer cancelar el tramite?");
         cargarValoresPorDefecto();
         this.getStage().close();
     }

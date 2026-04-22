@@ -405,6 +405,26 @@
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
+.jfx-btn-Foto, .jfx-btn-Foto:armed, .jfx-btn-Foto:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-Foto > ImageView{
+    -fx-image: url(../resources/Foto.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-BuscarArchivo, .jfx-btn-BuscarArchivo:armed, .jfx-btn-BuscarArchivo:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER_LEFT;
+}
+.jfx-btn-BuscarArchivo > ImageView{
+    -fx-image: url(../resources/BuscarArchivo.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
 /**********************************************************************************************************************
     *     Paneles     * 1:38
 **********************************************************************************************************************/
