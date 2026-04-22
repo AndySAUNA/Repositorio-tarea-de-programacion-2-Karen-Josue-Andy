@@ -147,22 +147,6 @@ public class AdminEstacionesController extends Controller implements Initializab
         });
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    private void cargarEstacionesDeSucursal(Sucursal sucursal){//nofunciona
-        listaEstaciones.clear();
-        
-        if(sucursal !=null && sucursal.getEstaciones() != null){
-            listaEstaciones.addAll(sucursal.getEstaciones());
-        }
-        tableViewEstacion.setItems(listaEstaciones);
-    }
-    //-----------------------------------------------------------------------------------------------------------------------------------
-    private void configurarSeleccionSucursal() {//no se para que es
-        tableViewSucursal.setOnMouseClicked(event -> {
-            Sucursal seleccionada = obtenerSucursalSeleccionada();
-            cargarEstacionesDeSucursal(seleccionada);
-        });
-    }
-    //-----------------------------------------------------------------------------------------------------------------------------------
     // funcion pra obtener el objeto que ha sido seleccionado de la tablilla tableViewSucursal
     private Sucursal obtenerSucursalSeleccionada(){//funciona
         var seleccionadas = tableViewSucursal.getSelectionModel().getSelectedValues();

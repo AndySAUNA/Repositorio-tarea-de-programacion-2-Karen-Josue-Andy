@@ -12,7 +12,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author andys
  */
-public class EstablecimientoDto {
+public class SucursalDto {
 
     private StringProperty nombre;
     private StringProperty estaciones;
@@ -43,7 +43,7 @@ public class EstablecimientoDto {
     }
     
 
-    public EstablecimientoDto() {
+    public SucursalDto() {
         this.nombre = new SimpleStringProperty("");
         this.estaciones = new SimpleStringProperty("");
     }
@@ -66,7 +66,7 @@ public class EstablecimientoDto {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final EstablecimientoDto other = (EstablecimientoDto) obj;
+        final SucursalDto other = (SucursalDto) obj;
         return Objects.equals(this.id, other.id);
     }
 

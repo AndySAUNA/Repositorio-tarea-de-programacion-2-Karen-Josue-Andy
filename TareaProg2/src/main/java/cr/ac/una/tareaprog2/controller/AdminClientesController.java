@@ -25,7 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Cliente;
-import model.EstablecimientoDto;
+import model.SucursalDto;
 import model.Sucursal;
 import util.FlowController;
 import util.Formato;
@@ -36,7 +36,7 @@ import util.JsonUtil;
  *
  * @author andys
  */
-public class AdminClientesController  extends Controller implements Initializable {
+public class AdminClientesController extends Controller implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -111,6 +111,7 @@ public class AdminClientesController  extends Controller implements Initializabl
 
     @FXML
     private void onActionEditarCliente(ActionEvent event) {
+        FlowController.getInstance().goViewInWindowModal("EditarClienteView", this.getStage(), false);
     }
     
 }
