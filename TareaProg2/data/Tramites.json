@@ -52,5 +52,16 @@
     "fechaHoraLlamado": "2026-04-08T10:30",
     "estado": "ESPERA",
     "preferencial": false
+  },
+  {
+    "numero": 4,
+    "cedulaCliente": "117160150",
+    "idTramite": 0,
+    "idSucursal": 2,
+    "idEstacion": 0,
+    "fechaHoraGeneracion": "2026-04-24T15:42:22.622684500",
+    "fechaHoraLlamado": "2026-04-16T10:00",
+    "estado": "ESPERA",
+    "preferencial": true
   }
 ]
