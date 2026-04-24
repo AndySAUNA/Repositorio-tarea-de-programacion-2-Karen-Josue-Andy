@@ -14,16 +14,8 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-maven-plugin</artifactId>
-        <version>0.0.8</version>
-        <configuration>
-          <mainClass>cr.ac.una.tareaprog2.App</mainClass>
-        </configuration>
-      </plugin>
-      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.5.0</version>
+        <version>3.5.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -33,13 +25,16 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>cr.ac.una.tareaprog2.App</mainClass>
+                  <mainClass>cr.ac.una.tareaprog2.AppLauncher</mainClass>
                 </transformer>
               </transformers>
               <filters>
                 <filter>
                   <artifact>*:*</artifact>
                   <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
                     <exclude>module-info.class</exclude>
                   </excludes>
                 </filter>
@@ -47,6 +42,47 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.8</version>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+          </execution>
+          <execution>
+            <id>debug</id>
+            <configuration>
+              <options>
+                <option>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:8000</option>
+              </options>
+            </configuration>
+          </execution>
+          <execution>
+            <id>ide-debug</id>
+            <configuration>
+              <options>
+                <option>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
+              </options>
+            </configuration>
+          </execution>
+          <execution>
+            <id>ide-profile</id>
+            <configuration>
+              <options>
+                <option>${profiler.jvmargs.arg1}</option>
+                <option>${profiler.jvmargs.arg2}</option>
+                <option>${profiler.jvmargs.arg3}</option>
+                <option>${profiler.jvmargs.arg4}</option>
+                <option>${profiler.jvmargs.arg5}</option>
+              </options>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>cr.ac.una.tareaprog2.App</mainClass>
+        </configuration>
       </plugin>
     </plugins>
   </build>

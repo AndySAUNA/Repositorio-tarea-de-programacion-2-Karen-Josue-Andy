@@ -18,21 +18,22 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         FlowController.getInstance().InitializeFlow(stage, null);
         
-        switch (rol) {
-            case "admin":
+        switch (rol.toLowerCase()) {
+            case "a":
                 FlowController.getInstance().goViewInWindow("AdminView");
                 break;
-            case "kiosco":
+            case "k":
                 FlowController.getInstance().goViewInWindow("KioskoView");
                 break;
-            case "funcionario":
+            case "f":
                 FlowController.getInstance().goViewInWindow("FuncionarioView");
                 break;
-            case "proyeccion":
+            case "p":
                 FlowController.getInstance().goViewInWindow("PantallaView");
                 break;
                  default:
                 FlowController.getInstance().goViewInWindow("MainView");
+                  System.out.println("Modo recibido: " + rol);
                 break;
         }
     }
