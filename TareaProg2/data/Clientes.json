@@ -1,0 +1,16 @@
+[
+  {
+    "cedula": "test",
+    "nombre": "test",
+    "apellidos": "test",
+    "fechaNacimiento": "2026-04-01",
+    "rutaFoto": ""
+  },
+  {
+    "cedula": "117160150",
+    "nombre": "kisko",
+    "apellidos": "kisko kiosko",
+    "fechaNacimiento": "2026-04-17",
+    "rutaFoto": "fotos/foto_1777012281739.png"
+  }
+]

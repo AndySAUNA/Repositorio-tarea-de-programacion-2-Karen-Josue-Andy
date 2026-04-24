@@ -44,12 +44,13 @@ public class IdkioskoController extends Controller implements Initializable {
 
     @FXML
     private void onActionBtnIngresarComoInvitado(ActionEvent event) {
-        //FlowController.getInstance().goMain("AgregarClienteView");
+        //FlowController.getInstance().goMain("CrearFichaView");
+        //FlowController.getInstance().goViewInWindowModal("CrearFichaView", this.getStage(), false);
     }
 
     @FXML
     private void onActionBtnCrearCuenta(ActionEvent event) {
-        FlowController.getInstance().goMain("AgregarClienteView");
+        FlowController.getInstance().goViewInWindowModal("AgregarClienteView", this.getStage(), false);
     }
 
   

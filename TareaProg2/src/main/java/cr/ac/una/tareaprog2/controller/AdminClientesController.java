@@ -9,7 +9,10 @@ import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -20,22 +23,29 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Cliente;
-import model.SucursalDto;
 import model.Sucursal;
 import util.FlowController;
 import util.Formato;
 import util.JsonUtil;
+import util.Mensaje;
 
 /**
  * FXML Controller class
  *
  * @author andys
  */
+/*
+    
+    Nota: editar cliente no ha sido implementado aun, el view existe, pero el controlador no esta seteado
+        agregar cliente y eliminar cliente funcionan bien
+    
+    */
 public class AdminClientesController extends Controller implements Initializable {
 
     @FXML
@@ -48,25 +58,23 @@ public class AdminClientesController extends Controller implements Initializable
     private MFXButton btnEditarCliente;
     @FXML
     private MFXTableView<Cliente> tablillaClientes;
-    private static final String ArchivoClientes = "data/Clientes.json";//nota: hay que agregar la direccion
+    
+    private static final String UrlArchivoClientes = "data/Clientes.json";
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
     
     
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       setupTablillaClientes();
-        // TODO
+      cargarClientes();
     }    
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
     public void initialize() {
-      
+      cargarClientes();
     }
-    
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //crea las columnas de la tablilla de clientes                  (funciona perfectamente)
     private void setupTablillaClientes(){
         //
         MFXTableColumn<Cliente> colCedula = 
@@ -74,43 +82,80 @@ public class AdminClientesController extends Controller implements Initializable
         MFXTableColumn<Cliente> colNombre = 
                 new MFXTableColumn<>("Nombre",true, Comparator.comparing(Cliente::getNombre));
         MFXTableColumn<Cliente> colApellidos = 
-                new MFXTableColumn<>("Apellidos",true, Comparator.comparing(Cliente::getApellidos));
+                new MFXTableColumn<>("Apellidos",true, Comparator.comparing(Cliente::getFechaNacimiento));
+        MFXTableColumn<Cliente> colFechaNacimiento = 
+                new MFXTableColumn<>("Fecha Nacimiento",true, Comparator.comparing(Cliente::getFechaNacimiento));
         //
         colCedula.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getCedula));
         colNombre.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getNombre));
         colApellidos.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getApellidos));
+        colFechaNacimiento.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getFechaNacimiento));
         //
-        tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos);
+        tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos,colFechaNacimiento);
         tablillaClientes.setItems(listaClientes);
     }
-    private void cargarClientesEnTablilla(){
-        List<Sucursal> lista = JsonUtil.cargarLista(ArchivoClientes, Sucursal.class);
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //actualiza el archovo con la lista de clientes en el ram despues de un cambio (funciona perfectamente)
+    private void guardarClientes(){
+        JsonUtil.guardarLista(UrlArchivoClientes,new ArrayList<>(listaClientes));
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //carga la lista de clientes a la tablilla                      (funciona perfectamente)
+    private void cargarClientes() {
+        List<Cliente> lista = JsonUtil.cargarLista(UrlArchivoClientes, Cliente.class);
         if (lista == null){
             lista = new ArrayList<>();
         }
         listaClientes.clear();
-        listaClientes.addAll(listaClientes);
-        //tableViewSucursal.setItems(listaSucursales);
+        listaClientes.addAll(lista);
+        tablillaClientes.setItems(listaClientes);
         Platform.runLater(() -> {
             tablillaClientes.setItems(null);
             tablillaClientes.setItems(listaClientes);
         });
     }
-    private void setupSucursales(){
-        
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //metodo retorna el objeto que ha sido seleccionado en la lista (funciona perfectamente)
+    private Cliente obtenerSeleccion(){
+        var seleccionadas = tablillaClientes.getSelectionModel().getSelectedValues();
+        if (seleccionadas == null || seleccionadas.isEmpty()){
+            return null;
+        }
+        return seleccionadas.get(0);
     }
-
-    @FXML
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    @FXML//                                                         (funciona perfectamente)
     private void onActionAgregarCliente(ActionEvent event) {
         FlowController.getInstance().goViewInWindowModal("AgregarClienteView", this.getStage(), false);
     }
-
-    @FXML
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    @FXML//                                                         (funciona perfectamente)
     private void onActionEliminarCliente(ActionEvent event) {
+        Cliente seleccionado = obtenerSeleccion();
+        if (seleccionado == null){
+            new Mensaje().showModal(Alert.AlertType.WARNING, "Error Eliminar"
+                , getStage(), "no hay seleccionado");
+            return;
+        }
+        
+        if (new Mensaje().showConfirmation("Atencion!", getStage(), 
+                "Está seguro de querer eliminar el cliente: " + 
+                        seleccionado.getNombre() + seleccionado.getApellidos() + "?") == true){
+            try {
+                Files.deleteIfExists(Paths.get(seleccionado.getRutaFoto()));
+            } catch (IOException e) {
+                System.out.println("error eliminando foto seleccionada.");
+            }
+            listaClientes.remove(seleccionado);
+            guardarClientes();
+            cargarClientes();
+            new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito"
+                , getStage(), "Cliente Eliminado exitosamente");
+        }
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
-    private void onActionEditarCliente(ActionEvent event) {
+    private void onActionEditarCliente(ActionEvent event) {//necesita implementar
         FlowController.getInstance().goViewInWindowModal("EditarClienteView", this.getStage(), false);
     }
     

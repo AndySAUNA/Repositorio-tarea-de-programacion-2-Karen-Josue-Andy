@@ -12,8 +12,9 @@ import javafx.stage.Stage;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ResourceBundle;
+import util.Mensaje;
 
-public class CameraController implements Initializable {
+public class CameraController extends Controller implements Initializable {
 
     @FXML
     private ImageView imageViewCamera;
@@ -27,6 +28,10 @@ public class CameraController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciarCamara();
+    }
+    @Override
+    public void initialize() {
+        
     }
 
     private void iniciarCamara() {
@@ -73,7 +78,9 @@ public class CameraController implements Initializable {
                 capturedImage = SwingFXUtils.toFXImage(bufferedImage, null);
                 imageCaptured = true;
                 imageViewCamera.setImage(capturedImage);
-                mostrarAlerta("Éxito", "Foto capturada. Haz clic en Aceptar para guardar.");
+                 new Mensaje().showModal(Alert.AlertType.INFORMATION, "exito!"
+                , getStage(), "Foto capturada!");
+                cerrar();
             }
         }
     }
@@ -106,4 +113,6 @@ public class CameraController implements Initializable {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+    
 }

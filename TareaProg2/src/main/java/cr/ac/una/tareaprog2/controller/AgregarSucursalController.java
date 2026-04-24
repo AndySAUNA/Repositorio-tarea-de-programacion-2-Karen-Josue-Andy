@@ -65,22 +65,23 @@ public class AgregarSucursalController extends Controller implements Initializab
         txfDescripcion.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(60));
         
         sucursal = new Sucursal();
-        bindSucursal();
         indicarRequeridos();
         asegurarDirectorioDatos();
         cargarValoresPorDefecto();
         // TODO
     }    
-        @Override
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    @Override
     public void initialize() {
         
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void cargarValoresPorDefecto(){
         txfNombreSucursal.clear();
         txfDescripcion.clear();
         txfCantidadEstaciones.clear(); 
     }
-    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private List<Sucursal> cargarSucursales(){
         List<Sucursal> sucursales = JsonUtil.cargarLista(ArchivoSucursales, Sucursal.class);
         if (sucursales == null) {
@@ -88,6 +89,7 @@ public class AgregarSucursalController extends Controller implements Initializab
         }
         return sucursales;
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private int siguienteId(List<Sucursal> sucursales){ //consigue el id mas alto de la lista
         int maxId = 0;
     for (Sucursal s : sucursales) {
@@ -97,13 +99,12 @@ public class AgregarSucursalController extends Controller implements Initializab
     }
     return maxId + 1;
     }
-    
-    private void bindSucursal(){
-    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void indicarRequeridos(){
         this.requeridos.clear();
         this.requeridos.addAll(Arrays.asList(txfNombreSucursal,txfCantidadEstaciones,txfDescripcion));
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private String validarRequeridos(){
          Boolean validos = true;
         String invalidos = "";
@@ -144,6 +145,7 @@ public class AgregarSucursalController extends Controller implements Initializab
             return "Campos requeridos o con problemas de formato [" + invalidos + "].";
         }
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void asegurarDirectorioDatos(){
         File archivo = new File(ArchivoSucursales);
         File parent = archivo.getParentFile();
@@ -151,7 +153,7 @@ public class AgregarSucursalController extends Controller implements Initializab
             parent.mkdirs();
         }
     }
-    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionBtnAgregar(ActionEvent event) {
         try{
@@ -198,13 +200,11 @@ public class AgregarSucursalController extends Controller implements Initializab
                     "Ocurrio un error guardando la sucursal");
                 }
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionTxfNombreSucursal(ActionEvent event) {
     }
-
-
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionBtnCancelar(ActionEvent event) {
         new Mensaje().showModal(Alert.AlertType.WARNING,
@@ -212,11 +212,11 @@ public class AgregarSucursalController extends Controller implements Initializab
         cargarValoresPorDefecto();
         this.getStage().close();
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionTxfDescripcion(ActionEvent event) {
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionTxfCantidadEstaciones(ActionEvent event) {
     }
