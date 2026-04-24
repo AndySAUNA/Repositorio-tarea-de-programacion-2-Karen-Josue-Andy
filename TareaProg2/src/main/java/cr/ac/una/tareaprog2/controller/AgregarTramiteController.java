@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package cr.ac.una.tareaprog2.controller;
-
+import util.PdfUtil;
 import io.github.palexdev.materialfx.controls.MFXCheckbox;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXDatePicker;
@@ -296,8 +296,10 @@ public class AgregarTramiteController extends Controller implements Initializabl
    }
     //-----------------------------------------------------------------------------------------------------------------------------------
     //este metodo es para imprimir el pdf
-    private void imprimirPDf(){
+    private void imprimirPdf(){
         ficha.getCedulaCliente();
+        String nombreSucursal= cbSucursal.getValue().getNombre();
+        PdfUtil.generarPdf(ficha, nombreSucursal);
     }
     
     //-----------------------------------------------------------------------------------------------------------------------------------
@@ -315,6 +317,7 @@ public class AgregarTramiteController extends Controller implements Initializabl
                 GuardarTramite();
                 new Mensaje().showModal(Alert.AlertType.INFORMATION,
                         "Guardar Tramite", getStage(), "Se ha creado el Tramite exitosamente!");
+                 imprimirPdf();
                     cargarValoresPorDefecto();
                     this.getStage().close();
                 }
