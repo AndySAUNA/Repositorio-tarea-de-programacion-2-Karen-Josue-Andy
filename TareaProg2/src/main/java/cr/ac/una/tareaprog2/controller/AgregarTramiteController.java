@@ -180,7 +180,7 @@ public class AgregarTramiteController extends Controller implements Initializabl
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //setea todos los componentes del formulario
+    //setea todos los componentes del formulario                            (funciona perfectamente)
     private void setFormulario(){
         listaSucursales.setAll(cargarListaSucursales());
         cbSucursal.setItems(listaSucursales);
@@ -188,7 +188,7 @@ public class AgregarTramiteController extends Controller implements Initializabl
         
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //setea el combo box de hora atendido para elegir una hora
+    //setea el combo box de hora atendido para elegir una hora              (funciona perfectamente)
     private void setHoraAtendido(){
         ObservableList<String> horas = FXCollections.observableArrayList();
         LocalTime hora = LocalTime.of(8, 0);
@@ -229,7 +229,7 @@ public class AgregarTramiteController extends Controller implements Initializabl
         return lista;
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //revisa si existe la cedula puesta en el formulario                    (hay que probar)
+    //revisa si existe la cedula puesta en el formulario                    (funciona perfectamente)
     private boolean existeCedula(){
     List<Cliente> listaClientes = cargarListaClientes(); //crea lista en ram tipo cliente cargada del json de clientes
     String cedula = txfCedula.getText().trim(); //retura valor del textfield cedula y lo pone en una variable
@@ -251,13 +251,14 @@ public class AgregarTramiteController extends Controller implements Initializabl
     //-----------------------------------------------------------------------------------------------------------------------------------
     //este metodo asigna numero automaticamente a la ficha                  (funciona perfectamente)
     private int asignarNumero(){
+        listaFichas.setAll(cargarListaFichas());
         int maxId = 0;
         for (Ficha s : listaFichas) {
             if (s.getNumero() > maxId) {
                 maxId = s.getNumero();
             }
         }
-    return maxId + 1;
+        return maxId + 1;
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     /*
@@ -322,7 +323,7 @@ public class AgregarTramiteController extends Controller implements Initializabl
     @FXML//da aviso si seguro que quiere cancelar, de caso ser si, borra todo y cierra ventana (funciona perfectamente)
     private void onActionCancelar(ActionEvent event) {
         if (new Mensaje().showConfirmation("Cancelar", getStage(), 
-                "esta seguro de cerrar el tramite?") == true){
+                "esta seguro de cancelar el tramite?") == true){
             cargarValoresPorDefecto();
             this.getStage().close();
          }

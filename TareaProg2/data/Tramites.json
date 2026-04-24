@@ -19,5 +19,27 @@
     "fechaHoraLlamado": "2026-04-25T10:30",
     "estado": "ESPERA",
     "preferencial": false
+  },
+  {
+    "numero": 1,
+    "cedulaCliente": "117160150",
+    "idTramite": 0,
+    "idSucursal": 1,
+    "idEstacion": 0,
+    "fechaHoraGeneracion": "2026-04-24T04:03:05.650717300",
+    "fechaHoraLlamado": "2026-04-28T11:30",
+    "estado": "ESPERA",
+    "preferencial": false
+  },
+  {
+    "numero": 2,
+    "cedulaCliente": "117160150",
+    "idTramite": 0,
+    "idSucursal": 0,
+    "idEstacion": 0,
+    "fechaHoraGeneracion": "2026-04-24T04:07:38.817301900",
+    "fechaHoraLlamado": "2026-04-17T10:30",
+    "estado": "ESPERA",
+    "preferencial": false
   }
 ]
