@@ -31,7 +31,7 @@
          <top>
             <HBox prefHeight="69.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <MFXComboBox fx:id="cbSucursal" floatMode="BORDER" floatingText="Sucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                  <MFXComboBox fx:id="cbSucursal" floatMode="BORDER" floatingText="Sucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionCbSucursal" HBox.hgrow="ALWAYS" />
                   <MFXComboBox fx:id="cbEstacion" floatMode="BORDER" floatingText="Estacion" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                </children>
                <BorderPane.margin>
