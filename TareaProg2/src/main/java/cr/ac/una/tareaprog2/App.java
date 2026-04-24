@@ -20,7 +20,7 @@ public class App extends Application {
         
         switch (rol.toLowerCase()) {
             case "a":
-                FlowController.getInstance().goViewInWindow("AdminView");
+                FlowController.getInstance().goMain("AdminView");
                 break;
             case "k":
                 FlowController.getInstance().goViewInWindow("KioskoView");
