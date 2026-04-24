@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -71,7 +73,11 @@ public class AgregarClienteController extends Controller implements Initializabl
     private Cliente cliente = new Cliente(); // objeto cliente para generar el objeto a guardar en json
     private String rutaFotoSeleccionada = "";// Url de la foto seleccionada para guardar con el cliente
     private List<Node> requeridos = new ArrayList();// para los requeridos del formulario
+    /*
     
+    Nota:Contraseña no ha sido implementada ni en el modelo de cliente ni en este controlador, es para despues
+    
+    */
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -204,7 +210,7 @@ public class AgregarClienteController extends Controller implements Initializabl
     //-----------------------------------------------------------------------------------------------------------------------------------
     private void indicarRequeridos(){
         this.requeridos.clear();
-        this.requeridos.addAll(Arrays.asList(txfCedula,txfNombre,txfApellidos,txfContraseña,dpFechaNacimiento));
+        this.requeridos.addAll(Arrays.asList(txfCedula,txfNombre,txfApellidos,dpFechaNacimiento));
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     // gracias por el codigo profe (｡•̀ᴗ-)✧
@@ -250,7 +256,7 @@ public class AgregarClienteController extends Controller implements Initializabl
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     //busca en el archivo json, extrae la lista de entidades y los retorna (funciona, completo)
-    private List<Cliente> cargarLista(){
+    private List<Cliente> cargarListaClientes(){
         List<Cliente> lista = JsonUtil.cargarLista(UrlRutaClientes, Cliente.class);
         if (lista == null) {
             lista = new ArrayList<>();
@@ -258,6 +264,23 @@ public class AgregarClienteController extends Controller implements Initializabl
         return lista;
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    //revisa que no haya otra instancia de la misma cedula, devuelve true si existe, devuelve false si no existe
+   private boolean existenciaCedula(){
+    List<Cliente> listaClientes = cargarListaClientes(); //crea lista local tipo cliente cargada del json de clientes
+    String nombre = txfNombre.getText().trim(); //retura valor del textfield nombre y lo pone en la variable nombre
+        //para revisar que no se duplique el nombre
+        for (Cliente suc : listaClientes) {
+            if (suc.getNombre() != null) {
+                if (suc.getNombre().equalsIgnoreCase(nombre)) {
+                    new Mensaje().showModal(Alert.AlertType.WARNING,
+                        "Cedula ya existe!", getStage(), "Ya existe un cliente con esta cedula.");
+                    return true;
+                }
+            }
+        }
+        return false;
+   }
+   //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionCrearCuenta(ActionEvent event) {
         try{
@@ -268,34 +291,26 @@ public class AgregarClienteController extends Controller implements Initializabl
                 , getStage(), invalidos);
                 return;
             }
-            //revisa que no haya otra instancia de ese nombre
-            List<Cliente> clientes = cargarLista();
-            String nombre = txfNombreSucursal.getText().trim();
-            //para revisar que no se duplique el nombre
-            for (Cliente suc : sucursales) {
-                 if (suc.getNombre() != null) {
-                    if (suc.getNombre().equalsIgnoreCase(nombre)) {
-                        new Mensaje().showModal(
-                        Alert.AlertType.WARNING,
-                            "Guardar Sucursal", getStage(), "Ya existe una sucursal con ese nombre.");
-                        return;
-                    }
-                }
-            }
-            //ya todas las pruebas pasadas se guarda, avisa que todo en orden y cierra
-            //llenar objeto con datos del view
-            Cliente.setId(siguienteId(sucursales)); // el Id es automatico
-            sucursal.setNombre(txfNombreSucursal.getText().trim());
-            sucursal.setDireccion(txfDescripcion.getText().trim());
+            if(!existenciaCedula()){// si no hay ya una instancia de la cedula, se procede con crear la cuenta
+            List<Cliente> listaClientes = cargarListaClientes();//carga la lista de clientes
+            cliente.setCedula(txfCedula.getText().trim());
+            cliente.setNombre(txfNombre.getText().trim());
+            cliente.setApellidos(txfApellidos.getText().trim());
+            //cliente.setApellidos(txfApellidos.getText().trim());
+            //cliente.setContrasena(txfApellidos.getText().trim());
+            cliente.setRutaFoto(rutaFotoSeleccionada);
+            cliente.setFechaNacimiento(dpFechaNacimiento.getValue());
             //guardar
-            sucursales.add(sucursal);
+            listaClientes.add(cliente);
             asegurarDirectorioDatos();
-            JsonUtil.guardarLista(ArchivoSucursales, sucursales);
+            JsonUtil.guardarLista(UrlRutaClientes, listaClientes);
             //limpiar datos
                 new Mensaje().showModal(Alert.AlertType.INFORMATION,
-                        "Guardar Sucursal", getStage(), "Se ha creado la sucursal exitosamente!");
+                        "Guardar Cliente", getStage(), "Se ha creado el Cliente exitosamente!");
                 cargarValoresPorDefecto();
                 this.getStage().close();
+            }
+            
             
         }catch(Exception ex){
             Logger.getLogger(AgregarSucursalController.class.getName()).
