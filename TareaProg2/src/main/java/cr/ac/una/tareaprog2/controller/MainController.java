@@ -52,7 +52,7 @@ public class MainController extends Controller implements Initializable {
     }
     @FXML
     private void onActionBtnFuncionario(ActionEvent event) {
-        FlowController.getInstance().goMain("FuncionarioView");
+        FlowController.getInstance().goViewInWindowModal("SeleccionSucursalEstacionView", this.getStage(), false);
     }
 
     @FXML
