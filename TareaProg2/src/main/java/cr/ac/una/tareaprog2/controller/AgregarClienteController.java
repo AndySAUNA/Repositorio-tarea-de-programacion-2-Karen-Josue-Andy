@@ -75,18 +75,18 @@ public class AgregarClienteController extends Controller implements Initializabl
     private List<Node> requeridos = new ArrayList();// para los requeridos del formulario
     /*
     
-    Nota:Contraseña no ha sido implementada ni en el modelo de cliente ni en este controlador, es para despues
+    Nota: Contraseña y usuario no han sido implementados
     
     */
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.setNombreVista("Crear cuenta");//establece el nombre de la ventana
-        txfCedula.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(30));
+        txfCedula.delegateSetTextFormatter(Formato.getInstance().integerFormat());
         txfNombre.delegateSetTextFormatter(Formato.getInstance().letrasFormat(15));
-        txfApellidos.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(60));
-        txfUsuario.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(60));
-        txfContraseña.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(60));
+        txfApellidos.delegateSetTextFormatter(Formato.getInstance().letrasFormat(40));
+        txfUsuario.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(20));
+        txfContraseña.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(20));
         indicarRequeridos();
         cargarValoresPorDefecto();
         // TODO
@@ -97,7 +97,7 @@ public class AgregarClienteController extends Controller implements Initializabl
         
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //funcion revisa si existe la direccion del json, si no existe la crea (funciona, completo)
+    //funcion revisa si existe la direccion del json, si no existe la crea (funciona perfectamente)
     private void asegurarDirectorioDatos(){
         File archivo = new File(UrlRutaClientes);
         File parent = archivo.getParentFile();
@@ -106,7 +106,7 @@ public class AgregarClienteController extends Controller implements Initializabl
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //limpia el contenido del formulario (funciona, completo)
+    //limpia el contenido del formulario                (funciona perfectamente)
     private void limpiarFormulario(){
         txfCedula.clear();
         txfNombre.clear();
@@ -117,9 +117,10 @@ public class AgregarClienteController extends Controller implements Initializabl
             getClass().getResource("/cr/ac/una/tareaprog2/resources/AgregarImagen.png").toExternalForm()
         );
         ivFotoPerfil.setImage(image);
+        eliminarFotoSeleccionada();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //limpia contenido del objeto cliente totalmente (funciona, completo)
+    //limpia contenido del objeto cliente totalmente    (funciona perfectamente)
     private void limpiarCliente(){
         cliente.setNombre("");
         cliente.setApellidos("");
@@ -128,30 +129,29 @@ public class AgregarClienteController extends Controller implements Initializabl
         cliente.setFechaNacimiento(LocalDate.now());
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //limpia formulario, limpia objeto cliente y revisa que direccion del archivo json existe y lo crea (funciona, completo)
+    //limpia formulario, limpia objeto cliente y revisa que direccion del archivo json existe y lo crea (funciona perfectamente)
     private void cargarValoresPorDefecto(){
         limpiarFormulario();//limpia formulario
         limpiarCliente();//limpia cliente
         asegurarDirectorioDatos();//asegura que direccion del archivo json existe
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML//da aviso si seguro que quiere cancelar, de caso ser si, borra todo y cierra ventana
+    @FXML//da aviso si seguro que quiere cancelar, de caso ser si, borra todo y cierra ventana (funciona perfectamente)
     private void onActionCancelar(ActionEvent event) {
          if (new Mensaje().showConfirmation("Cancelar", getStage(), 
                 "esta seguro de cerrar el tramite?") == true){
              cargarValoresPorDefecto();
-            eliminarFotoSeleccionada();
             this.getStage().close();
          }
         
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML
+    @FXML //                                            (funciona perfectamente)
     private void onActionTomarFotoNueva(ActionEvent event) {
         tomarFoto();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //codigo tomado de paula, para tomar la foto
+    //codigo tomado de paula, para tomar la foto        (funciona perfectamente)
     private void tomarFoto() {
     try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/cr/ac/una/tareaprog2/view/CameraView.fxml"));
@@ -192,7 +192,7 @@ public class AgregarClienteController extends Controller implements Initializabl
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //codigo tomado de paula, para tomar la foto
+    //codigo tomado de paula, para tomar la foto        (funciona perfectamente)
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
@@ -201,7 +201,7 @@ public class AgregarClienteController extends Controller implements Initializabl
         alert.showAndWait();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //esto es para eliminar la foto si no se usa lol 
+    //esto es para eliminar la foto si no se usa lol    (funciona perfectamente)
     private void eliminarFotoSeleccionada(){
         try {
             Files.deleteIfExists(Paths.get(rutaFotoSeleccionada));
@@ -210,12 +210,13 @@ public class AgregarClienteController extends Controller implements Initializabl
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    //establece los campos requeridos del formulario    (funciona perfectamente)
     private void indicarRequeridos(){
         this.requeridos.clear();
         this.requeridos.addAll(Arrays.asList(txfCedula,txfNombre,txfApellidos,dpFechaNacimiento));
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    // gracias por el codigo profe (｡•̀ᴗ-)✧
+    // gracias por el codigo profe (｡•̀ᴗ-)✧              (funciona perfectamente)
     private String validarRequeridos(){
         Boolean validos = true;
         String invalidos = "";
@@ -257,7 +258,7 @@ public class AgregarClienteController extends Controller implements Initializabl
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //busca en el archivo json, extrae la lista de entidades y los retorna (funciona, completo)
+    //busca en el archivo json, extrae la lista de entidades y los retorna (funciona perfectamente)
     private List<Cliente> cargarListaClientes(){
         List<Cliente> lista = JsonUtil.cargarLista(UrlRutaClientes, Cliente.class);
         if (lista == null) {
@@ -266,7 +267,7 @@ public class AgregarClienteController extends Controller implements Initializabl
         return lista;
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //revisa que no haya otra instancia de la misma cedula, devuelve true si existe, devuelve false si no existe
+    //revisa que no haya otra instancia de la misma cedula, devuelve true si existe, devuelve false si no existe (funciona perfectamente)
     private boolean existenciaCedula(){
     List<Cliente> listaClientes = cargarListaClientes(); //crea lista local tipo cliente cargada del json de clientes
     String nombre = txfNombre.getText().trim(); //retura valor del textfield nombre y lo pone en la variable nombre
@@ -282,8 +283,8 @@ public class AgregarClienteController extends Controller implements Initializabl
         }
         return false;
    }
-   //-----------------------------------------------------------------------------------------------------------------------------------
-   //este metodo llena el cliente con los datos del formulario
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //este metodo llena el cliente con los datos del formulario (funciona perfectamente)
     private void cargarDatosAEntidad(){
                 cliente.setCedula(txfCedula.getText().trim());
                 cliente.setNombre(txfNombre.getText().trim());
@@ -293,15 +294,16 @@ public class AgregarClienteController extends Controller implements Initializabl
                 cliente.setRutaFoto(rutaFotoSeleccionada);
                 cliente.setFechaNacimiento(dpFechaNacimiento.getValue());
 }
-   //-----------------------------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //hace el proceso de agregar datos del cliente al json
     private void GuardarCliente(){
         List<Cliente> listaClientes = cargarListaClientes();    //carga la lista de clientes al ram
         cargarDatosAEntidad();                                  //llena el objeto cliente con los datos del formulario
         listaClientes.add(cliente);                             //agrega el cliente a la lista en ram
         JsonUtil.guardarLista(UrlRutaClientes, listaClientes);  //sobreescribe la lista de clientes en el json
    }
-   //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    @FXML//                                                     (funciona perfectamente)
     private void onActionCrearCuenta(ActionEvent event) {
         try{
             //revisa que los espacios requeridos esten llenos

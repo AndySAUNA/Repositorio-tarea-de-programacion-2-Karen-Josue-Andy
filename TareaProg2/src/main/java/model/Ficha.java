@@ -42,7 +42,8 @@ public class Ficha {
 
     public LocalDateTime getFechaHoraGeneracion() { return fechaHoraGeneracion; }
     public void setFechaHoraGeneracion(LocalDateTime fechaHoraGeneracion) { this.fechaHoraGeneracion = fechaHoraGeneracion; }
-      public LocalDateTime getFechaHoraLlamado() { return fechaHoraLlamado; }
+    
+    public LocalDateTime getFechaHoraLlamado() { return fechaHoraLlamado; }
     public void setFechaHoraLlamado(LocalDateTime fechaHoraLlamado) { this.fechaHoraLlamado = fechaHoraLlamado; }
 
     public String getEstado() { return estado; }

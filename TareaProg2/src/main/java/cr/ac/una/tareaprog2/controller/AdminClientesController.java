@@ -29,7 +29,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import model.Cliente;
-import model.SucursalDto;
 import model.Sucursal;
 import util.FlowController;
 import util.Formato;
@@ -41,6 +40,12 @@ import util.Mensaje;
  *
  * @author andys
  */
+/*
+    
+    Nota: editar cliente no ha sido implementado aun, el view existe, pero el controlador no esta seteado
+        agregar cliente y eliminar cliente funcionan bien
+    
+    */
 public class AdminClientesController extends Controller implements Initializable {
 
     @FXML
@@ -54,7 +59,7 @@ public class AdminClientesController extends Controller implements Initializable
     @FXML
     private MFXTableView<Cliente> tablillaClientes;
     
-    private static final String UrlArchivoClientes = "data/Clientes.json";//nota: hay que agregar la direccion
+    private static final String UrlArchivoClientes = "data/Clientes.json";
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
     
     
@@ -62,8 +67,6 @@ public class AdminClientesController extends Controller implements Initializable
     public void initialize(URL url, ResourceBundle rb) {
       setupTablillaClientes();
       cargarClientes();
-      
-        // TODO
     }    
     //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
@@ -71,7 +74,7 @@ public class AdminClientesController extends Controller implements Initializable
       cargarClientes();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //crea las columnas de la tablilla de clientes
+    //crea las columnas de la tablilla de clientes                  (funciona perfectamente)
     private void setupTablillaClientes(){
         //
         MFXTableColumn<Cliente> colCedula = 
@@ -92,30 +95,12 @@ public class AdminClientesController extends Controller implements Initializable
         tablillaClientes.setItems(listaClientes);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    private void cargarClientesEnTablilla(){
-        List<Cliente> lista = JsonUtil.cargarLista(UrlArchivoClientes, Cliente.class);
-        if (lista == null){
-            lista = new ArrayList<>();
-        }
-        listaClientes.clear();
-        listaClientes.addAll(listaClientes);
-        //tableViewSucursal.setItems(listaSucursales);
-        Platform.runLater(() -> {
-            tablillaClientes.setItems(null);
-            tablillaClientes.setItems(listaClientes);
-        });
-    }
-    //-----------------------------------------------------------------------------------------------------------------------------------
-    private void setupSucursales(){
-        
-    }
-    //-----------------------------------------------------------------------------------------------------------------------------------
-    //actualiza el archovo con la lista de clientes en el ram despues de un cambio
+    //actualiza el archovo con la lista de clientes en el ram despues de un cambio (funciona perfectamente)
     private void guardarClientes(){
         JsonUtil.guardarLista(UrlArchivoClientes,new ArrayList<>(listaClientes));
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //carga la lista de clientes a la tablilla
+    //carga la lista de clientes a la tablilla                      (funciona perfectamente)
     private void cargarClientes() {
         List<Cliente> lista = JsonUtil.cargarLista(UrlArchivoClientes, Cliente.class);
         if (lista == null){
@@ -130,6 +115,7 @@ public class AdminClientesController extends Controller implements Initializable
         });
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    //metodo retorna el objeto que ha sido seleccionado en la lista (funciona perfectamente)
     private Cliente obtenerSeleccion(){
         var seleccionadas = tablillaClientes.getSelectionModel().getSelectedValues();
         if (seleccionadas == null || seleccionadas.isEmpty()){
@@ -138,12 +124,12 @@ public class AdminClientesController extends Controller implements Initializable
         return seleccionadas.get(0);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML
+    @FXML//                                                         (funciona perfectamente)
     private void onActionAgregarCliente(ActionEvent event) {
         FlowController.getInstance().goViewInWindowModal("AgregarClienteView", this.getStage(), false);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML
+    @FXML//                                                         (funciona perfectamente)
     private void onActionEliminarCliente(ActionEvent event) {
         Cliente seleccionado = obtenerSeleccion();
         if (seleccionado == null){
@@ -164,12 +150,12 @@ public class AdminClientesController extends Controller implements Initializable
             guardarClientes();
             cargarClientes();
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito"
-                , getStage(), "Cliente Eliminado");
+                , getStage(), "Cliente Eliminado exitosamente");
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
-    private void onActionEditarCliente(ActionEvent event) {
+    private void onActionEditarCliente(ActionEvent event) {//necesita implementar
         FlowController.getInstance().goViewInWindowModal("EditarClienteView", this.getStage(), false);
     }
     
