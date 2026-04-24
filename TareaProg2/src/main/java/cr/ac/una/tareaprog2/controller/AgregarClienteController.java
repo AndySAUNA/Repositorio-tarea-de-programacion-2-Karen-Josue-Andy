@@ -89,7 +89,6 @@ public class AgregarClienteController extends Controller implements Initializabl
         txfContraseña.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(20));
         indicarRequeridos();
         cargarValoresPorDefecto();
-        // TODO
     }    
     //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
@@ -134,21 +133,6 @@ public class AgregarClienteController extends Controller implements Initializabl
         limpiarFormulario();//limpia formulario
         limpiarCliente();//limpia cliente
         asegurarDirectorioDatos();//asegura que direccion del archivo json existe
-    }
-    //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML//da aviso si seguro que quiere cancelar, de caso ser si, borra todo y cierra ventana (funciona perfectamente)
-    private void onActionCancelar(ActionEvent event) {
-         if (new Mensaje().showConfirmation("Cancelar", getStage(), 
-                "esta seguro de cerrar el tramite?") == true){
-             cargarValoresPorDefecto();
-            this.getStage().close();
-         }
-        
-    }
-    //-----------------------------------------------------------------------------------------------------------------------------------
-    @FXML //                                            (funciona perfectamente)
-    private void onActionTomarFotoNueva(ActionEvent event) {
-        tomarFoto();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     //codigo tomado de paula, para tomar la foto        (funciona perfectamente)
@@ -293,7 +277,7 @@ public class AgregarClienteController extends Controller implements Initializabl
                 //cliente.setContraseña(txfcontraseña.getText().trim());
                 cliente.setRutaFoto(rutaFotoSeleccionada);
                 cliente.setFechaNacimiento(dpFechaNacimiento.getValue());
-}
+    }
     //-----------------------------------------------------------------------------------------------------------------------------------
     //hace el proceso de agregar datos del cliente al json
     private void GuardarCliente(){
@@ -328,4 +312,17 @@ public class AgregarClienteController extends Controller implements Initializabl
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    @FXML//da aviso si seguro que quiere cancelar, de caso ser si, borra todo y cierra ventana (funciona perfectamente)
+    private void onActionCancelar(ActionEvent event) {
+         if (new Mensaje().showConfirmation("Cancelar", getStage(), 
+                "esta seguro de cerrar el tramite?") == true){
+             cargarValoresPorDefecto();
+            this.getStage().close();
+         }
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    @FXML //                                            (funciona perfectamente)
+    private void onActionTomarFotoNueva(ActionEvent event) {
+        tomarFoto();
+    }
 }

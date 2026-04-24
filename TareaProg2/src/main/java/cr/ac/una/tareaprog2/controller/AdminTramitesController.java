@@ -24,6 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import model.Estacion;
 import model.Ficha;
+import util.FlowController;
 
 /**
  * FXML Controller class
@@ -107,6 +108,7 @@ public class AdminTramitesController extends Controller implements Initializable
 
     @FXML
     private void onActionBtnAgregarTramite(ActionEvent event) {
+         FlowController.getInstance().goViewInWindowModal("AgregarTramiteView", this.getStage(), false);
     }
 
 

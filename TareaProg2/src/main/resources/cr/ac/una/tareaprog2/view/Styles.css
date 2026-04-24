@@ -295,7 +295,7 @@
 .jfx-btn-agregarTramite, .jfx-btn-agregarTramite:armed, .jfx-btn-agregarTramite:focused{
     -fx-background-color: #33ffff;
     -fx-padding:5px;
-    -fx-alignment: CENTER_LEFT;
+    -fx-alignment: CENTER;
 }
 .jfx-btn-agregarTramite > ImageView{
     -fx-image: url(../resources/Agregar.png);
@@ -314,12 +314,12 @@
 }
 
 .jfx-btn-cancelar, .jfx-btn-cancelar:armed, .jfx-btn-cancelar:focused{
-    -fx-background-color: #ff0000;
+    -fx-background-color: #ff3333;
     -fx-padding:5px;
     -fx-alignment: CENTER;
 }
 .jfx-btn-cancelar > ImageView{
-    -fx-image: url(../resources/Cancelar.png);
+    -fx-image: url(../resources/Eliminar.png);
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }

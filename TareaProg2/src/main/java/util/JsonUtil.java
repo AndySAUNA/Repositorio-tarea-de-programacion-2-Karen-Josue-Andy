@@ -13,10 +13,12 @@ import java.util.List;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
+import java.time.LocalDateTime;
 
 public class JsonUtil {
     private static final Gson gson = new GsonBuilder()
         .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+        .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
         .setPrettyPrinting()
         .create();
 
@@ -54,6 +56,20 @@ public class JsonUtil {
         @Override
         public LocalDate read(JsonReader in) throws IOException {
             return LocalDate.parse(in.nextString());
+        }
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //adaptador con el proposito de hacer que la utilidad pueda mannejar LocalDateTime, codigo copiado del adaptador anterior (Andy)
+    public static class LocalDateTimeAdapter extends TypeAdapter<LocalDateTime> {
+        @Override
+        public void write(JsonWriter out, LocalDateTime value) throws IOException {
+            
+            out.value(value.toString()); // Serializes to "yyyy-MM-dd"
+        }
+
+        @Override
+        public LocalDateTime read(JsonReader in) throws IOException {
+            return LocalDateTime.parse(in.nextString());
         }
     }
 }
