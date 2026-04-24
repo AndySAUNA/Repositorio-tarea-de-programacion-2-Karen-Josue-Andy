@@ -9,7 +9,10 @@ import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -150,7 +153,13 @@ public class AdminClientesController extends Controller implements Initializable
         }
         
         if (new Mensaje().showConfirmation("Atencion!", getStage(), 
-                "Está seguro de querer eliminar el cliente?" + seleccionado.getNombre()) == true){
+                "Está seguro de querer eliminar el cliente: " + 
+                        seleccionado.getNombre() + seleccionado.getApellidos() + "?") == true){
+            try {
+                Files.deleteIfExists(Paths.get(seleccionado.getRutaFoto()));
+            } catch (IOException e) {
+                System.out.println("error eliminando foto seleccionada.");
+            }
             listaClientes.remove(seleccionado);
             guardarClientes();
             cargarClientes();

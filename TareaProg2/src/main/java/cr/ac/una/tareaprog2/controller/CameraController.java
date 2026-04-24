@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ResourceBundle;
+import util.Mensaje;
 
 public class CameraController extends Controller implements Initializable {
 
@@ -77,7 +78,9 @@ public class CameraController extends Controller implements Initializable {
                 capturedImage = SwingFXUtils.toFXImage(bufferedImage, null);
                 imageCaptured = true;
                 imageViewCamera.setImage(capturedImage);
-                mostrarAlerta("Éxito", "Foto capturada. Haz clic en Aceptar para guardar.");
+                 new Mensaje().showModal(Alert.AlertType.INFORMATION, "exito!"
+                , getStage(), "Foto capturada!");
+                cerrar();
             }
         }
     }
@@ -99,7 +102,8 @@ public class CameraController extends Controller implements Initializable {
         if (webcam != null && webcam.isOpen()) {
             webcam.close();
         }
-        this.getStage().close();
+        Stage stage = (Stage) imageViewCamera.getScene().getWindow();
+        stage.close();
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {
