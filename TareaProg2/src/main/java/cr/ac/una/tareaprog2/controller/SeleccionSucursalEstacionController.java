@@ -130,6 +130,7 @@ public class SeleccionSucursalEstacionController extends Controller implements I
     //carga la lista de estaciones al MFXComboBox de estaciones cuando hay una sucursal seleccionada (hay que probar)
     private void cargarEstaciones() {
         if (cbSucursal.getValue() == null){ //si valor seleccionado sucursal no es nulo
+            cbEstacion.setItems(FXCollections.observableArrayList());
             return;
         }
         List<Estacion> lista = cbSucursal.getValue().getEstaciones();//agarra la lista de estaciones pertenecientes al sucursal seleccionada
@@ -137,13 +138,9 @@ public class SeleccionSucursalEstacionController extends Controller implements I
         if (lista == null){ // por si la lista es nula
             lista = new ArrayList<>();
         }
-        listaEstaciones.clear();
-        listaEstaciones.addAll(lista);
+        listaEstaciones.setAll(lista);
         cbEstacion.setItems(listaEstaciones);
-        Platform.runLater(() -> {
-            cbEstacion.setItems(null);
-            cbEstacion.setItems(listaEstaciones);
-        });
+        cbEstacion.getSelectionModel().clearSelection();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     //limpia formulario,  (funciona perfectamente)
@@ -162,10 +159,14 @@ public class SeleccionSucursalEstacionController extends Controller implements I
                 , getStage(), invalidos);
                 return;
             }
+            if( cbSucursal.getValue()==null || cbEstacion.getValue() == null){
+                new Mensaje().showModal(Alert.AlertType.ERROR, "Error cargando estacion", getStage(),
+                    "No se pudo cargar la estacion");
+                return;
+            }
             AppContext.getInstance().set("sucursalSeleccionada", cbSucursal.getValue().getId());
-            AppContext.getInstance().set("EstacionSeleccionada", cbEstacion.getValue().getId());
-            FlowController.getInstance().goMain("FuncionarioView");
-            this.getStage().close();
+            AppContext.getInstance().set("estacionSeleccionada", cbEstacion.getValue().getId());
+            FlowController.getInstance().goMain("EstacionExView");
         }catch(Exception ex){
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error abriendo estacion", getStage(),
                     "No se pudo abrir la Estacion");
