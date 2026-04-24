@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXCheckbox?>
 <?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="68.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.AgregarTramiteController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="68.0" prefWidth="700.0" stylesheets="@Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="cr.ac.una.tareaprog2.controller.AgregarTramiteController">
    <children>
       <BorderPane layoutX="218.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="51.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
-               <children>
-                  <MFXComboBox fx:id="cbSucursal" floatMode="BORDER" floatingText="Sucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <MFXDatePicker fx:id="dpFechaTramite" floatingText="Fecha Tramite" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <MFXComboBox fx:id="cbHoraAtendido" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="177.0" text="Hora ser Atendido" HBox.hgrow="ALWAYS" />
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-         </bottom>
          <top>
             <HBox prefHeight="0.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
@@ -40,6 +30,34 @@
                </padding>
             </HBox>
          </top>
+         <center>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="51.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MFXComboBox fx:id="cbSucursal" floatMode="BORDER" floatingText="Sucursal" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="241.0" HBox.hgrow="ALWAYS" />
+                  <MFXDatePicker fx:id="dpFechaTramite" floatingText="Fecha Tramite" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <MFXComboBox fx:id="cbHoraAtendido" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="0.0" text="Hora ser Atendido" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </center>
+         <bottom>
+            <HBox prefHeight="55.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MFXButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionAgregarTramite" styleClass="jfx-btn-agregarTramite" text="Agregar Tramite" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <ImageView fitHeight="51.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </MFXButton>
+                  <MFXButton layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onActionCancelar" styleClass="jfx-btn-cancelar" text="Cancelar" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <ImageView fitHeight="51.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </MFXButton>
+               </children>
+            </HBox>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
