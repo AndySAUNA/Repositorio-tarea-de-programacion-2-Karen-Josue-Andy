@@ -70,7 +70,6 @@ public class CambiarLogoController extends Controller implements Initializable {
         
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onDragEntered(DragEvent event) {
         System.out.println("on drag Entered");
@@ -126,7 +125,7 @@ public class CambiarLogoController extends Controller implements Initializable {
     private void onDragReleased(MouseDragEvent event) {
         System.out.println("on drag Released");
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionBtnCambiar(ActionEvent event) {
         System.out.println("click en boton cambiar");
@@ -145,7 +144,7 @@ public class CambiarLogoController extends Controller implements Initializable {
             new Mensaje().showModal(Alert.AlertType.ERROR,"ERROR", getStage(), "no se pudo cambiar el logo");
         }
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionBtnCambiar(MouseEvent event) {
     }

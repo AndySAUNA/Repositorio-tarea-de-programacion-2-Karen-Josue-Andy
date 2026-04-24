@@ -1,1 +1,9 @@
 [
+  {
+    "cedula": "test",
+    "nombre": "test",
+    "apellidos": "test",
+    "fechaNacimiento": "2026-04-01",
+    "rutaFoto": ""
+  }
+]

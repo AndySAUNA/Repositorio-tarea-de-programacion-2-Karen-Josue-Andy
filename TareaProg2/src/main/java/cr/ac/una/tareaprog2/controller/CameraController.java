@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CameraController implements Initializable {
+public class CameraController extends Controller implements Initializable {
 
     @FXML
     private ImageView imageViewCamera;
@@ -27,6 +27,10 @@ public class CameraController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciarCamara();
+    }
+    @Override
+    public void initialize() {
+        
     }
 
     private void iniciarCamara() {
@@ -95,8 +99,7 @@ public class CameraController implements Initializable {
         if (webcam != null && webcam.isOpen()) {
             webcam.close();
         }
-        Stage stage = (Stage) imageViewCamera.getScene().getWindow();
-        stage.close();
+        this.getStage().close();
     }
 
     private void mostrarAlerta(String titulo, String mensaje) {
@@ -106,4 +109,6 @@ public class CameraController implements Initializable {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+    
 }

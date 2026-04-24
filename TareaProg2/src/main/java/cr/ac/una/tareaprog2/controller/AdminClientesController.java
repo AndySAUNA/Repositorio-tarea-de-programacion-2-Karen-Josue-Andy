@@ -52,21 +52,17 @@ public class AdminClientesController extends Controller implements Initializable
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
     
     
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       setupTablillaClientes();
         // TODO
     }    
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
     public void initialize() {
       
     }
-    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void setupTablillaClientes(){
         //
         MFXTableColumn<Cliente> colCedula = 
@@ -83,6 +79,7 @@ public class AdminClientesController extends Controller implements Initializable
         tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos);
         tablillaClientes.setItems(listaClientes);
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void cargarClientesEnTablilla(){
         List<Sucursal> lista = JsonUtil.cargarLista(ArchivoClientes, Sucursal.class);
         if (lista == null){
@@ -96,19 +93,20 @@ public class AdminClientesController extends Controller implements Initializable
             tablillaClientes.setItems(listaClientes);
         });
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void setupSucursales(){
         
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionAgregarCliente(ActionEvent event) {
         FlowController.getInstance().goViewInWindowModal("AgregarClienteView", this.getStage(), false);
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionEliminarCliente(ActionEvent event) {
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionEditarCliente(ActionEvent event) {
         FlowController.getInstance().goViewInWindowModal("EditarClienteView", this.getStage(), false);

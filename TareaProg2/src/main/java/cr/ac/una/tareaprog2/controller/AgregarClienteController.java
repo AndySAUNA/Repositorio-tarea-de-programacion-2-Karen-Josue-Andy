@@ -112,6 +112,10 @@ public class AgregarClienteController extends Controller implements Initializabl
         txfApellidos.clear();
         txfUsuario.clear();
         txfContraseña.clear();
+        Image image = new Image(
+            getClass().getResource("/cr/ac/una/tareaprog2/resources/AgregarImagen.png").toExternalForm()
+        );
+        ivFotoPerfil.setImage(image);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     //limpia contenido del objeto cliente totalmente (funciona, completo)
@@ -135,6 +139,9 @@ public class AgregarClienteController extends Controller implements Initializabl
         new Mensaje().showModal(Alert.AlertType.WARNING,
                         "Cancelar", getStage(), "Esta seguro de querer cancelar el tramite?");
         cargarValoresPorDefecto();
+        eliminarFotoSeleccionada();
+        Image image = new Image("resources/AgregarImagen.png");
+        ivFotoPerfil.setImage(image);
         this.getStage().close();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
@@ -196,15 +203,9 @@ public class AgregarClienteController extends Controller implements Initializabl
     //esto es para eliminar la foto si no se usa lol 
     private void eliminarFotoSeleccionada(){
         try {
-            boolean result = Files.deleteIfExists(Paths.get(rutaFotoSeleccionada));
-            if (result) {
-                System.out.println("File deleted successfully.");
-            } else {
-                System.out.println("File does not exist.");
-            }
+            Files.deleteIfExists(Paths.get(rutaFotoSeleccionada));
         } catch (IOException e) {
-            new Mensaje().showModal(Alert.AlertType.ERROR, "ERROR"
-                , getStage(), "Ocurrió un error eliminando la foto");
+            System.out.println("error eliminando foto seleccionada.");
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
@@ -265,7 +266,7 @@ public class AgregarClienteController extends Controller implements Initializabl
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     //revisa que no haya otra instancia de la misma cedula, devuelve true si existe, devuelve false si no existe
-   private boolean existenciaCedula(){
+    private boolean existenciaCedula(){
     List<Cliente> listaClientes = cargarListaClientes(); //crea lista local tipo cliente cargada del json de clientes
     String nombre = txfNombre.getText().trim(); //retura valor del textfield nombre y lo pone en la variable nombre
         //para revisar que no se duplique el nombre
@@ -281,6 +282,24 @@ public class AgregarClienteController extends Controller implements Initializabl
         return false;
    }
    //-----------------------------------------------------------------------------------------------------------------------------------
+   //este metodo llena el cliente con los datos del formulario
+    private void cargarDatosAEntidad(){
+                cliente.setCedula(txfCedula.getText().trim());
+                cliente.setNombre(txfNombre.getText().trim());
+                cliente.setApellidos(txfApellidos.getText().trim());
+                //cliente.setUsuario(txfUsuario.getText().trim());
+                //cliente.setContraseña(txfcontraseña.getText().trim());
+                cliente.setRutaFoto(rutaFotoSeleccionada);
+                cliente.setFechaNacimiento(dpFechaNacimiento.getValue());
+}
+   //-----------------------------------------------------------------------------------------------------------------------------------
+    private void GuardarCliente(){
+        List<Cliente> listaClientes = cargarListaClientes();    //carga la lista de clientes al ram
+        cargarDatosAEntidad();                                  //llena el objeto cliente con los datos del formulario
+        listaClientes.add(cliente);                             //agrega el cliente a la lista en ram
+        JsonUtil.guardarLista(UrlRutaClientes, listaClientes);  //sobreescribe la lista de clientes en el json
+   }
+   //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionCrearCuenta(ActionEvent event) {
         try{
@@ -292,24 +311,12 @@ public class AgregarClienteController extends Controller implements Initializabl
                 return;
             }
                 if(!existenciaCedula()){// si no hay ya una instancia de la cedula, se procede con crear la cuenta
-                List<Cliente> listaClientes = cargarListaClientes();//carga la lista de clientes
-                cliente.setCedula(txfCedula.getText().trim());
-                cliente.setNombre(txfNombre.getText().trim());
-                cliente.setApellidos(txfApellidos.getText().trim());
-                //cliente.setApellidos(txfApellidos.getText().trim());
-                //cliente.setContrasena(txfApellidos.getText().trim());
-                cliente.setRutaFoto(rutaFotoSeleccionada);
-                cliente.setFechaNacimiento(dpFechaNacimiento.getValue());
-                //guardar
-                listaClientes.add(cliente);
-                asegurarDirectorioDatos();
-                JsonUtil.guardarLista(UrlRutaClientes, listaClientes);
-                //limpiar datos
-                new Mensaje().showModal(Alert.AlertType.INFORMATION,
-                        "Guardar Cliente", getStage(), "Se ha creado el Cliente exitosamente!");
-                cargarValoresPorDefecto();
-                this.getStage().close();
-            }
+                    GuardarCliente();
+                    new Mensaje().showModal(Alert.AlertType.INFORMATION,
+                            "Guardar Cliente", getStage(), "Se ha creado el Cliente exitosamente!");
+                    cargarValoresPorDefecto();
+                    this.getStage().close();
+                }
         }catch(Exception ex){
             Logger.getLogger(AgregarSucursalController.class.getName()).
                     log(Level.SEVERE,"Error Creando Cuenta.",ex);
