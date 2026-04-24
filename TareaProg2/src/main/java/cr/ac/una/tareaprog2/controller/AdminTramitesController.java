@@ -154,7 +154,7 @@ public class AdminTramitesController extends Controller implements Initializable
         });
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
-    //carga la lista de clientes a la tablilla                                      (funciona perfectamente)
+    //carga la lista de estaciones a la tablilla de estaciones cuando hay una sucursal seleccionada (funciona perfectamente)
     private void cargarEstaciones() {
         if (cboxSucursal.getValue() == null){
             return;
