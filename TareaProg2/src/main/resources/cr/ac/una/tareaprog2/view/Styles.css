@@ -375,6 +375,36 @@
     -fx-fit-height: 20px;
     -fx-fit-width: 20px;
 }
+.jfx-btn-Ingresar, .jfx-btn-Ingresar:armed, .jfx-btn-Ingresar:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER;
+}
+.jfx-btn-Ingresar > ImageView{
+    -fx-image: url(../resources/Ingresar.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-Invitado, .jfx-btn-Invitado:armed, .jfx-btn-Invitado:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER;
+}
+.jfx-btn-Invitado > ImageView{
+    -fx-image: url(../resources/Invitado.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
+.jfx-btn-CrearCuenta, .jfx-btn-CrearCuenta:armed, .jfx-btn-CrearCuenta:focused{
+    -fx-background-color: #00c853;
+    -fx-padding:5px;
+    -fx-alignment: CENTER;
+}
+.jfx-btn-CrearCuenta > ImageView{
+    -fx-image: url(../resources/CrearCuenta.png);
+    -fx-fit-height: 20px;
+    -fx-fit-width: 20px;
+}
 /**********************************************************************************************************************
     *     Paneles     * 1:38
 **********************************************************************************************************************/
@@ -734,4 +764,10 @@
 **********************************************************************************************************************/
 .jfx-txt-logoImageView{
     -fx-image: url(file:data/Logo.png);
+}
+.jfx-txt-fotoImageView{
+    -fx-background-color: white;
+    -fx-border-color: -fx-base-color-focus;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
 }
