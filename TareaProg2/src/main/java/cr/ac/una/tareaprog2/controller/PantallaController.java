@@ -3,6 +3,7 @@ package cr.ac.una.tareaprog2.controller;
 import model.Llamado;  
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -47,13 +48,14 @@ public class PantallaController extends Controller implements Initializable {
 
     private Timeline reloj;
     private Timeline animacionAvisos;
+    private Timeline cargaDatosTimeline;
     private Queue<Llamado> ultimosLlamados = new LinkedList<>();  
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciarReloj();
         iniciarAnimacionAvisos();
-        cargarDatosPrueba();
+        cargarDatosPruebaConRetraso();
     }
     
     private void iniciarReloj() {
@@ -83,7 +85,7 @@ public class PantallaController extends Controller implements Initializable {
         String horaActual = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
         String fichaStr = "Ficha #" + numeroFicha;
         
-      
+      Platform.runLater(() -> {
         lblUltimaFicha.setText(fichaStr);
         lblUltimaEstacion.setText("Estación: " + nombreEstacion);
         lblUltimaHora.setText("Hora: " + horaActual);
@@ -96,8 +98,11 @@ public class PantallaController extends Controller implements Initializable {
         }
         
         actualizarCuadros();
-        AudioUtil.reproducirLlamado(numeroFicha, nombreEstacion);
-    }
+    });
+     new Thread(() -> {
+            AudioUtil.reproducirLlamado(numeroFicha, nombreEstacion);
+        }).start();
+    }  
     
     private void registrarLlamadoSilencioso(int numeroFicha, String nombreEstacion) {
     String horaActual = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
@@ -157,13 +162,17 @@ public class PantallaController extends Controller implements Initializable {
         hora.setText("---");
     }
     
-    private void cargarDatosPrueba() {
+    private void cargarDatosPruebaConRetraso() {
+      cargaDatosTimeline = new Timeline(new KeyFrame(Duration.seconds(0.5), e -> {  
         registrarLlamadoSilencioso(42, "Caja 1");
         registrarLlamadoSilencioso(43, "Caja 2");
         registrarLlamadoSilencioso(44, "Caja 1");
         registrarLlamadoSilencioso(45, "Caja 3");
         registrarLlamado(46, "Caja 2");
         
+    }));
+       cargaDatosTimeline.setCycleCount(1);
+        cargaDatosTimeline.play();
     }
     @Override
     public void initialize() {
