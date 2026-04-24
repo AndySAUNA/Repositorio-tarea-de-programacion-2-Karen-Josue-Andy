@@ -58,14 +58,14 @@ public class AdminSucursalesController extends Controller implements Initializab
     public void initialize(URL url, ResourceBundle rb) {
         setupTablillaSucursales();
         cargarSucursalesEnTablilla();
-        
-        
     }    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
     public void initialize() {
         //cargarSucursales();
         cargarSucursalesEnTablilla();
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private Sucursal obtenerSeleccionada(){
         var seleccionadas = tableViewSucursal.getSelectionModel().getSelectedValues();
         if (seleccionadas == null || seleccionadas.isEmpty()){
@@ -73,6 +73,7 @@ public class AdminSucursalesController extends Controller implements Initializab
         }
         return seleccionadas.get(0);
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     //pone las columnas de la tablilla de sucursales
     private void setupTablillaSucursales(){
         if(!tableViewSucursal.getTableColumns().isEmpty()){
@@ -92,7 +93,7 @@ public class AdminSucursalesController extends Controller implements Initializab
         tableViewSucursal.getTableColumns().setAll(colId,colNombre,colDireccion);
         tableViewSucursal.setItems(listaSucursales);
     }
-    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void cargarSucursalesEnTablilla(){
         List<Sucursal> lista = JsonUtil.cargarLista(ArchivoSucursales, Sucursal.class);
         if (lista == null){
@@ -106,40 +107,35 @@ public class AdminSucursalesController extends Controller implements Initializab
             tableViewSucursal.setItems(listaSucursales);
         });
     }
-    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void cargarSucursales() {
         List<Sucursal> sucursales = JsonUtil.cargarLista(ArchivoSucursales, Sucursal.class);
         listaSucursales.clear();
         listaSucursales.addAll(sucursales);
         tableViewSucursal.setItems(listaSucursales);
     }
-
-    
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionTxfBuscar(ActionEvent event) {
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionBtnAgregar(ActionEvent event) {
         FlowController.getInstance().goViewInWindowModal("AgregarSucursalView", this.getStage(), false);
         cargarSucursalesEnTablilla();
     }
-
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionEliminar(ActionEvent event) {
         Sucursal seleccionada = obtenerSeleccionada();
-        
         if (seleccionada == null){
             new Mensaje().showModal(Alert.AlertType.WARNING, "Error Eliminar"
                 , getStage(), "no hay seleccionado");
             return;
         }
         
-        String alerta = "Está seguro de querer eliminar la sucursal: " + seleccionada.getNombre();
-        ;
-        
-        if (new Mensaje().showConfirmation("Atencion!", getStage(), alerta) == true){
+        if (new Mensaje().showConfirmation("Atencion!", getStage(), 
+                "Está seguro de querer eliminar la sucursal: " + seleccionada.getNombre()) == true){
             listaSucursales.remove(seleccionada);
             guardarSucursales();
             cargarSucursales();
@@ -147,6 +143,7 @@ public class AdminSucursalesController extends Controller implements Initializab
                 , getStage(), "Sucursal eliminada");
         }
     }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     private void guardarSucursales(){
         JsonUtil.guardarLista(ArchivoSucursales,new ArrayList<>(listaSucursales));
     }

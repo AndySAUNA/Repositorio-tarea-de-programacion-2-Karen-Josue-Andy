@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,6 +31,7 @@ import model.Sucursal;
 import util.FlowController;
 import util.Formato;
 import util.JsonUtil;
+import util.Mensaje;
 
 /**
  * FXML Controller class
@@ -48,21 +50,25 @@ public class AdminClientesController extends Controller implements Initializable
     private MFXButton btnEditarCliente;
     @FXML
     private MFXTableView<Cliente> tablillaClientes;
-    private static final String ArchivoClientes = "data/Clientes.json";//nota: hay que agregar la direccion
+    
+    private static final String UrlArchivoClientes = "data/Clientes.json";//nota: hay que agregar la direccion
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       setupTablillaClientes();
+      cargarClientes();
+      
         // TODO
     }    
     //-----------------------------------------------------------------------------------------------------------------------------------
     @Override
     public void initialize() {
-      
+      cargarClientes();
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    //crea las columnas de la tablilla de clientes
     private void setupTablillaClientes(){
         //
         MFXTableColumn<Cliente> colCedula = 
@@ -70,18 +76,21 @@ public class AdminClientesController extends Controller implements Initializable
         MFXTableColumn<Cliente> colNombre = 
                 new MFXTableColumn<>("Nombre",true, Comparator.comparing(Cliente::getNombre));
         MFXTableColumn<Cliente> colApellidos = 
-                new MFXTableColumn<>("Apellidos",true, Comparator.comparing(Cliente::getApellidos));
+                new MFXTableColumn<>("Apellidos",true, Comparator.comparing(Cliente::getFechaNacimiento));
+        MFXTableColumn<Cliente> colFechaNacimiento = 
+                new MFXTableColumn<>("Fecha Nacimiento",true, Comparator.comparing(Cliente::getFechaNacimiento));
         //
         colCedula.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getCedula));
         colNombre.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getNombre));
         colApellidos.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getApellidos));
+        colFechaNacimiento.setRowCellFactory(col -> new MFXTableRowCell<>(Cliente::getFechaNacimiento));
         //
-        tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos);
+        tablillaClientes.getTableColumns().setAll(colCedula, colNombre, colApellidos,colFechaNacimiento);
         tablillaClientes.setItems(listaClientes);
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     private void cargarClientesEnTablilla(){
-        List<Sucursal> lista = JsonUtil.cargarLista(ArchivoClientes, Sucursal.class);
+        List<Cliente> lista = JsonUtil.cargarLista(UrlArchivoClientes, Cliente.class);
         if (lista == null){
             lista = new ArrayList<>();
         }
@@ -98,6 +107,34 @@ public class AdminClientesController extends Controller implements Initializable
         
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    //actualiza el archovo con la lista de clientes en el ram despues de un cambio
+    private void guardarClientes(){
+        JsonUtil.guardarLista(UrlArchivoClientes,new ArrayList<>(listaClientes));
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //carga la lista de clientes a la tablilla
+    private void cargarClientes() {
+        List<Cliente> lista = JsonUtil.cargarLista(UrlArchivoClientes, Cliente.class);
+        if (lista == null){
+            lista = new ArrayList<>();
+        }
+        listaClientes.clear();
+        listaClientes.addAll(lista);
+        tablillaClientes.setItems(listaClientes);
+        Platform.runLater(() -> {
+            tablillaClientes.setItems(null);
+            tablillaClientes.setItems(listaClientes);
+        });
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    private Cliente obtenerSeleccion(){
+        var seleccionadas = tablillaClientes.getSelectionModel().getSelectedValues();
+        if (seleccionadas == null || seleccionadas.isEmpty()){
+            return null;
+        }
+        return seleccionadas.get(0);
+    }
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionAgregarCliente(ActionEvent event) {
         FlowController.getInstance().goViewInWindowModal("AgregarClienteView", this.getStage(), false);
@@ -105,6 +142,21 @@ public class AdminClientesController extends Controller implements Initializable
     //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
     private void onActionEliminarCliente(ActionEvent event) {
+        Cliente seleccionado = obtenerSeleccion();
+        if (seleccionado == null){
+            new Mensaje().showModal(Alert.AlertType.WARNING, "Error Eliminar"
+                , getStage(), "no hay seleccionado");
+            return;
+        }
+        
+        if (new Mensaje().showConfirmation("Atencion!", getStage(), 
+                "Está seguro de querer eliminar el cliente?" + seleccionado.getNombre()) == true){
+            listaClientes.remove(seleccionado);
+            guardarClientes();
+            cargarClientes();
+            new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito"
+                , getStage(), "Cliente Eliminado");
+        }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML

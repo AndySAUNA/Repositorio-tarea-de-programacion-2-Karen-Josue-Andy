@@ -87,6 +87,7 @@ public class AgregarClienteController extends Controller implements Initializabl
         txfApellidos.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(60));
         txfUsuario.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(60));
         txfContraseña.delegateSetTextFormatter(Formato.getInstance().maxLengthFormat(60));
+        indicarRequeridos();
         cargarValoresPorDefecto();
         // TODO
     }    
@@ -136,13 +137,13 @@ public class AgregarClienteController extends Controller implements Initializabl
     //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML//da aviso si seguro que quiere cancelar, de caso ser si, borra todo y cierra ventana
     private void onActionCancelar(ActionEvent event) {
-        new Mensaje().showModal(Alert.AlertType.WARNING,
-                        "Cancelar", getStage(), "Esta seguro de querer cancelar el tramite?");
-        cargarValoresPorDefecto();
-        eliminarFotoSeleccionada();
-        Image image = new Image("resources/AgregarImagen.png");
-        ivFotoPerfil.setImage(image);
-        this.getStage().close();
+         if (new Mensaje().showConfirmation("Cancelar", getStage(), 
+                "esta seguro de cerrar el tramite?") == true){
+             cargarValoresPorDefecto();
+            eliminarFotoSeleccionada();
+            this.getStage().close();
+         }
+        
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML
