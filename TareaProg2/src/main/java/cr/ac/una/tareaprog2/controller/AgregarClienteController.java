@@ -291,32 +291,30 @@ public class AgregarClienteController extends Controller implements Initializabl
                 , getStage(), invalidos);
                 return;
             }
-            if(!existenciaCedula()){// si no hay ya una instancia de la cedula, se procede con crear la cuenta
-            List<Cliente> listaClientes = cargarListaClientes();//carga la lista de clientes
-            cliente.setCedula(txfCedula.getText().trim());
-            cliente.setNombre(txfNombre.getText().trim());
-            cliente.setApellidos(txfApellidos.getText().trim());
-            //cliente.setApellidos(txfApellidos.getText().trim());
-            //cliente.setContrasena(txfApellidos.getText().trim());
-            cliente.setRutaFoto(rutaFotoSeleccionada);
-            cliente.setFechaNacimiento(dpFechaNacimiento.getValue());
-            //guardar
-            listaClientes.add(cliente);
-            asegurarDirectorioDatos();
-            JsonUtil.guardarLista(UrlRutaClientes, listaClientes);
-            //limpiar datos
+                if(!existenciaCedula()){// si no hay ya una instancia de la cedula, se procede con crear la cuenta
+                List<Cliente> listaClientes = cargarListaClientes();//carga la lista de clientes
+                cliente.setCedula(txfCedula.getText().trim());
+                cliente.setNombre(txfNombre.getText().trim());
+                cliente.setApellidos(txfApellidos.getText().trim());
+                //cliente.setApellidos(txfApellidos.getText().trim());
+                //cliente.setContrasena(txfApellidos.getText().trim());
+                cliente.setRutaFoto(rutaFotoSeleccionada);
+                cliente.setFechaNacimiento(dpFechaNacimiento.getValue());
+                //guardar
+                listaClientes.add(cliente);
+                asegurarDirectorioDatos();
+                JsonUtil.guardarLista(UrlRutaClientes, listaClientes);
+                //limpiar datos
                 new Mensaje().showModal(Alert.AlertType.INFORMATION,
                         "Guardar Cliente", getStage(), "Se ha creado el Cliente exitosamente!");
                 cargarValoresPorDefecto();
                 this.getStage().close();
             }
-            
-            
         }catch(Exception ex){
             Logger.getLogger(AgregarSucursalController.class.getName()).
-                    log(Level.SEVERE,"Error guardando la sucursal.",ex);
-            new Mensaje().showModal(Alert.AlertType.ERROR, "Guardar Sucursal", getStage(),
-                    "Ocurrio un error guardando la sucursal");
+                    log(Level.SEVERE,"Error Creando Cuenta.",ex);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Errror crear cuenta", getStage(),
+                    "Ocurrio un error creando la cuenta");
         }
     }
     //-----------------------------------------------------------------------------------------------------------------------------------
