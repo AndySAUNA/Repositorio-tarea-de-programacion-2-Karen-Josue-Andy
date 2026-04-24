@@ -295,6 +295,12 @@ public class AgregarTramiteController extends Controller implements Initializabl
         JsonUtil.guardarLista(UrlArchivoFichas, listaFichas);   //sobreescribe la lista en el json
    }
     //-----------------------------------------------------------------------------------------------------------------------------------
+    //este metodo es para imprimir el pdf
+    private void imprimirPDf(){
+        ficha.getCedulaCliente();
+    }
+    
+    //-----------------------------------------------------------------------------------------------------------------------------------
     @FXML//                                                                 (funciona perfectamente)
     private void onActionAgregarTramite(ActionEvent event) {
         try{

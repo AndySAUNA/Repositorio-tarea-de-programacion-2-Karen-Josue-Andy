@@ -56,13 +56,13 @@ public class AdminTramitesController extends Controller implements Initializable
     private String UrlArchivoFichas = "data/Tramites.json";
     private final ObservableList<Ficha> listaFichas = FXCollections.observableArrayList();
     
-    //para manejar archivo y lista de Sucursales
-    private static final String UrlArchivoSucursales = "data/Datos.json";
-    private final ObservableList<Sucursal> listaSucursales = FXCollections.observableArrayList();
-    
     //para manejar archivo y lista de clientes
     private static final String UrlArchivoClientes = "data/Clientes.json";
     private final ObservableList<Cliente> listaClientes = FXCollections.observableArrayList(); //no se si se va a usar
+    
+    //para manejar archivo y lista de Sucursales
+    private static final String UrlArchivoSucursales = "data/Datos.json";
+    private final ObservableList<Sucursal> listaSucursales = FXCollections.observableArrayList();
     
     //para manejar archivo y lista de Estaciones
     private String UrlArchivoEstaciones = "data/Datos.json";
